@@ -1,0 +1,59 @@
+{
+  "name": "react-router-redux-example",
+  "description": "react-router-redux example with universal rendering",
+  "version": "1.0.1",
+  "license": "MIT",
+  "author": "Steven Iseki <stevenisekimartin@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/StevenIseki/react-router-redux-example.git"
+  },
+  "scripts": {
+    "build": "npm run clean && webpack --config webpack.config.js",
+    "clean": "rm public/bundle.js && rm public/style.css && rm public/vendor.js || true",
+    "start:prod": "NODE_ENV=prod node server.js",
+    "start:dev": "NODE_ENV=dev node server.js"
+  },
+  "dependencies": {
+    "animate.css": "^3.5.1",
+    "css-modules-require-hook": "^3.0.0-beta",
+    "isomorphic-fetch": "^2.2.0",
+    "marked": "^0.3.5",
+    "react": "^0.14.7",
+    "react-dom": "^0.14.7",
+    "react-redux": "^4.3.0",
+    "react-router": "^2.0.0",
+    "react-router-redux": "^4.0.0",
+    "redux": "^3.2.1",
+    "redux-thunk": "^1.0.3",
+    "request": "^2.61.0",
+    "scroll-behavior": "^0.3.2",
+    "serialize-javascript": "^1.1.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.1.0",
+    "babel-cli": "^6.5.1",
+    "babel-core": "^6.4.5",
+    "babel-loader": "^6.2.2",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "babel-preset-react-hmre": "^1.1.1",
+    "babel-preset-stage-1": "^6.3.13",
+    "babel-register": "^6.5.2",
+    "classnames": "^2.2.3",
+    "css-loader": "^0.21.0",
+    "express": "^4.13.4",
+    "extract-text-webpack-plugin": "^0.9.1",
+    "file-loader": "^0.8.5",
+    "image-webpack-loader": "^1.7.0",
+    "postcss-loader": "^0.7.0",
+    "react-hot-loader": "^1.3.0",
+    "resolve-url": "^0.2.1",
+    "resolve-url-loader": "^1.4.3",
+    "sass-loader": "^3.2.0",
+    "style-loader": "^0.13.0",
+    "webpack": "^1.12.14",
+    "webpack-dev-middleware": "^1.6.1",
+    "webpack-hot-middleware": "^2.10.0"
+  }
+}

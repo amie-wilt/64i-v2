@@ -1,0 +1,20 @@
+.app {
+    display: flex;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-shrink: 0;
+    animation-timing-function: cubic-bezier(0.25,.46,.45,.94);
+    animation-duration: 1s;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding-top: 8rem;
+    box-sizing: border-box;
+    position: relative;
+    min-height: 100%;
+    text-align: center;
+}

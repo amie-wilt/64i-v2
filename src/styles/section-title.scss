@@ -1,0 +1,6 @@
+@mixin section-title {
+    text-transform: uppercase;
+    font: 6.4rem/6.4rem 'Bebas Neue';
+    margin-bottom: 2rem;
+    transition: font-size .25s ease-out;
+}

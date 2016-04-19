@@ -1,0 +1,161 @@
+@import '../../styles/utilties';
+
+.team-list {
+    @include reset-list-style;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+
+    @media (max-width: 600px) {
+        text-align: center;
+        display: block;
+        position: relative;
+        left: auto;
+        right: auto;
+        margin-bottom: 0
+    }
+
+    > li {
+        position: relative;
+        margin: 0 4rem;
+        transition: margin .5s ease-out;
+
+        &:first-of-type {
+            margin-left: 0
+        }
+
+        &:last-of-type {
+            margin-right: 0
+        }
+
+        @media (max-width: 800px) {
+            margin: 0 2rem;
+        }
+
+        @media (max-width: 600px) {
+            margin: 0 0 4rem
+        }
+    }
+}
+
+.employee-photo {
+    display: block;
+    width: 100%;
+    max-width: 15rem;
+    height: auto;
+    background: #dcdddf;
+    margin-bottom: 1.5rem;
+    border-radius: 15rem;
+    transition: -webkit-transform .5s ease-out;
+    transition: transform .5s ease-out;
+    cursor: pointer
+}
+
+.our-team-list__employee-photo:hover {
+    -webkit-filter: none;
+    filter: none
+}
+
+@media (max-width: 600px) {
+    .our-team-list__employee-photo {
+        margin: 0 auto 1rem
+    }
+}
+
+.our-team-list__employee-name {
+    color: #454545;
+    display: block;
+    text-transform: uppercase;
+    font: 2.8rem/2.8rem "Bebas Neue";
+    position: relative;
+    transition: font-size .25s ease-out;
+    cursor: pointer
+}
+
+.our-team-list__employee-name:after {
+    width: 0;
+    height: 0;
+    border-left: 17.5px solid transparent;
+    border-right: 17.5px solid transparent;
+    border-bottom: 20px solid #ebebeb;
+    margin-left: -17px;
+    display: none;
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -3rem;
+    opacity: 0
+}
+
+.our-team-list__employee-name.active:after {
+    display: block;
+    -webkit-animation: fadeInUp .25s ease-out .25s forwards;
+    animation: fadeInUp .25s ease-out .25s forwards
+}
+
+@media (max-width: 800px) {
+    .our-team-list__employee-name {
+        font-size: 2.4rem;
+        line-height: 2.4rem
+    }
+}
+
+@media (max-width: 600px) {
+    .our-team-list__employee-name {
+        margin-bottom: 3rem
+    }
+}
+
+.employee-bio {
+    background: #ebebeb;
+    padding: 60px;
+    display: none;
+    border-radius: 4px;
+    text-align: left;
+    max-width: 96rem;
+    margin: 0 auto;
+    opacity: 0;
+    -webkit-animation: fadeIn .25s ease-out forwards;
+    animation: fadeIn .25s ease-out forwards
+}
+
+.employee-bio.employee-bio--mobile {
+    display: none
+}
+
+.employee-bio.active {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex
+}
+
+.employee-bio.ng-leave {
+    display: none
+}
+
+@media (max-width: 800px) {
+    .employee-bio {
+        padding: 4rem
+    }
+}
+
+@media (max-width: 600px) {
+    .employee-bio {
+        display: block;
+        padding: 3rem
+    }
+
+    .employee-bio.employee-bio--desktop {
+        display: none
+    }
+
+    .employee-bio.employee-bio--mobile {
+        display: block
+    }
+}
+
+@media (max-width: 600px) {
+    .employee-background {
+        margin-bottom: 1rem
+    }
+}

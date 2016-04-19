@@ -1,0 +1,65 @@
+@import '../../styles/animations';
+
+.toggle {
+    display: none;
+    opacity: 0;
+    height: 32px;
+    transition: opacity .25s cubic-bezier(0.25, .46, .45, .94), transform .25s cubic-bezier(0.25, .46, .45, .94);
+    position: relative;
+
+    &:before {
+        content: "";
+        display: none;
+        opacity: .7;
+        width: 14vmin;
+        height: 14vmin;
+        background: radial-gradient(circle contain, #fff, rgba(255, 255, 255, 0));
+        position: absolute;
+        right: -3vmin;
+        top: 50%;
+        margin-top: -7vmin
+    }
+
+    &.active {
+        &:before {
+            display: block;
+        }
+    }
+
+    @media (max-width: 600px) {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        animation: fadeIn 1s ease-out forwards
+    }
+
+    & > span {
+        $height: 3px;
+
+        display: block;
+        position: relative;
+        width: 32px;
+        height: $height;
+        border-radius: 3px;
+        background-color: white;
+
+        &:before,
+        &:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            border-radius: 2px
+        }
+
+        &:before {
+            top: -8px;
+        }
+
+        &:after {
+            bottom: -8px;
+        }
+    }
+}
