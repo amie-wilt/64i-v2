@@ -1,0 +1,21 @@
+@import '../../styles/variables';
+@import '../../styles/section';
+@import '../../styles/section-title';
+@import '../../styles/secondary-heading';
+
+.section {
+    @include section;
+    background: $dark-gray;
+}
+
+.title {
+    @include section-title;
+    margin-top: 0;
+    color: #fff;
+}
+
+.introduction {
+    @include secondary-heading;
+    margin-bottom: 4rem;
+    color: #fff;
+}
