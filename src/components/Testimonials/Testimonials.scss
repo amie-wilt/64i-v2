@@ -6,6 +6,7 @@
 .section {
     @include section;
     background: $dark-gray;
+    color: #a3a3a3;
 }
 
 .title {

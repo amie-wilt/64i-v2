@@ -7,7 +7,7 @@ export default class TeamList extends Component {
     render() {
         var testimonialsList = testimonials.map(testimonial => {
             return (
-                <li key={testimonial.id}>
+                <li itemScope="true" itemType="http://schema.org/Product" key={testimonial.id}>
                     <Testimonial testimonial={testimonial} />
                 </li>
             )
