@@ -4,14 +4,14 @@ import styles from './Testimonial.scss';
 class Testimonial extends Component {
     render() {
         return (
-            <blockquote itemScope="true" itemProp="review" itemType="https://schema.org/Review">
-                <div>
-                    <img src={`/public/${this.props.testimonial.companyLogo}`} alt={this.props.testimonial.companyName}/>
+            <blockquote itemScope="true" itemProp="review" itemType="https://schema.org/Review" className={styles['testimonial-inner']}>
+                <div className={styles['testimonial-content']}>
+                    <img src={`/public/${this.props.testimonial.companyLogo}`} alt={this.props.testimonial.companyName} className={styles['company-logo']}/>
                     <div>
-                        <p>{this.props.testimonial.text}</p>
+                        <p className={styles['testimonial-text']}>{this.props.testimonial.text}</p>
                     </div>
                 </div>
-                <small itemScope="true" itemType="http://schema.org/Person" className={styles.cite}>
+                <small itemScope="true" itemType="http://schema.org/Person">
                     <span itemProp="author" className={styles.author}>{this.props.testimonial.personName}</span>
                     <span className={styles['job-title']}>
                         <span itemProp="jobTitle">{this.props.testimonial.personPosition}</span>
