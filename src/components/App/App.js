@@ -4,11 +4,11 @@ import Header from '../Header/Header'
 import Loader from '../Loader/Loader'
 
 /* generic styles */
+import reset from '../../styles/reset.css'
 import styles from './App.css'
 import base from '../../styles/base.css'
-import normalize from '../../styles/normalize.css'
 
-Object.assign(styles, base, normalize);
+Object.assign(reset, styles, base);
 
 function App({ children }) {
     return (
