@@ -13,6 +13,12 @@ const app = express();
 const npmPackages = require('./src/api/routes/npmPackages')
 app.use('/api/npmPackages', npmPackages)
 
+app.get('/employee/:id', (req, res) => {
+    var employee = req.params.id;
+
+    res.sendfile('./data/employees/' + employee + '.json');
+})
+
 const npmPackage = require('./src/api/routes/npmPackage')
 app.use('/api/npmPackage', npmPackage)
 

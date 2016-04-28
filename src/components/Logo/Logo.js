@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router'
 import styles from './Logo.scss'
-import company from '../../data/company';
+import company from '../../../data/company';
 
 function Logo() {
     return (

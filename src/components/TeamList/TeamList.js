@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react';
-import company from '../../data/company';
-import Bio from '../Bio/Bio';
+import company from '../../../data/company';
+import Bio from '../../containers/Bio';
 import styles from './TeamList.scss';
 
 export default class TeamList extends Component {

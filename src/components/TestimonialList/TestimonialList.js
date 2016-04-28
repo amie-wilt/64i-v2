@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import testimonials from '../../data/testimonials';
+import testimonials from '../../../data/testimonials';
 import Testimonial from '../Testimonial/Testimonial';
 import styles from './TestimonialList.scss';
 
