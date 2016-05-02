@@ -8,7 +8,7 @@ export default class TeamList extends Component {
         var employees = company.employees.map(employee => {
             return (
                 <li key={employee.id}>
-                    <Bio user={employee} />
+                    <Bio employee={employee} />
                 </li>
             )
         });

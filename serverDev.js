@@ -16,8 +16,11 @@ app.use('/api/npmPackages', npmPackages)
 app.get('/employee/:id', (req, res) => {
     var employee = req.params.id;
 
-    res.sendfile('./data/employees/' + employee + '.json');
-})
+    setTimeout(() => {
+        res.sendfile('./data/employees/' + employee + '.json');
+    }, 3000);
+
+});
 
 const npmPackage = require('./src/api/routes/npmPackage')
 app.use('/api/npmPackage', npmPackage)
