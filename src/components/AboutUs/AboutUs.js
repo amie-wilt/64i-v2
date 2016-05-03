@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import WhoWeAre from '../WhoWeAre/WhoWeAre.js';
 import Testimonials from '../Testimonials/Testimonials.js';
 
-export default class Footer extends Component {
+class AboutUs extends Component {
     render() {
         return (
             <div>
@@ -12,3 +12,5 @@ export default class Footer extends Component {
         )
     }
 }
+
+export default AboutUs
