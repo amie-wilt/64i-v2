@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import TeamList from '../TeamList/TeamList';
+import TeamList from '../../containers/TeamList';
 
 if(process.browser) {
     var styles = require('./WhoWeAre.scss');

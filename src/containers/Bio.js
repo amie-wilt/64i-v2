@@ -3,9 +3,9 @@ import { connect } from 'react-redux'
 import Bio from '../components/Bio/Bio';
 import toggleBioModal from '../actions/toggleBioModal';
 import setActiveBio from '../actions/setActiveBio';
+import toggleBioLoading from '../actions/toggleBioLoading';
 
 import fetch from 'isomorphic-fetch'
-
 
 function getBio(id) {
     return fetch(`/employee/${id}`).then(res => res.json());
@@ -20,16 +20,25 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        bioClick: (employeeId) => {
-            dispatch(toggleBioModal());
-            getBio(employeeId).then(bio => {
-                dispatch(setActiveBio(bio));
-            });
-        },
-        toggleBioModal: () => {
+        bioClick: (employeeId, name) => {
             dispatch(toggleBioModal());
 
-            dispatch(setActiveBio(null));
+            var bio = {
+                name
+            };
+
+            dispatch(toggleBioLoading());
+            dispatch(setActiveBio(bio));
+
+            getBio(employeeId).then(fetchedBio => {
+                bio = Object.assign({
+                    ...fetchedBio,
+                    name
+                });
+
+                dispatch(setActiveBio(bio));
+                dispatch(toggleBioLoading());
+            });
         }
     }
 }
