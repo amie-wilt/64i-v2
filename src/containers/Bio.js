@@ -20,23 +20,15 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        bioClick: (employeeId, name) => {
+        bioClick: (employee) => {
             dispatch(toggleBioModal());
-
-            var bio = {
-                name
-            };
-
             dispatch(toggleBioLoading());
-            dispatch(setActiveBio(bio));
+            dispatch(setActiveBio(employee));
 
-            getBio(employeeId).then(fetchedBio => {
-                bio = Object.assign({
-                    ...fetchedBio,
-                    name
-                });
+            getBio(employee.id).then(fetchedBio => {
+                employee = Object.assign(employee, fetchedBio);
 
-                dispatch(setActiveBio(bio));
+                dispatch(setActiveBio(employee));
                 dispatch(toggleBioLoading());
             });
         }

@@ -21,15 +21,7 @@
 }
 
 .bio-photo {
-    display: block;
-    width: 100%;
     max-width: 15rem;
-    height: auto;
-    background: #dcdddf;
-    margin-bottom: 1.5rem;
-    border-radius: 15rem;
-    transition: transform .5s ease-out;
-    cursor: pointer;
 
     @media (max-width: 600px) {
         margin: 0 auto 1rem
