@@ -1,0 +1,25 @@
+@import '../../styles/secondary-heading';
+
+.image {
+    display: block;
+    width: 24rem;
+    height: 24rem;
+    margin: 0 auto 2.5rem;
+    border-radius: 50%;
+    transition: transform .5s ease-out,border-width .5s ease-out;
+
+    @media only screen and (max-width: 600px) {
+        width: 12rem;
+        height: 12rem;
+    }
+
+    @media (max-height: 768px) {
+        width: 18rem;
+        height: 18rem;
+    }
+}
+
+.name {
+    @include secondary-heading;
+    color: #666;
+}

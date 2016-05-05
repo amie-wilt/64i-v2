@@ -1,11 +1,13 @@
 import React, {Component, PropTypes} from 'react';
+import ProjectNav from '../ProjectNav/ProjectNav';
 import styles from './FeaturedProjects.scss';
 
 class FeaturedProjects extends Component {
     render() {
         return (
-            <section>
-                <h2>Featured Projects</h2>
+            <section className={styles.section}>
+                <h2 className={styles.title}>Featured Projects</h2>
+                <ProjectNav />
             </section>
         )
     }
