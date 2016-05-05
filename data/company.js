@@ -3,15 +3,18 @@ export default {
     employees: [
         {
             id: 'dwilt',
-            name: 'Dan Wilt'
+            name: 'Dan Wilt',
+            fullSize: 'dan2'
         },
         {
             id: 'jrep',
-            name: 'Jake Repash'
+            name: 'Jake Repash',
+            fullSize: 'jake2'
         },
         {
             id: 'jyuhas',
-            name: 'Joe Yuhas'
+            name: 'Joe Yuhas',
+            fullSize: 'joe2'
         }
     ]
 }

@@ -42,12 +42,15 @@
     @media (min-width: 600px) {
         position: absolute;
         z-index: 1;
-        width: 1000px;
-        left: -250px;
+        width: 700px;
+        left: -200px;
         bottom: 0;
-        height: 700px;
         margin-bottom: 0;
         overflow: hidden;
+    }
+
+    @media (min-width: 900px) {
+        width: 1000px;
     }
 }
 
@@ -66,6 +69,7 @@
 
     @media (min-width: 600px) {
         max-width: none;
+        border-radius: 0;
     }
 }
 
@@ -94,8 +98,12 @@
     max-width: $max-reading-width;
 
     @media (min-width: 600px) {
+        padding-left: 0;
         position: relative;
         z-index: 2;
+    }
+
+    @media (min-width: 900px) {
         padding-left: 400px;
     }
 }

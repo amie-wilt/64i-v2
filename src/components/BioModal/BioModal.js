@@ -26,7 +26,7 @@ class BioModal extends Component {
         var bioTemplate = (
             <div className={styles.content}>
                 <div className={styles.avatarContainer}>
-                    <Avatar className={styles.avatar} src={`/public/${bio.id}.jpg`} alt={bio.name}/>
+                    <Avatar className={styles.avatar} src={`/public/${bio.fullSize}.jpg`} alt={bio.name}/>
                 </div>
                 <div className={styles.mainContent}>
                     <h1 className={styles.employeeName}>{bio.name}</h1>
