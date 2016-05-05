@@ -7,7 +7,9 @@ class Avatar extends Component {
         var avatarClasses = classNames(styles.avatar, this.props.className || '');
 
         return (
-            <img itemProp="image" className={avatarClasses} src={this.props.src} alt={this.props.alt} />
+            <div>
+                <img itemProp="image" className={avatarClasses} src={this.props.src} alt={this.props.alt} />
+            </div>
         )
     }
 }

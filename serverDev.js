@@ -18,7 +18,7 @@ app.get('/employee/:id', (req, res) => {
 
     setTimeout(() => {
         res.sendfile('./data/employees/' + employee + '.json');
-    }, 200);
+    }, 500);
 
 });
 

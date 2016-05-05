@@ -13,6 +13,7 @@ injectTapEventPlugin();
 import reset from '../../styles/reset.css'
 import styles from './App.css'
 import base from '../../styles/base.css'
+import typography from '../../styles/typography.scss'
 
 Object.assign(reset, styles, base);
 

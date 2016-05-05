@@ -16,7 +16,6 @@ function mapDispatchToProps(dispatch) {
     return {
         closeModal: () => {
             dispatch(toggleBioModal());
-            dispatch(setActiveBio(null));
         }
     }
 }

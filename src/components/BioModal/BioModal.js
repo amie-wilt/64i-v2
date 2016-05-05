@@ -1,30 +1,49 @@
 import React, {Component} from 'react'
-import Dialog from 'material-ui/lib/dialog';
-import CircularProgress from 'material-ui/lib/circular-progress';
+import Modal from '../Modal/Modal';
 import Avatar from '../Avatar/Avatar';
 import styles from './BioModal.scss';
+import Clear from 'material-ui/lib/svg-icons/content/clear';
 
 class BioModal extends Component {
     render() {
-        var loading = this.props.loadingBio ? <CircularProgress /> : '';
+        var bio = this.props.bio || {};
 
-        var bioTemplate = this.props.bio ? (
-            <div>
+        var overview = bio.overview,
+            description;
+
+        if (overview) {
+            let overviewMarkup = () => {
+                return {
+                    __html: overview
+                }
+            };
+
+            description = (
+                <div className={styles.description} dangerouslySetInnerHTML={overviewMarkup()}></div>
+            );
+        }
+
+        var bioTemplate = (
+            <div className={styles.content}>
                 <div className={styles.avatarContainer}>
-                    <Avatar className={styles.avatar} src={`/public/${this.props.bio.id}.jpg`} alt={this.props.bio.name}/>
+                    <Avatar className={styles.avatar} src={`/public/${bio.id}.jpg`} alt={bio.name}/>
                 </div>
-                <h1>{this.props.bio.name}</h1>
-                <div>{this.props.bio.overview}</div>
+                <div className={styles.mainContent}>
+                    <h1 className={styles.employeeName}>{bio.name}</h1>
+                    { description }
+                </div>
             </div>
-        ) : '';
+        );
+
+        var close = () => {
+            this.props.closeModal();
+        };
 
         return (
-            
-            <Dialog open={this.props.open} onRequestClose={this.props.closeModal}>
+            <Modal open={this.props.open}>
+                <Clear onClick={close} className={styles.closeButton} color={'#333'}/>
                 { bioTemplate }
-                { loading }
-            </Dialog>
-
+            </Modal>
         )
     }
 }

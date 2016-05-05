@@ -1,10 +1,93 @@
+@import "../../styles/animations";
+
+.content {
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+    padding: 2rem 4.5rem 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+
+    @media (min-width: 600px) {
+        display: flex;
+    }
+}
+
+.closeButton {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 4rem;
+    height: 4rem;
+    padding: 1rem;
+    color: white;
+    z-index: 10;
+}
+
 .avatarContainer {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    margin-bottom: 1.5rem;
+    margin-bottom: 3rem;
+
+    @media (min-width: 600px) {
+        position: absolute;
+        z-index: 1;
+        width: 1000px;
+        left: -250px;
+        bottom: 0;
+        height: 700px;
+        margin-bottom: 0;
+        overflow: hidden;
+    }
 }
 
 .avatar {
+    opacity: 0;
     max-width: 20rem;
+    transition: opacity .5s ease-in;
+
+    :global(.modal-entered) & {
+        opacity: 1;
+
+        @media (min-width: 600px) {
+            opacity: 1;
+        }
+    }
+
+    @media (min-width: 600px) {
+        max-width: none;
+    }
+}
+
+.employeeName {
+    font-family: 'Bebas Neue';
+    font-size: 3.2rem;
+    margin-bottom: .2rem;
+    opacity: 0;
+    transition: opacity .5s ease-in .2s;
+
+    :global(.modal-entered) & {
+        opacity: 1;
+    }
+}
+
+.description {
+    opacity: 0;
+    transition: opacity .5s ease-in .4s;
+
+    :global(.modal-entered) & {
+        opacity: 1;
+    }
+}
+
+.mainContent {
+    @media (min-width: 600px) {
+        position: relative;
+        z-index: 2;
+        padding-left: 400px;
+    }
 }
