@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import styles from './Bio.scss';
+import styles from './BioLink.scss';
 import Avatar from '../Avatar/Avatar';
 import { Link } from 'react-router';
 

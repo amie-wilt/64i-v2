@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import { employees } from '../../../data/company';
-import Bio from '../Bio/Bio';
+import BioLink from '../BioLink/BioLink';
 import BioModal from '../../containers/BioModal';
 import styles from './TeamList.scss';
 
@@ -9,7 +9,7 @@ export default class TeamList extends Component {
         var employeesTemplate = employees.map(employee => {
             return (
                 <li key={employee.id}>
-                    <Bio employee={employee} />
+                    <BioLink employee={employee} />
                 </li>
             )
         });
