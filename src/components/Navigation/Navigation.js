@@ -30,9 +30,18 @@ class Navigation extends Component {
 
         return (
             <nav role="navigation" className={classes}>
-                {pages.map((page, i) => (
-                    <Link style={{ animationDelay: `${i*.25}s` }} className={styles.link} to={page.href} key={page.id}>{page.title}</Link>
-                ))}
+                {pages.map((page, i) => {
+                    var delay = `${1.25 + (i*.1)}s`,
+                        isActiveView = page.id === this.props.activeView,
+                        linkClasses = classnames({
+                            [styles.activeView]: isActiveView,
+                            [styles.link]: true
+                        });
+
+                    return (
+                        <Link style={{ animationDelay:  delay}} className={linkClasses} to={page.href} key={page.id}>{page.title}</Link>
+                    );
+                })}
             </nav>
         )
     }

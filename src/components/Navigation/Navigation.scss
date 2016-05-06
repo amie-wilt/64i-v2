@@ -1,4 +1,5 @@
 @import '../../styles/animations.scss';
+@import '../../styles/variables.scss';
 
 .navigation-active {
     @media (max-width: 600px) {
@@ -30,7 +31,7 @@
 }
 
 .link {
-    color: #fff;
+    color: rgba(255, 255, 255, .7);
     text-transform: uppercase;
     margin-left: 3rem;
     font: 2.5rem/2.5rem 'Bebas Neue';
@@ -38,8 +39,39 @@
     text-shadow: 0 .1rem #000;
     text-decoration: none;
     height: 18px;
+    opacity: 0;
+    animation: tuckIn .5s $smooth-cubic-bezier forwards;
+    transition: all .25s $smooth-cubic-bezier;
 
     @media (max-width: 600px) {
         margin-left: 1rem;
+    }
+
+    &:hover {
+        color: white;
+    }
+
+    &:after {
+        $size: 32px;
+
+        transform: translate3d(0, 15px, 0);
+        transition: transform .5s $smooth-cubic-bezier;
+        content: "";
+        position: absolute;
+        left: 50%;
+        margin-left: $size/2*-1;
+        bottom: ($size*-1) - 20px;
+        width: $size;
+        height: $size;
+        background-color: white;
+        border-radius: 100%;
+    }
+}
+
+.activeView {
+    color: white;
+
+    &:after {
+        transform: translate3d(0, 0, 0);
     }
 }

@@ -1,5 +1,4 @@
-import React from 'react'
-import {connect} from 'react-redux'
+import React, { Component } from 'react'
 import Header from '../Header/Header'
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -17,15 +16,15 @@ import typography from '../../styles/typography.scss'
 
 Object.assign(reset, styles, base);
 
-function App({ children }) {
-    return (
-        <div className={styles.app}>
-            <Header />
-            <main className={styles['main-content']}>{children}</main>
-        </div>
-    );
-};
+class App extends Component {
+    render() {
+        return (
+            <div className={styles.app}>
+                <Header activeView={this.props.location.pathname} />
+                <main className={styles['main-content']}>{this.props.children}</main>
+            </div>
+        );
+    }
+}
 
-module.exports = connect(
-    null
-)(App);
+export default App;

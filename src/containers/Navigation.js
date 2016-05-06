@@ -4,7 +4,7 @@ import Navigation from '../components/Navigation/Navigation';
 
 const mapStateToProps = (state) => {
     return {
-        active: state.navVisible
+        navVisible: state.navVisible
     }
 };
 

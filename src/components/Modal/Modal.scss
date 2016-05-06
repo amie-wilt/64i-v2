@@ -1,4 +1,7 @@
+@import "../../styles/variables";
+
 @keyframes :global(slideInUp) {
+
     from {
         transform: translate3d(0, 100%, 0);
         visibility: visible;
@@ -56,7 +59,7 @@
         height: 100%;
         background-color: white;
         animation-duration: .5s;
-        animation-timing-function: cubic-bezier(0.23,1,0.32,1);
+        animation-timing-function: $smooth-cubic-bezier;
     }
 
     .modal-enter {
