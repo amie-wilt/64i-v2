@@ -18,9 +18,11 @@ Object.assign(reset, styles, base);
 
 class App extends Component {
     render() {
+        var activeView = this.props.location.pathname.split('/')[1];
+
         return (
             <div className={styles.app}>
-                <Header activeView={this.props.location.pathname} />
+                <Header activeView={activeView} />
                 <main className={styles['main-content']}>{this.props.children}</main>
             </div>
         );

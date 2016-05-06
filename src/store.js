@@ -10,7 +10,7 @@ export function configureStore(history, initialState) {
   const reducer = combineReducers({
     ...reducers,
     routing: routerReducer
-  })
+  });
 
   const store = createStore(
     reducer,
@@ -21,7 +21,7 @@ export function configureStore(history, initialState) {
         routerMiddleware(history)
       )
     )
-  )
+  );
 
-  return store
+  return store;
 }

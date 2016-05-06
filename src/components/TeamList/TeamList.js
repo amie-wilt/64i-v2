@@ -1,12 +1,12 @@
 import React, {Component, PropTypes} from 'react';
-import company from '../../../data/company';
+import { employees } from '../../../data/company';
 import Bio from '../../containers/Bio';
 import BioModal from '../../containers/BioModal';
 import styles from './TeamList.scss';
 
 export default class TeamList extends Component {
     render() {
-        var employees = company.employees.map(employee => {
+        var employeesTemplate = employees.map(employee => {
             return (
                 <li key={employee.id}>
                     <Bio employee={employee} />
@@ -16,7 +16,7 @@ export default class TeamList extends Component {
 
         return (
             <div>
-                <ul className={styles['team-list']}>{employees}</ul>
+                <ul className={styles['team-list']}>{employeesTemplate}</ul>
                 <BioModal />
             </div>
         );

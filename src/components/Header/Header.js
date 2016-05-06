@@ -6,8 +6,6 @@ import NavToggle from '../../containers/NavToggle';
 
 class Header extends Component {
     render() {
-        var activeView = this.props.activeView.split('/')[1];
-
         return (
             <header className={styles.header}>
                 <div className={styles['logo-container']}>
@@ -15,7 +13,7 @@ class Header extends Component {
                 </div>
                 <NavToggle />
                 <div className="navigation">
-                    <Navigation activeView={activeView} />
+                    <Navigation activeView={this.props.activeView} />
                 </div>
             </header>
         )   

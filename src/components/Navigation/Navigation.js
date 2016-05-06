@@ -6,17 +6,14 @@ import classnames from 'classnames';
 var pages = [
     {
         id: 'about-us',
-        href: '/about-us',
         title: 'About Us'
     },
     {
         id: 'our-work',
-        href: '/our-work',
         title: 'Our Work'
     },
     {
         id: 'contact-us',
-        href: '/contact-us',
         title: 'Contact Us'
     }
 ];
@@ -39,7 +36,7 @@ class Navigation extends Component {
                         });
 
                     return (
-                        <Link style={{ animationDelay:  delay}} className={linkClasses} to={page.href} key={page.id}>{page.title}</Link>
+                        <Link style={{ animationDelay:  delay}} className={linkClasses} to={`/${page.id}`} key={page.id}>{page.title}</Link>
                     );
                 })}
             </nav>

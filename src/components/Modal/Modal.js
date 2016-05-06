@@ -49,13 +49,15 @@ class Modal extends Component {
     }
 
     _render() {
-        let modal = (
-            <div className={this.props.classNames || ''}>
-                {this.props.children}
-            </div>
-        );
+        if(this._modalContainer) {
+            let modal = (
+                <div className={this.props.classNames || ''}>
+                    {this.props.children}
+                </div>
+            );
 
-        ReactDOM.render(modal, this._modalContainer);
+            ReactDOM.render(modal, this._modalContainer);
+        }
     }
 
     componentDidUpdate() {

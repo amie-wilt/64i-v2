@@ -1,5 +1,6 @@
 @import '../../styles/section';
 @import '../../styles/section-title';
+@import '../../styles/variables';
 
 .section {
     @include section;
@@ -14,6 +15,12 @@
     text-align: center;
 }
 
+.introductionContainer {
+    display: flex;
+    justify-content: center;
+}
+
 .introduction {
+    max-width: $max-reading-width;
     margin-bottom: 4rem;
 }
