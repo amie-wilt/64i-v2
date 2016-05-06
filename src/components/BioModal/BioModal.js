@@ -3,8 +3,13 @@ import Modal from '../Modal/Modal';
 import Avatar from '../Avatar/Avatar';
 import styles from './BioModal.scss';
 import Clear from 'material-ui/lib/svg-icons/content/clear';
+import {Link} from 'react-router';
 
 class BioModal extends Component {
+    static contextTypes = {
+        router: React.PropTypes.object
+    };
+
     render() {
         var bio = this.props.bio || {};
 
@@ -35,13 +40,11 @@ class BioModal extends Component {
             </div>
         );
 
-        var close = () => {
-            this.props.closeModal();
-        };
-
         return (
-            <Modal open={this.props.open}>
-                <Clear onClick={close} className={styles.closeButton} color={'#333'}/>
+            <Modal open={this.props.open} router={this.context.router}>
+                <Link to="/about-us">
+                    <Clear className={styles.closeButton} color={'#333'}/>
+                </Link>
                 { bioTemplate }
             </Modal>
         )

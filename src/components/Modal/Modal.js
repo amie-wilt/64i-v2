@@ -1,10 +1,28 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import classNames from 'classnames';
 import styles from './Modal.scss';
 
-class Modal extends Component {
+class InlineModal extends Component {
+    static childContextTypes = {
+        router: React.PropTypes.object
+    };
 
+    getChildContext() {
+        return {
+            router: this.props.router
+        }
+    }
+
+    render() {
+        return (
+            <div className={this.props.classNames || ''}>
+                {this.props.children}
+            </div>
+        )
+    }
+}
+
+class Modal extends Component {
     _open() {
         this._scrollY = window.scrollY;
         this._mount = document.getElementById('mount');
@@ -13,10 +31,6 @@ class Modal extends Component {
         var animationListener = () => {
             this._modalContainer.classList.add('modal-entered');
             this._modalContainer.classList.remove('modal-enter');
-
-            if (this.props.onEnter) {
-                this.props.onEnter();
-            }
 
             this._mount.classList.add('hide');
             this._modalContainer.removeEventListener('animationend', animationListener);
@@ -50,13 +64,11 @@ class Modal extends Component {
 
     _render() {
         if(this._modalContainer) {
-            let modal = (
-                <div className={this.props.classNames || ''}>
+            ReactDOM.render((
+                <InlineModal router={this.props.router}>
                     {this.props.children}
-                </div>
-            );
-
-            ReactDOM.render(modal, this._modalContainer);
+                </InlineModal>
+            ), this._modalContainer);
         }
     }
 

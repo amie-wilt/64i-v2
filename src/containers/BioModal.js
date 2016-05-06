@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import BioModal from '../components/BioModal/BioModal';
-import toggleBioModal from '../actions/toggleBioModal';
 
 function mapStateToProps(state) {
     return {
@@ -11,12 +10,4 @@ function mapStateToProps(state) {
     }
 }
 
-function mapDispatchToProps(dispatch) {
-    return {
-        closeModal: () => {
-            dispatch(toggleBioModal());
-        }
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(BioModal)
+export default connect(mapStateToProps)(BioModal)

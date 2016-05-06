@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import { employees } from '../../../data/company';
-import Bio from '../../containers/Bio';
+import Bio from '../Bio/Bio';
 import BioModal from '../../containers/BioModal';
 import styles from './TeamList.scss';
 

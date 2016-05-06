@@ -38,7 +38,7 @@
     margin-left: 3rem;
     font: 2.5rem/2.5rem 'Bebas Neue';
     position: relative;
-    text-shadow: 0 .1rem #000;
+    text-shadow: 0 .1rem black;
     text-decoration: none;
     height: 18px;
     opacity: 0;
@@ -56,17 +56,17 @@
     &:after {
         $size: 32px;
 
-        transform: translate3d(0, 15px, 0);
+        transform: translate3d(0, 25px, 0);
         transition: transform .5s $smooth-cubic-bezier;
         content: "";
         position: absolute;
         left: 50%;
         margin-left: $size/2*-1;
-        bottom: ($size*-1) - 20px;
+        bottom: -10px;
         width: $size;
-        height: $size;
+        height: 2px;
         background-color: white;
-        border-radius: 100%;
+        box-shadow: 0 .1rem black;
 
         @media (max-width: 600px) {
             display: none;
