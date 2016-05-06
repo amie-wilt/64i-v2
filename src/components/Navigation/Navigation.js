@@ -24,7 +24,7 @@ var pages = [
 class Navigation extends Component {
     render() {
         var classes = classnames({
-            [styles['navigation-active']]: this.props.active,
+            [styles['navigation-active']]: this.props.navVisible,
             [styles.navigation]: true
         });
 

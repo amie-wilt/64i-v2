@@ -1,11 +1,13 @@
 @import '../../styles/animations.scss';
 @import '../../styles/variables.scss';
+@import "~animate.css";
 
 .navigation-active {
     @media (max-width: 600px) {
         display: flex;
         z-index: 1;
         animation: fadeIn .25s forwards;
+        overflow: hidden;
     }
 }
 
@@ -41,7 +43,7 @@
     height: 18px;
     opacity: 0;
     animation: tuckIn .5s $smooth-cubic-bezier forwards;
-    transition: all .25s $smooth-cubic-bezier;
+    transition: all 1s $smooth-cubic-bezier;
 
     @media (max-width: 600px) {
         margin-left: 1rem;
@@ -65,11 +67,16 @@
         height: $size;
         background-color: white;
         border-radius: 100%;
+
+        @media (max-width: 600px) {
+            display: none;
+        }
     }
 }
 
 .activeView {
     color: white;
+    transition-duration: .25s;
 
     &:after {
         transform: translate3d(0, 0, 0);
