@@ -21,18 +21,21 @@ var pages = [
     }
 ];
 
+class Navigation extends Component {
+    render() {
+        var classes = classnames({
+            [styles['navigation-active']]: this.props.active,
+            [styles.navigation]: true
+        });
 
-export default function Navigation({ active }) {
-    var classes = classnames({
-        [styles['navigation-active']]: active,
-        [styles.navigation]: true
-    });
-
-    return (
-        <nav role="navigation" className={classes}>
-            {pages.map((page, i) => (
-                <Link style={{ animationDelay: `${i*.25}s` }} className={styles.link} to={page.href} key={page.id}>{page.title}</Link>
-            ))}
-        </nav>
-    )
+        return (
+            <nav role="navigation" className={classes}>
+                {pages.map((page, i) => (
+                    <Link style={{ animationDelay: `${i*.25}s` }} className={styles.link} to={page.href} key={page.id}>{page.title}</Link>
+                ))}
+            </nav>
+        )
+    }
 }
+
+export default Navigation;
