@@ -16,8 +16,10 @@
     align-items: center;
     flex-shrink: 0;
     animation: fadeIn 1s ease-out;
+    overflow: hidden;
 
     @media (max-width: 600px) {
+        overflow: visible;
         position: absolute;
         padding: 0 3rem
     }
