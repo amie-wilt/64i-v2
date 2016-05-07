@@ -1,3 +1,6 @@
+@import "~animate.css";
+@import "../../styles/variables";
+
 .app {
     display: flex;
     -webkit-font-smoothing: antialiased;
@@ -20,4 +23,8 @@
     position: relative;
     min-height: 100%;
     text-align: center;
+
+    > div {
+        animation: fadeIn .5s $smooth-cubic-bezier;
+    }
 }

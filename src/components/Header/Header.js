@@ -13,10 +13,10 @@ class Header extends Component {
                 </div>
                 <NavToggle />
                 <div className="navigation">
-                    <Navigation activeView={this.props.activeView} />
+                    <Navigation />
                 </div>
             </header>
-        )   
+        )
     }
 }
 

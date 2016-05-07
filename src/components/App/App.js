@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import Header from '../Header/Header'
+import setActiveView from '../../actions/activeView';
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
 // Needed for onTouchTap
@@ -10,19 +11,24 @@ injectTapEventPlugin();
 
 /* generic styles */
 import reset from '../../styles/reset.css'
-import styles from './App.css'
+import styles from './App.scss'
 import base from '../../styles/base.css'
 import typography from '../../styles/typography.scss'
 
 Object.assign(reset, styles, base);
 
 class App extends Component {
-    render() {
-        var activeView = this.props.location.pathname.split('/')[1];
+    componentDidUpdate() {
+        var pathname = this.props.location.pathname,
+            dispatch = this.props.dispatch;
 
+        dispatch(setActiveView(pathname));
+    }
+
+    render() {
         return (
             <div className={styles.app}>
-                <Header activeView={activeView} />
+                <Header />
                 <main className={styles['main-content']}>{this.props.children}</main>
             </div>
         );
@@ -30,3 +36,4 @@ class App extends Component {
 }
 
 export default App;
+

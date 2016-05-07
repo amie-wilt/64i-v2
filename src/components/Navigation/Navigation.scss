@@ -1,5 +1,3 @@
-@import '../../styles/animations.scss';
-@import '../../styles/variables.scss';
 @import "~animate.css";
 
 .navigation-active {
@@ -18,7 +16,7 @@
         opacity: 0;
         z-index: -1;
         box-sizing: border-box;
-        padding: 1.5rem 2rem;
+        padding: 2rem;
         position: absolute;
         top: 100%;
         left: 0;
@@ -29,56 +27,5 @@
 
     > :first-child {
         margin-left: 0;
-    }
-}
-
-.link {
-    color: rgba(255, 255, 255, .7);
-    text-transform: uppercase;
-    margin-left: 3rem;
-    font: 2.5rem/2.5rem 'Bebas Neue';
-    position: relative;
-    text-shadow: 0 .1rem black;
-    text-decoration: none;
-    height: 18px;
-    opacity: 0;
-    animation: tuckIn .5s $smooth-cubic-bezier forwards;
-    transition: all 1s $smooth-cubic-bezier;
-
-    @media (max-width: 600px) {
-        margin-left: 1rem;
-    }
-
-    &:hover {
-        color: white;
-    }
-
-    &:after {
-        $size: 32px;
-
-        transform: translate3d(0, 25px, 0);
-        transition: transform .5s $smooth-cubic-bezier;
-        content: "";
-        position: absolute;
-        left: 50%;
-        margin-left: $size/2*-1;
-        bottom: -10px;
-        width: $size;
-        height: 2px;
-        background-color: white;
-        box-shadow: 0 .1rem black;
-
-        @media (max-width: 600px) {
-            display: none;
-        }
-    }
-}
-
-.activeView {
-    color: white;
-    transition-duration: .25s;
-
-    &:after {
-        transform: translate3d(0, 0, 0);
     }
 }
