@@ -1,6 +1,15 @@
 @import "~animate.css";
 @import "../../styles/variables";
 
+:global {
+    .no-scroll {
+        height: 100%;
+        overflow: hidden;
+        width: 100%;
+        position: fixed;
+    }
+}
+
 .app {
     display: flex;
     -webkit-font-smoothing: antialiased;

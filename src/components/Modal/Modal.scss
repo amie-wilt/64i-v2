@@ -60,6 +60,7 @@
         background-color: white;
         animation-duration: .5s;
         animation-timing-function: $smooth-cubic-bezier;
+        overflow: auto;
     }
 
     .modal-enter {

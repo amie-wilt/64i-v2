@@ -24,15 +24,14 @@ class InlineModal extends Component {
 
 class Modal extends Component {
     _open() {
-        this._scrollY = window.scrollY;
-        this._mount = document.getElementById('mount');
         this._modalContainer = document.createElement('div');
 
         var animationListener = () => {
             this._modalContainer.classList.add('modal-entered');
             this._modalContainer.classList.remove('modal-enter');
 
-            this._mount.classList.add('hide');
+            document.body.classList.add('no-scroll');
+
             this._modalContainer.removeEventListener('animationend', animationListener);
         };
 
@@ -56,8 +55,7 @@ class Modal extends Component {
 
         this._modalContainer.addEventListener('animationend', animationListener, false);
 
-        this._mount.classList.remove('hide');
-        window.scrollTo(0, this._scrollY);
+        document.body.classList.remove('no-scroll');
 
         this._modalContainer.classList.add('modal-leave');
     }
