@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import styles from './Bio.scss';
 import Avatar from '../Avatar/Avatar';
 
-export default class Bio extends Component {
+class Bio extends Component {
 
     render() {
         var bio = this.props.bio || {};
@@ -21,7 +21,7 @@ export default class Bio extends Component {
                 <div className={styles.description} dangerouslySetInnerHTML={overviewMarkup()}></div>
             );
         }
-        
+
         return (
             <div className={styles.content}>
                 <div className={styles.avatarContainer}>
@@ -35,3 +35,5 @@ export default class Bio extends Component {
         )
     }
 }
+
+export default Bio;

@@ -1,20 +1,22 @@
 import React, {Component, PropTypes} from 'react';
 import projects from '../../../data/projects';
-import Project from '../Project/Project';
+import ProjectLink from '../ProjectLink/ProjectLink';
 import styles from './ProjectNav.scss';
+import CaseStudyModal from '../../containers/CaseStudyModal';
 
 class ProjectNav extends Component {
     render() {
-        var projectLinks = projects.map(project => {
-            return (
-                <a className={styles.link} key={project.id}>
-                    <Project project={project} />
-                </a>
-            )
-        });
+        var projectLinks = projects.map(project => (
+            <ProjectLink className={styles.link} project={project} key={project.id}/>
+        ));
 
         return (
-            <nav className={styles.nav}>{projectLinks}</nav>
+            <div>
+                <nav className={styles.nav}>
+                    {projectLinks}
+                </nav>
+                <CaseStudyModal />
+            </div>
         );
     }
 }

@@ -1,4 +1,4 @@
-export const showBioModal = () => {
+export const showCaseStudyModal = () => {
     return {
         type: 'SHOW_BIO_MODAL'
     }

@@ -1,14 +1,6 @@
 export default [
     {
-        id: 'adoptive',
-        name: 'Adoptive Public Site'
-    },
-    {
-        id: 'amazon',
+        id: 'amazon-app-store',
         name: 'Amazon App Store'
-    },
-    {
-        id: 'multicloud',
-        name: 'Multicloud'
     }
 ]

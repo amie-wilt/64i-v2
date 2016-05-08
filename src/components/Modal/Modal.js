@@ -4,16 +4,20 @@ import styles from './Modal.scss';
 
 class InlineModal extends Component {
     static childContextTypes = {
-        router: React.PropTypes.object
+        router: React.PropTypes.object,
+        store: React.PropTypes.object
     };
 
     getChildContext() {
         return {
-            router: this.props.router
+            router: this.props.router,
+            store: this.props.store
         }
     }
 
     render() {
+        console.log(this);
+
         return (
             <div className={this.props.classNames || ''}>
                 {this.props.children}
@@ -63,7 +67,7 @@ class Modal extends Component {
     _render() {
         if(this._modalContainer) {
             ReactDOM.render((
-                <InlineModal router={this.props.router}>
+                <InlineModal router={this.props.router} store={this.props.store}>
                     {this.props.children}
                 </InlineModal>
             ), this._modalContainer);
