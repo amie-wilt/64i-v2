@@ -1,0 +1,20 @@
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.tool {
+    flex-shrink: 0;
+    width: 25%;
+    padding: 20px;
+    box-sizing: border-box;
+
+    @media only screen and (max-width: 800px) {
+        width: 33%;
+    }
+
+    @media only screen and (max-width: 600px) {
+        width: 50%;
+    }
+}
