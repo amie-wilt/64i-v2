@@ -1,6 +1,27 @@
-@mixin section-title {
+@mixin section-title($color: white) {
     text-transform: uppercase;
     font: 6.4rem/6.4rem 'Bebas Neue';
-    margin-bottom: 2rem;
     transition: font-size .25s ease-out;
+    color: $color;
+    position: relative;
+    text-align: center;
+
+    &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+        background: linear-gradient(rgba(255, 255, 255, .25), rgba(255, 255, 255, 0));
+
+        @if $color == white {
+            display: none;
+        }
+    }
+
+    & + p {
+        margin-top: .5rem;
+    }
 }

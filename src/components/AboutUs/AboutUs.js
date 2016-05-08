@@ -21,7 +21,7 @@ class AboutUs extends Component {
         }
     }
 
-    componentWillMount() {
+    componentDidMount() {
         this._showBio();
     }
 

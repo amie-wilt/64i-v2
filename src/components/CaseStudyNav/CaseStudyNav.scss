@@ -1,0 +1,47 @@
+@import "../../styles/animations";
+@import "../../styles/variables";
+@import "../../styles/section-title";
+
+$navBGColor: #41403e;
+
+.navContainer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    background-color: $navBGColor;
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+    max-width: $caseStudyMaxWidth;
+    flex-grow: 1;
+}
+
+.navLink {
+    box-sizing: border-box;
+    height: 160px;
+    text-transform: uppercase;
+    font-family: 'Bebas Neue';
+    color: white;
+    font-size: 24px;
+    padding-top: 40px;
+    border-right: 1px solid rgba(255, 255, 0255, .1);
+    flex-grow: 1;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color .25s $smooth-cubic-bezier;
+    background-color: $navBGColor;
+
+    &:first-of-type {
+        border-left: 1px solid rgba(255, 255, 0255, .1);
+    }
+}
+
+.navLinkActive {
+    background-color: black;
+}
+

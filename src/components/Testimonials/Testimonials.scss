@@ -4,15 +4,12 @@
 @import '../../styles/secondary-heading';
 
 .section {
-    @include section;
-    background: $dark-gray;
+    @include section($dark-gray);
     color: #a3a3a3;
 }
 
 .title {
     @include section-title;
-    margin-top: 0;
-    color: #fff;
 }
 
 .introduction {

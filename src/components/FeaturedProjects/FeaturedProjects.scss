@@ -1,15 +1,12 @@
 @import '../../styles/section';
 @import '../../styles/section-title';
+@import '../../styles/variables';
 
 .section {
     @include section;
-    background-color: white;
-    flex-shrink: 0;
 }
 
 .title {
-    @include section-title;
-    color: #424242;
-    position: relative;
-    text-align: center;
+    @include section-title($dark-gray);
+    margin-bottom: .5rem;
 }

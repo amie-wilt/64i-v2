@@ -16,8 +16,6 @@ class InlineModal extends Component {
     }
 
     render() {
-        console.log(this);
-
         return (
             <div className={this.props.classNames || ''}>
                 {this.props.children}
@@ -67,7 +65,7 @@ class Modal extends Component {
     _render() {
         if(this._modalContainer) {
             ReactDOM.render((
-                <InlineModal router={this.props.router} store={this.props.store}>
+                <InlineModal {...this.props}>
                     {this.props.children}
                 </InlineModal>
             ), this._modalContainer);

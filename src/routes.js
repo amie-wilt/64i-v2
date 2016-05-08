@@ -13,7 +13,7 @@ const routes = (
             <Route path="employees/:employeeId" component={AboutUs}/>
         </Route>
         <Route path="our-work" component={OurWork}>
-            <Route path="case-studies/:caseStudy/:section" component={OurWork} />
+            <Route path="case-studies/:caseStudy/:section" />
         </Route>
     </Route>
 );

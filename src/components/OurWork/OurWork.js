@@ -21,7 +21,7 @@ class OurWork extends Component {
         }
     }
 
-    componentWillMount() {
+    componentDidMount() {
         this._showCaseStudy();
     }
 
