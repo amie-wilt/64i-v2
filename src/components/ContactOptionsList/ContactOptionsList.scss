@@ -1,0 +1,24 @@
+@import '../../styles/variables';
+
+.list {
+    display: inline-flex;
+    border-top: 1px solid #dcdadb;
+    border-bottom: 1px solid #dcdadb;
+    margin: 0 auto 45px;
+}
+
+.item {
+    flex-shrink: 0;
+    padding: 25px 30px;
+}
+
+.contactOption {
+    position: relative;
+    display: block;
+    text-decoration: none;
+    color: $green;
+}
+
+.contactIcon {
+    fill: $green !important;
+}
