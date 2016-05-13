@@ -6,6 +6,7 @@ import Home from './containers/Home/Home'
 import AboutUs from './containers/AboutUs';
 import OurWork from './containers/OurWork';
 import BioModal from './containers/BioModal';
+import ContactUs from './containers/ContactUs';
 
 const routes = (
     <Route path="/" component={App}>
@@ -16,6 +17,7 @@ const routes = (
         <Route path="our-work" component={OurWork}>
             <Route path="case-studies/:caseStudy/:section"/>
         </Route>
+        <Route path="contact-us" component={ContactUs} />
     </Route>
 );
 
