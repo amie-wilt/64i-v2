@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import styles from './NavToggle.scss'
 
-class NavToggle extends Component {
-    render() {
-        return (
-            <div className={styles.toggle} onClick={this.props.onClick}>
-                <span></span>
-            </div>
-        )
-    }
-}
+var NavToggle = ({ onClick }) => (
+    <div className={styles.toggle} onClick={onClick}>
+        <span></span>
+    </div>
+);
+
+NavToggle.propTypes = {
+    onClick: React.PropTypes.func.isRequired
+};
 
 export default NavToggle;

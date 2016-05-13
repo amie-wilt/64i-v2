@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
-import React from 'react'
+import React, { Component } from 'react'
 import Navigation from '../components/Navigation/Navigation';
+import pages from '../../data/pages';
 
 const mapStateToProps = (state) => {
     return {
@@ -8,4 +9,16 @@ const mapStateToProps = (state) => {
     }
 };
 
-export default connect(mapStateToProps)(Navigation);
+class NavigationContainer extends Component {
+    static defaultProps = {
+        pages
+    };
+
+    render() {
+        return (
+            <Navigation {...this.props} />
+        )
+    }
+}
+
+export default connect(mapStateToProps)(NavigationContainer);

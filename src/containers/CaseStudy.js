@@ -4,9 +4,7 @@ import CaseStudy from '../components/CaseStudy/CaseStudy';
 
 function mapStateToProps(state) {
     return {
-        activeView: state.activeView,
         caseStudy: state.activeCaseStudy
     }
 }
-
 export default connect(mapStateToProps)(CaseStudy)
