@@ -17,23 +17,18 @@ import typography from '../../styles/typography.scss'
 
 Object.assign(reset, styles, base);
 
-class App extends Component {
-    componentDidUpdate() {
-        var pathname = this.props.location.pathname,
-            dispatch = this.props.dispatch;
+var App = ({ children }) => (
+    <div className={styles.app}>
+        <Header />
+        <main className={styles['main-content']}>
+            {children}
+        </main>
+    </div>
+);
 
-        dispatch(setActiveView(pathname));
-    }
-
-    render() {
-        return (
-            <div className={styles.app}>
-                <Header />
-                <main className={styles['main-content']}>{this.props.children}</main>
-            </div>
-        );
-    }
-}
+App.propTypes = {
+    children: React.PropTypes.element
+};
 
 export default App;
 

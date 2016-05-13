@@ -12,7 +12,7 @@ var mapStateToProps = (state) => {
 class NavLinkContainer extends Component {
     render() {
         var { activeView, id } = this.props;
-        var isActive = activeView === `/${id}`;
+        var isActive = activeView.indexOf(`/${id}`) === 0;
 
         return (
             <NavLink {...this.props} isActive={isActive} />
