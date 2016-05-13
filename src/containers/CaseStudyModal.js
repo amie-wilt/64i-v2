@@ -2,8 +2,7 @@ import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import CaseStudyModal from '../components/CaseStudy/CaseStudyModal/CaseStudyModal';
 import {hideCaseStudyModal, showCaseStudyModal} from '../actions/caseStudyModal';
-import {fetchBioIfNeeded, selectBio} from '../actions/caseStudies';
-import {employees} from '../../data/company';
+import {fetchCaseStudyIfNeeded, selectCaseStudy} from '../actions/caseStudies';
 import {withRouter} from 'react-router';
 
 function mapStateToProps(state) {
@@ -19,9 +18,7 @@ function mapDispatchToProps(dispatch) {
         hide: () => {
             dispatch(hideCaseStudyModal());
         },
-        fetchBioIfNeeded: (id) => {
-            var bio = employees.find(employee => employee.id === id);
-
+        fetchCaseStudyIfNeeded: (id) => {
             dispatch(fetchBioIfNeeded(id)).then(fetchedBio => {
                 if(fetchedBio) {
                     Object.assign(bio, fetchedBio.bio);
@@ -36,11 +33,11 @@ function mapDispatchToProps(dispatch) {
 
 class CaseStudyModalContainer extends Component {
     componentDidMount() {
-        var { params, fetchBioIfNeeded } = this.props,
-            employeeId = params.employeeId;
+        var { params, fetchCaseStudyIfNeeded } = this.props,
+            caseStudyId = params.caseStudyId;
 
-        if (employeeId) {
-            fetchBioIfNeeded(employeeId);
+        if (caseStudyId) {
+            fetchCaseStudyIfNeeded(caseStudyId);
         }
     }
 

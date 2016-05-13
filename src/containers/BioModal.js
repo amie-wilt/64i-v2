@@ -22,6 +22,7 @@ function mapDispatchToProps(dispatch) {
         fetchBioIfNeeded: (id) => {
             var bio = employees.find(employee => employee.id === id);
 
+            dispatch(selectBio(bio));
             dispatch(fetchBioIfNeeded(id)).then(fetchedBio => {
                 if(fetchedBio) {
                     Object.assign(bio, fetchedBio.bio);

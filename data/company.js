@@ -14,6 +14,7 @@ export const employees = [
         name: 'Joe Yuhas'
     }
 ];
+
 export const companyEmail = 'dwilt4rville@gmail.com';
 export const companyAddress = {
     street: '699 14th Street, Apt 600',

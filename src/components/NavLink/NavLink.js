@@ -3,7 +3,7 @@ import styles from './NavLink.scss';
 import classnames from 'classnames';
 import {Link} from 'react-router'
 
-var NavLink = ({ id, index, isActive, title, onClick }) => {
+var NavLink = ({ id, index, isActive, title }) => {
     var delay = `${1.25 + (index * .1)}s`;
     var linkClasses = classnames({
         [styles.activeView]: isActive,
@@ -11,7 +11,7 @@ var NavLink = ({ id, index, isActive, title, onClick }) => {
     });
 
     return (
-        <Link onClick={onClick} to={`/${id}`} style={{ animationDelay:  delay}} className={linkClasses}>{title}</Link>
+        <Link to={`/${id}`} style={{ animationDelay:  delay}} className={linkClasses}>{title}</Link>
     );
 };
 
@@ -19,8 +19,7 @@ NavLink.propTypes = {
     id: React.PropTypes.string.isRequired,
     index: React.PropTypes.number.isRequired,
     isActive: React.PropTypes.bool.isRequired,
-    title: React.PropTypes.string.isRequired,
-    onClick: React.PropTypes.func.isRequired
+    title: React.PropTypes.string.isRequired
 };
 
 export default NavLink;

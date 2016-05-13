@@ -10,9 +10,24 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-    dispatch(fetchCaseStudiesIfNeeded());
-    
-    return {}
+    return {
+        fetchCaseStudiesIfNeeded: () => {
+            dispatch(fetchCaseStudiesIfNeeded());
+        }
+    }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CaseStudyNav)
+class CaseStudiesNavContainer extends Component {
+    componentDidMount() {
+        this.props.fetchCaseStudiesIfNeeded();
+    }
+
+    render() {
+        return (
+            <CaseStudyNav {...this.props} />
+        )
+    }
+
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CaseStudiesNavContainer);

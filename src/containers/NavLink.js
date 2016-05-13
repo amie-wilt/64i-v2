@@ -1,21 +1,18 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import NavLink from '../components/NavLink/NavLink';
-import { hideNav } from '../actions/nav';
 import { withRouter } from 'react-router';
 
-function mapDispatchToProps(dispatch) {
+var mapStateToProps = (state) => {
     return {
-        onClick: () => {
-            dispatch(hideNav())
-        }
+        activeView: state.activeView
     }
-}
+};
 
 class NavLinkContainer extends Component {
     render() {
-        var { router, id } = this.props;
-        var isActive = router.isActive(id);
+        var { activeView, id } = this.props;
+        var isActive = activeView === `/${id}`;
 
         return (
             <NavLink {...this.props} isActive={isActive} />
@@ -23,4 +20,4 @@ class NavLinkContainer extends Component {
     }
 }
 
-export default connect(mapDispatchToProps)(withRouter(NavLinkContainer))
+export default connect(mapStateToProps)(withRouter(NavLinkContainer))

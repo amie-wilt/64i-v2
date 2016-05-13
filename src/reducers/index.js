@@ -1,5 +1,3 @@
-export npmPackages from './npmPackages';
-export npmPackage from './npmPackage';
 export navVisible from './nav';
 export caseStudyModalOpen from './caseStudyModal';
 export bioModalOpen from './bioModal';

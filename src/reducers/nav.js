@@ -11,6 +11,11 @@ export default (state = false, action) => {
         case 'SHOW_NAV':
             return true;
             break;
+
+        case '@@router/LOCATION_CHANGE':
+            return false;
+            break;
+
         default:
             return state
     }
