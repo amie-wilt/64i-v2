@@ -23,7 +23,7 @@ function mapDispatchToProps(dispatch) {
 
             dispatch(selectCaseStudy(caseStudy));
             dispatch(fetchCaseStudyIfNeeded(id)).then(fetchedCaseStudy => {
-                Object.assign(caseStudy, fetchedCaseStudy.caseStudy);
+                Object.assign(caseStudy, fetchedCaseStudy);
                 dispatch(showCaseStudyModal());
                 dispatch(selectCaseStudy(caseStudy));
             });

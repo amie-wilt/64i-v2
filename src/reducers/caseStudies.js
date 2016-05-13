@@ -31,6 +31,7 @@ export default (state = {}, action) => {
             return Object.assign({}, state, {
                 [action.id]: caseStudy(undefined, action)
             });
+            break;
 
         default:
             return state
