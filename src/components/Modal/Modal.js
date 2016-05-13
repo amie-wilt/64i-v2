@@ -86,6 +86,12 @@ class Modal extends Component {
         this._render();
     }
 
+    componentWillUnmount() {
+        if(this._modalContainer) {
+            this._close();
+        }
+    }
+
     render() {
         return null;
     }

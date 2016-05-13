@@ -4,6 +4,7 @@ import webpack from 'webpack'
 import webpackDevMiddleware from 'webpack-dev-middleware'
 import webpackConfig from './webpack.config.dev'
 import webpackHotMiddleware from 'webpack-hot-middleware';
+import database from './database';
 var compiler = webpack(webpackConfig);
 
 const app = express();
@@ -12,6 +13,14 @@ const app = express();
 
 const npmPackages = require('./src/api/routes/npmPackages')
 app.use('/api/npmPackages', npmPackages)
+
+app.get('/api/*', (req, res) => {
+    var query = req.params[0];
+
+    database.child(query).once('value').then(snapshot => {
+        res.send(snapshot.val());
+    });
+});
 
 app.get('/employee/:id', (req, res) => {
     var employee = req.params.id;

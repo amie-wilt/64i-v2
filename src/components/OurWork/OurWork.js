@@ -1,7 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import FeaturedProjects from '../FeaturedProjects/FeaturedProjects';
 import OurTools from '../OurTools/OurTools';
-import projects from '../../../data/projects';
 import showCaseStudy from '../../actions/showCaseStudy';
 import { hideCaseStudyModal } from '../../actions/caseStudyModal';
 
@@ -11,11 +10,7 @@ class OurWork extends Component {
         var caseStudyId = this.props.params.caseStudy;
 
         if (caseStudyId) {
-            let caseStudy = projects.find(project => project.id === caseStudyId);
-
-            if (caseStudy) {
-                showCaseStudy(dispatch, caseStudy);
-            }
+            showCaseStudy(dispatch, caseStudyId);
         } else {
             dispatch(hideCaseStudyModal());
         }

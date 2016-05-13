@@ -13,7 +13,7 @@ $caseStudyMaxWidth: 960px;
     z-index: 1;
 }
 
-.projectTitle {
+.title {
     @include section-title($dark-gray);
     text-align: left;
 }

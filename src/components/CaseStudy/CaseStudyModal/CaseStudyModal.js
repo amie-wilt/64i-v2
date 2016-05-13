@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
-import Modal from '../Modal/Modal';
-import CaseStudy from '../../containers/CaseStudy';
+import Modal from '../../Modal/Modal';
+import CaseStudy from '../../../containers/CaseStudy';
 import styles from './CaseStudyModal.scss';
-import Clear from 'material-ui/lib/svg-icons/content/clear';
+import Clear from '../../../../node_modules/material-ui/lib/svg-icons/content/clear';
 import {Link} from 'react-router';
 
 class CaseStudyModal extends Component {
@@ -10,7 +10,7 @@ class CaseStudyModal extends Component {
         router: React.PropTypes.object,
         store: React.PropTypes.object
     };
-    
+
     render() {
         return (
             <Modal open={this.props.open} router={this.context.router} store={this.context.store}>

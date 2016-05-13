@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch'
 import { showCaseStudyModal } from './bioModal';
-import setActiveBio from './activeBio';
+import setActiveBio from './bios';
 import toggleBioLoading from './toggleBioLoading';
 
 const getBio  = (id) => {

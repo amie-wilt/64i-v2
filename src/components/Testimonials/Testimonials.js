@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import TestimonialList from '../TestimonialList/TestimonialList';
+import TestimonialList from '../../containers/TestimonialList';
 
 if(process.browser) {
     var styles = require('./Testimonials.scss');

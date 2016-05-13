@@ -6,13 +6,10 @@ const getCaseStudy  = (id) => {
     return fetch(`/case-studies/${id}`).then(res => res.json());
 };
 
-export default (dispatch, caseStudy) => {
+export default (dispatch, id) => {
     dispatch(showCaseStudyModal());
-    dispatch(setActiveCaseStudy(caseStudy));
 
-    getCaseStudy(caseStudy.id).then(fetchedCaseStudy => {
-        caseStudy = Object.assign(caseStudy, fetchedCaseStudy);
-
+    getCaseStudy(id).then(caseStudy => {
         dispatch(setActiveCaseStudy(caseStudy));
     });
 }

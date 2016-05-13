@@ -11,7 +11,7 @@ class BioLink extends Component {
 
         return (
             <Link className={styles.bio} itemScope="" itemType="http://schema.org/Person" to={href}>
-                <Avatar className={styles['bio-photo']} src={`/public/${employee.id}.jpg`} alt={employee.name}/>
+                <Avatar className={styles['bio-photo']} src={`/public/${employee.id}-small.jpg`} alt={employee.name}/>
                 <span className={styles['bio-name']} itemProp="name">{employee.name}</span>
             </Link>
         )

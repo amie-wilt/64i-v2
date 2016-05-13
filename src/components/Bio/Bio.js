@@ -5,7 +5,7 @@ import Avatar from '../Avatar/Avatar';
 class Bio extends Component {
 
     render() {
-        var bio = this.props.bio || {};
+        var { bio } = this.props;
 
         var overview = bio.overview,
             description;
@@ -25,7 +25,7 @@ class Bio extends Component {
         return (
             <div className={styles.content}>
                 <div className={styles.avatarContainer}>
-                    <Avatar className={styles.avatar} src={`/public/${bio.fullSize}.jpg`} alt={bio.name}/>
+                    <Avatar className={styles.avatar} src={`/public/${bio.id}-large.jpg`} alt={bio.name}/>
                 </div>
                 <div className={styles.mainContent}>
                     <h1 className={styles.employeeName}>{bio.name}</h1>

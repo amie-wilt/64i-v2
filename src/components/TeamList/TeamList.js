@@ -1,7 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import { employees } from '../../../data/company';
 import BioLink from '../BioLink/BioLink';
-import BioModal from '../../containers/BioModal';
 import styles from './TeamList.scss';
 
 export default class TeamList extends Component {
@@ -17,7 +16,6 @@ export default class TeamList extends Component {
         return (
             <div>
                 <ul className={styles['team-list']}>{employeesTemplate}</ul>
-                <BioModal />
             </div>
         );
     }

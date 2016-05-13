@@ -5,15 +5,16 @@ import App from './containers/App'
 import Home from './containers/Home/Home'
 import AboutUs from './containers/AboutUs';
 import OurWork from './containers/OurWork';
+import BioModal from './containers/BioModal';
 
 const routes = (
     <Route path="/" component={App}>
         <IndexRoute component={Home}/>
         <Route path="about-us" component={AboutUs}>
-            <Route path="employees/:employeeId" component={AboutUs}/>
+            <Route path="employees/:employeeId" component={BioModal}/>
         </Route>
         <Route path="our-work" component={OurWork}>
-            <Route path="case-studies/:caseStudy/:section" />
+            <Route path="case-studies/:caseStudy/:section"/>
         </Route>
     </Route>
 );

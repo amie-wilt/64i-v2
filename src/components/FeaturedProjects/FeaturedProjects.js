@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import ProjectNav from '../ProjectNav/ProjectNav';
+import CaseStudyNav from '../../containers/CaseStudiesNav';
 import styles from './FeaturedProjects.scss';
 
 class FeaturedProjects extends Component {
@@ -7,7 +7,7 @@ class FeaturedProjects extends Component {
         return (
             <section className={styles.section}>
                 <h2 className={styles.title}>Featured Projects</h2>
-                <ProjectNav />
+                <CaseStudyNav />
             </section>
         )
     }

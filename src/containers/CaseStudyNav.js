@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import CaseStudyNav from '../components/CaseStudyNav/CaseStudyNav';
+import CaseStudyNav from '../components/CaseStudy/CaseStudyNav/CaseStudyNav';
 
 function mapStateToProps(state) {
     return {
