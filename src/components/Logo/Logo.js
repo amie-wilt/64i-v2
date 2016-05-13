@@ -9,4 +9,4 @@ var Logo = () => (
     </Link>
 );
 
-export default Logo
+export default Logo;

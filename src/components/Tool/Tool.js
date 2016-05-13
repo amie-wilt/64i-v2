@@ -1,17 +1,16 @@
-import React, {Component, PropTypes} from 'react';
+import React, {PropTypes} from 'react';
 import styles from './Tool.scss';
 
-class Tool extends Component {
+var Tool = ({ toolId, toolName, toolUrl }) => (
+    <a href={toolUrl}>
+        <img className={styles.image} src={`/public/${toolId}.svg`} alt={toolName}/>
+    </a>
+);
 
-    render() {
-        var { tool } = this.props;
-
-        return (
-            <a href={tool.url}>
-                <img className={styles.image} src={`/public/${tool.id}.svg`} alt={tool.name} />
-            </a>
-        )
-    }
-}
+Tool.propTypes = {
+    toolId: PropTypes.string.isRequired,
+    toolName: PropTypes.string.isRequired,
+    toolUrl: PropTypes.string.isRequired
+};
 
 export default Tool

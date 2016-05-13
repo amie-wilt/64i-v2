@@ -3,20 +3,14 @@ import tools from '../../../data/tools';
 import Tool from '../Tool/Tool';
 import styles from './ToolsList.scss';
 
-class ToolList extends Component {
-    render() {
-        var toolsList = tools.map(tool => {
-            return (
-                <li className={styles.tool} key={tool.id}>
-                    <Tool tool={tool} />
-                </li>
-            )
-        });
-
-        return (
-            <ul className={styles.list}>{toolsList}</ul>
-        );
-    }
-}
+var ToolList = () => (
+    <ul className={styles.list}>
+        {tools.map(tool => (
+            <li className={styles.tool} key={tool.id}>
+                <Tool toolId={tool.id} toolName={tool.name} toolUrl={tool.url} />
+            </li>
+        ))}
+    </ul>
+);
 
 export default ToolList

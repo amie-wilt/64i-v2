@@ -12,7 +12,7 @@ var Navigation = ({ navVisible, pages }) => {
     return (
         <nav role="navigation" className={classes}>
             {pages.map((page, i) => (
-                <NavLink page={page} index={i} key={page.id}/>
+                <NavLink title={page.title} id={page.id} index={i} key={page.id}/>
             ))}
         </nav>
     )

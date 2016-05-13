@@ -1,21 +1,18 @@
-import React, {Component, PropTypes} from 'react';
+import React, {PropTypes} from 'react';
 import styles from './BioLink.scss';
 import Avatar from '../Avatar/Avatar';
 import {Link} from 'react-router';
 
-class BioLink extends Component {
+var BioLink = ({ id, name }) => (
+    <Link className={styles.bio} itemScope="" itemType="http://schema.org/Person" to={`/about-us/employees/${id}`}>
+        <Avatar className={styles['bio-photo']} src={`/public/${id}-small.jpg`} alt={name}/>
+        <span className={styles['bio-name']} itemProp="name">{name}</span>
+    </Link>
+);
 
-    render() {
-        var { employee } = this.props;
-        var href = `/about-us/employees/${employee.id}`;
-
-        return (
-            <Link className={styles.bio} itemScope="" itemType="http://schema.org/Person" to={href}>
-                <Avatar className={styles['bio-photo']} src={`/public/${employee.id}-small.jpg`} alt={employee.name}/>
-                <span className={styles['bio-name']} itemProp="name">{employee.name}</span>
-            </Link>
-        )
-    }
-}
+BioLink.propTypes = {
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired
+};
 
 export default BioLink;

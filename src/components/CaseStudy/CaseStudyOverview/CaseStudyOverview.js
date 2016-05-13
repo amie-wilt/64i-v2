@@ -27,6 +27,10 @@ var CaseStudyOverview = ({ caseStudy }) => {
             </div>
         </div>
     )
-}
+};
+
+CaseStudyOverview.propTypes = {
+    caseStudy: React.PropTypes.object.isRequired
+};
 
 export default CaseStudyOverview;

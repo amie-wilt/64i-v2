@@ -1,19 +1,19 @@
-import React, {Component, PropTypes} from 'react';
+import React, {PropTypes} from 'react';
 import Testimonial from '../Testimonial/Testimonial';
 import styles from './TestimonialList.scss';
 
-export default class TeamList extends Component {
-    render() {
-        var { testimonials } = this.props;
-        
-        var testimonialsList = testimonials.map(testimonial => (
+var TeamList = ({ testimonials }) => (
+    <ul className={styles['testimonials-list']}>
+        {testimonials.map(testimonial => (
             <li itemScope="true" itemType="http://schema.org/Product" key={testimonial.id} className={styles.testimonial}>
                 <Testimonial testimonial={testimonial} />
             </li>
-        ));
+        ))}
+    </ul>
+);
 
-        return (
-            <ul className={styles['testimonials-list']}>{testimonialsList}</ul>
-        )
-    }
-}
+TeamList.propTypes = {
+    testimonials: PropTypes.array.isRequired
+};
+
+export default TeamList;

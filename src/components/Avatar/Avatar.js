@@ -1,17 +1,17 @@
-import React, { Component } from 'react'
+import React, {PropTypes} from 'react'
 import styles from './Avatar.scss'
 import classNames from 'classnames';
 
-class Avatar extends Component {
-    render() {
-        var avatarClasses = classNames(styles.avatar, this.props.className || '');
+var Avatar = ({ className = '', alt, src }) => (
+    <div>
+        <img itemProp="image" className={classNames(styles.avatar, className)} src={src} alt={alt}/>
+    </div>
+);
 
-        return (
-            <div>
-                <img itemProp="image" className={avatarClasses} src={this.props.src} alt={this.props.alt} />
-            </div>
-        )
-    }
-}
+Avatar.propTypes = {
+    alt: PropTypes.string.isRequired,
+    src: PropTypes.string.isRequired,
+    className: PropTypes.string
+};
 
-export default Avatar
+export default Avatar;

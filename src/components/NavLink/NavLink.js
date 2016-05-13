@@ -1,23 +1,26 @@
 import React, {Component} from 'react';
 import styles from './NavLink.scss';
 import classnames from 'classnames';
-import { withRouter, Link } from 'react-router'
+import {Link} from 'react-router'
 
-class NavLink extends Component {
-    render() {
-        var { page, index, router } = this.props;
-        var href = `/${page.id}`;
-        var delay = `${1.25 + (index*.1)}s`;
-        var isActiveView = router.isActive(page.id),
-            linkClasses = classnames({
-                [styles.activeView]: isActiveView,
-                [styles.link]: true
-            });
+var NavLink = ({ id, index, isActive, title, onClick }) => {
+    var delay = `${1.25 + (index * .1)}s`;
+    var linkClasses = classnames({
+        [styles.activeView]: isActive,
+        [styles.link]: true
+    });
 
-        return (
-            <Link to={href} style={{ animationDelay:  delay}} className={linkClasses}>{page.title}</Link>
-        );
-    }
-}
+    return (
+        <Link onClick={onClick} to={`/${id}`} style={{ animationDelay:  delay}} className={linkClasses}>{title}</Link>
+    );
+};
 
-export default withRouter(NavLink);
+NavLink.propTypes = {
+    id: React.PropTypes.string.isRequired,
+    index: React.PropTypes.number.isRequired,
+    isActive: React.PropTypes.bool.isRequired,
+    title: React.PropTypes.string.isRequired,
+    onClick: React.PropTypes.func.isRequired
+};
+
+export default NavLink;

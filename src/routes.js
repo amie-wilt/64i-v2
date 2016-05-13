@@ -7,6 +7,7 @@ import AboutUs from './containers/AboutUs';
 import OurWork from './containers/OurWork';
 import BioModal from './containers/BioModal';
 import ContactUs from './containers/ContactUs';
+import CaseStudyModal from './containers/CaseStudyModal';
 import CaseStudyOverview from './containers/CaseStudyOverview';
 
 const routes = (
@@ -16,7 +17,9 @@ const routes = (
             <Route path="employees/:employeeId" component={BioModal}/>
         </Route>
         <Route path="our-work" component={OurWork}>
-            <Route path="case-studies/:caseStudy/overview" component={CaseStudyOverview}/>
+            <Route path="case-studies/:caseStudy" component={CaseStudyModal}>
+                <Route path="overview" component={CaseStudyOverview}/>
+            </Route>
         </Route>
         <Route path="contact-us" component={ContactUs} />
     </Route>

@@ -8,11 +8,25 @@ const mapStateToProps = (state) => {
         testimonials: state.testimonials.items
     }
 };
-function mapDispatchToProps(dispatch) {
-    dispatch(fetchTestimonialsIfNeeded());
 
-    return {}
+function mapDispatchToProps(dispatch) {
+    return {
+        fetchTestimonialsIfNeeded: () => {
+            dispatch(fetchTestimonialsIfNeeded());
+        }
+    }
 }
 
+class TestimonialListContainer extends Component {
+    componentDidMount() {
+        this.props.fetchTestimonialsIfNeeded();
+    }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TestimonialList)
+    render() {
+        return (
+            <TestimonialList {...this.props} />
+        )
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TestimonialListContainer)

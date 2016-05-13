@@ -1,20 +1,18 @@
 import React, {Component, PropTypes} from 'react';
 import TestimonialList from '../../containers/TestimonialList';
 
-if(process.browser) {
+if (process.browser) {
     var styles = require('./Testimonials.scss');
 }
 
-export default class Testimonials extends Component {
-    render() {
-        return (
-            <section className={styles.section}>
-                <h2 className={styles.title}>We Love Agencies</h2>
-                <p className={styles.introduction}>And they love us..</p>
-                <div>
-                    <TestimonialList />
-                </div>
-            </section>
-        )
-    }
-}
+var Testimonials = () => (
+    <section className={styles.section}>
+        <h2 className={styles.title}>We Love Agencies</h2>
+        <p className={styles.introduction}>And they love us..</p>
+        <div>
+            <TestimonialList />
+        </div>
+    </section>
+);
+
+export default Testimonials;

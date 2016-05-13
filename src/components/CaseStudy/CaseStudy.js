@@ -14,4 +14,9 @@ var CaseStudy = ({ children, caseStudy }) => {
     )
 };
 
+CaseStudy.propTypes = {
+    children: React.PropTypes.element.isRequired,
+    caseStudy: React.PropTypes.object.isRequired
+};
+
 export default CaseStudy;

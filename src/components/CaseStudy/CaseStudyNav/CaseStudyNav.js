@@ -1,50 +1,20 @@
 import React, {Component, PropTypes} from 'react';
-import {Link} from 'react-router';
-import classNames from 'classnames';
 import styles from './CaseStudyNav.scss';
+import CaseStudyNavLink from '../CaseStudyNavLink/CaseStudyNavLink';
 
-var sections = [
-    {
-        id: 'overview',
-        title: 'Overview'
-    },
-    {
-        id: 'details',
-        title: 'Details'
-    },
-    {
-        id: 'tools',
-        title: 'Tools'
-    },
-    {
-        id: 'highlights',
-        title: 'Highlights'
-    }
-];
+var CaseStudyNav = ({ sections, caseStudyId }) => (
+    <div className={styles.navContainer}>
+        <nav role="navigation" className={styles.nav}>
+            {sections.map(section => (
+                <CaseStudyNavLink key={section.id} />
+            ))}
+        </nav>
+    </div>
+);
 
-class CaseStudy extends Component {
-    render() {
-        var links = sections.map(section => {
-            var link = `/our-work/case-studies/${this.props.caseStudyId}/${section.id}`,
-                isActive = link === this.props.activeView,
-                linkClasses = classNames({
-                    [styles.navLink]: true,
-                    [styles.navLinkActive]: isActive
-                });
+CaseStudyNav.propTypes = {
+    caseStudyId: React.PropTypes.string.isRequired,
+    sections: React.PropTypes.array.isRequired
+};
 
-            return (
-                <Link className={linkClasses} to={link} key={section.id}>{section.title}</Link>
-            );
-        });
-
-        return (
-            <div className={styles.navContainer}>
-                <nav role="navigation" className={styles.nav}>
-                    {links}
-                </nav>
-            </div>
-        )
-    }
-}
-
-export default CaseStudy;
+export default CaseStudyNav;
