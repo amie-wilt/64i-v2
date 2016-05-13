@@ -9,6 +9,7 @@ import BioModal from './containers/BioModal';
 import OurWork from './components/OurWork/OurWork';
 import CaseStudyModal from './containers/CaseStudyModal';
 import CaseStudyOverview from './containers/CaseStudyOverview';
+import CaseStudyDetails from './containers/CaseStudyDetails';
 
 import ContactUs from './components/ContactUs/ContactUs';
 
@@ -20,6 +21,7 @@ const routes = (
         <Route path="our-work" component={OurWork}>
             <Route path="case-studies/:caseStudyId" component={CaseStudyModal}>
                 <Route path="overview" component={CaseStudyOverview}/>
+                <Route path="details" component={CaseStudyDetails}/>
             </Route>
         </Route>
         <Route path="contact-us" component={ContactUs} />

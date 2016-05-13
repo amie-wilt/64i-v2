@@ -1,11 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import CaseStudyNav from '../components/CaseStudiesNav/CaseStudiesNav';
-import { fetchCaseStudiesIfNeeded } from '../actions/caseStudies';
+import { fetchCaseStudiesIfNeeded } from '../actions/caseStudiesList';
 
 function mapStateToProps(state) {
     return {
-        caseStudies: state.caseStudies.items
+        caseStudies: state.caseStudiesList.items
     }
 }
 

@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch'
 import { showCaseStudyModal } from './caseStudyModal';
-import setActiveCaseStudy from './activeCaseStudy';
+import setActiveCaseStudy from './selectedCaseStudy';
 
 const getCaseStudy  = (id) => {
     return fetch(`/case-studies/${id}`).then(res => res.json());

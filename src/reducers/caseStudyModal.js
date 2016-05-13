@@ -1,12 +1,12 @@
-import {SHOW_BIO_MODAL, HIDE_BIO_MODAL} from '../actions/bioModal';
+import {SHOW_CASE_STUDY_MODAL, HIDE_CASE_STUDY_MODAL} from '../actions/caseStudyModal';
 
 export default (state = false, action) => {
     switch (action.type) {
-        case SHOW_BIO_MODAL:
+        case SHOW_CASE_STUDY_MODAL:
             return true;
             break;
 
-        case HIDE_BIO_MODAL:
+        case HIDE_CASE_STUDY_MODAL:
             return false;
             break;
 

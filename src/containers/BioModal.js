@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import BioModal from '../components/BioModal/BioModal';
 import {hideBioModal, showBioModal} from '../actions/bioModal';
-import {fetchBioIfNeeded, selectBio} from '../actions/bios';
+import {fetchBioIfNeeded, selectBio} from '../actions/bio';
 import {employees} from '../../data/company';
 import {withRouter} from 'react-router';
 

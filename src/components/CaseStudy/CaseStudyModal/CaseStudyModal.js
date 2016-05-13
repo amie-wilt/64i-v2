@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import Modal from '../../Modal/Modal';
+import Modal from '../../../containers/Modal';
 import CaseStudy from '../../../containers/CaseStudy';
 import styles from './CaseStudyModal.scss';
 import Clear from '../../../../node_modules/material-ui/lib/svg-icons/content/clear';

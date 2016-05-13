@@ -16,6 +16,4 @@ class ModalContainer extends Component {
     }   
 }
 
-
-
 export default connect()(withRouter(ModalContainer))

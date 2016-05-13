@@ -2,9 +2,10 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import CaseStudy from '../components/CaseStudy/CaseStudy';
 
-function mapStateToProps(state) {
+var mapStateToProps = (state) => {
     return {
-        caseStudy: state.activeCaseStudy
-    }
-}
+        caseStudy: state.selectedCaseStudy
+    };
+};
+
 export default connect(mapStateToProps)(CaseStudy)

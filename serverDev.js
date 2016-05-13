@@ -22,23 +22,6 @@ app.get('/api/*', (req, res) => {
     });
 });
 
-app.get('/employee/:id', (req, res) => {
-    var employee = req.params.id;
-
-    setTimeout(() => {
-        res.sendfile('./data/employees/' + employee + '.json');
-    }, 500);
-
-});
-
-app.get('/case-studies/:id', (req, res) => {
-    var caseStudy = req.params.id;
-
-    setTimeout(() => {
-        res.sendfile('./data/case-studies/' + caseStudy + '.json');
-    }, 500);
-
-});
 
 const npmPackage = require('./src/api/routes/npmPackage')
 app.use('/api/npmPackage', npmPackage)

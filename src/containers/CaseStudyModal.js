@@ -2,14 +2,14 @@ import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import CaseStudyModal from '../components/CaseStudy/CaseStudyModal/CaseStudyModal';
 import {hideCaseStudyModal, showCaseStudyModal} from '../actions/caseStudyModal';
-import {fetchCaseStudyIfNeeded, selectCaseStudy} from '../actions/caseStudies';
+import {fetchCaseStudyIfNeeded} from '../actions/caseStudies';
+import {selectCaseStudy} from '../actions/selectedCaseStudy';
 import {withRouter} from 'react-router';
 
 function mapStateToProps(state) {
     return {
         open: state.caseStudyModalOpen,
-        bio: state.selectedBio,
-        loadingBio: state.bioLoading
+        caseStudy: state.selectedCaseStudy
     }
 }
 
@@ -18,14 +18,14 @@ function mapDispatchToProps(dispatch) {
         hide: () => {
             dispatch(hideCaseStudyModal());
         },
-        fetchCaseStudyIfNeeded: (id) => {
-            dispatch(fetchBioIfNeeded(id)).then(fetchedBio => {
-                if(fetchedBio) {
-                    Object.assign(bio, fetchedBio.bio);
-                }
+        fetchCaseStudy: (id) => {
+            var caseStudy = { id };
 
+            dispatch(selectCaseStudy(caseStudy));
+            dispatch(fetchCaseStudyIfNeeded(id)).then(fetchedCaseStudy => {
+                Object.assign(caseStudy, fetchedCaseStudy.caseStudy);
                 dispatch(showCaseStudyModal());
-                dispatch(selectBio(bio));
+                dispatch(selectCaseStudy(caseStudy));
             });
         }
     }
@@ -33,11 +33,11 @@ function mapDispatchToProps(dispatch) {
 
 class CaseStudyModalContainer extends Component {
     componentDidMount() {
-        var { params, fetchCaseStudyIfNeeded } = this.props,
+        var { params, fetchCaseStudy } = this.props,
             caseStudyId = params.caseStudyId;
 
         if (caseStudyId) {
-            fetchCaseStudyIfNeeded(caseStudyId);
+            fetchCaseStudy(caseStudyId);
         }
     }
 

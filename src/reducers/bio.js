@@ -1,6 +1,6 @@
 import {
-    REQUEST_BIO, RECEIVE_BIO, SELECT_BIO
-} from '../actions/bios';
+    REQUEST_BIO, RECEIVE_BIO
+} from '../actions/bio';
 
 const bio = (state, action) => {
     switch (action.type) {
@@ -20,16 +20,6 @@ const bio = (state, action) => {
 
         default:
             return state
-    }
-};
-
-
-export const selectedBio = (state = {}, action) => {
-    switch (action.type) {
-        case SELECT_BIO:
-            return action.bio;
-        default:
-            return state;
     }
 };
 

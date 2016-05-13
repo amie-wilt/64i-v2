@@ -1,23 +1,38 @@
 import {
-    REQUEST_CASE_STUDIES, RECEIVE_CASE_STUDIES
+    REQUEST_CASE_STUDY,
+    RECEIVE_CASE_STUDY
 } from '../actions/caseStudies';
 
-export default (state = {
-    isFetching: false,
-    items: []
-}, action) => {
+const caseStudy = (state, action) => {
     switch (action.type) {
-        case REQUEST_CASE_STUDIES:
-            return Object.assign({}, state, {
-                isFetching: true
-            });
-        case RECEIVE_CASE_STUDIES:
+        case REQUEST_CASE_STUDY:
+            return {
+                id: action.id,
+                isFetching: true,
+                caseStudy: null
+            };
+
+        case RECEIVE_CASE_STUDY:
             return Object.assign({}, state, {
                 isFetching: false,
-                items: action.caseStudies,
-                lastUpdated: action.receivedAt
+                lastUpdated: action.receivedAt,
+                caseStudy: action.caseStudy
             });
+
         default:
             return state
     }
-}
+};
+
+export default (state = {}, action) => {
+    switch (action.type) {
+        case REQUEST_CASE_STUDY:
+        case RECEIVE_CASE_STUDY:
+            return Object.assign({}, state, {
+                [action.id]: caseStudy(undefined, action)
+            });
+
+        default:
+            return state
+    }
+};

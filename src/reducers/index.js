@@ -1,9 +1,12 @@
 export navVisible from './nav';
 export caseStudyModalOpen from './caseStudyModal';
 export bioModalOpen from './bioModal';
-export activeCaseStudy from './activeCaseStudy';
+export activeCaseStudy from './selectedCaseStudy';
 export activeView from './activeView';
 export bioLoading from './toggleBioLoading';
 export testimonials from './testimonials';
+export selectedCaseStudy from './selectedCaseStudy';
+export caseStudiesList from './caseStudiesList';
 export caseStudies from './caseStudies';
-export { bios, selectedBio } from './bios';
+export { selectedBio } from './selectedBio';
+export { bios } from './bio';
