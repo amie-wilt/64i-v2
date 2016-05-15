@@ -22,30 +22,16 @@ function fetchCaseStudies() {
 
         return fetch(`/api/case-studies/list`)
             .then(response => response.json())
-            .then(caseStudies => dispatch(receiveCaseStudies(caseStudies)))
+            .then(payload => dispatch(receiveCaseStudies(payload)))
+            .then(payload => payload.caseStudies);
     }
 }
 
-function shouldFetchCaseStudies(state) {
-    var { caseStudiesList } = state;
-
-    return !caseStudiesList.items.length;
-}
-
 export function fetchCaseStudiesIfNeeded() {
-    // Note that the function also receives getState()
-    // which lets you choose what to dispatch next.
-
-    // This is useful for avoiding a network request if
-    // a cached value is already available.
-
     return (dispatch, getState) => {
-        if (shouldFetchCaseStudies(getState())) {
-            // Dispatch a thunk from thunk!
-            return dispatch(fetchCaseStudies())
-        } else {
-            // Let the calling code know there's nothing to wait for.
-            return Promise.resolve()
-        }
+        var { caseStudiesList } = getState();
+        var caseStudies = caseStudiesList.items;
+
+        return caseStudies.length ? Promise.resolve(caseStudies) : dispatch(fetchCaseStudies());
     }
 }

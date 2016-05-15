@@ -5,7 +5,7 @@ import { fetchTestimonialsIfNeeded } from '../actions/testimonials';
 
 const mapStateToProps = (state) => {
     return {
-        testimonials: state.testimonials.items
+        testimonials: state.testimonialsList.items
     }
 };
 

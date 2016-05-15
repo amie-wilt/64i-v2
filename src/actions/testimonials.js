@@ -23,29 +23,15 @@ function fetchTestimonials() {
         return fetch(`/api/testimonials`)
             .then(response => response.json())
             .then(testimonials => dispatch(receiveTestimonials(testimonials)))
+            .then(payload => payload.testimonials)
     }
 }
 
-function shouldFetchTestimonials(state) {
-    var { testimonials } = state;
-
-    return !testimonials.items.length;
-}
-
 export function fetchTestimonialsIfNeeded() {
-    // Note that the function also receives getState()
-    // which lets you choose what to dispatch next.
-
-    // This is useful for avoiding a network request if
-    // a cached value is already available.
-
     return (dispatch, getState) => {
-        if (shouldFetchTestimonials(getState())) {
-            // Dispatch a thunk from thunk!
-            return dispatch(fetchTestimonials())
-        } else {
-            // Let the calling code know there's nothing to wait for.
-            return Promise.resolve()
-        }
+        var { testimonialsList } = getState();
+        var testimonials = testimonialsList.items;
+
+        return testimonials.length ? Promise.resolve(testimonials) : dispatch(fetchTestimonials());
     }
 }

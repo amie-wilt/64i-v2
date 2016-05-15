@@ -23,6 +23,14 @@
     align-items: flex-start;
     margin-bottom: 3rem;
 
+    @media (max-width: 600px) {
+        height: 20rem;
+    }
+
+    @media (max-width: 400px) {
+        height: 15rem;
+    }
+
     @media (min-width: 600px) {
         position: absolute;
         z-index: 1;
@@ -39,21 +47,24 @@
 }
 
 .avatar {
-    opacity: 0;
-    max-width: 20rem;
-    transition: opacity .5s ease-in;
+    transition: transform .5s $smooth-cubic-bezier;
 
-    :global(.modal-entered) & {
-        opacity: 1;
+    @media (max-width: 600px) {
+        width: 20rem;
+    }
 
-        @media (min-width: 600px) {
-            opacity: 1;
-        }
+    @media (max-width: 400px) {
+        width: 15rem;
     }
 
     @media (min-width: 600px) {
         max-width: none;
         border-radius: 0;
+        height: 540px;
+    }
+
+    img {
+        width: 100%;
     }
 }
 

@@ -1,0 +1,21 @@
+@import "~animate.css";
+@import '../../styles/variables';
+
+.container {
+    position: relative;
+
+    img {
+        animation: fadeIn 1s $smooth-cubic-bezier;
+    }
+}
+
+.loader {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -5,8 +5,8 @@ import {Link} from 'react-router';
 
 var BioLink = ({ id, name }) => (
     <Link className={styles.bio} itemScope="" itemType="http://schema.org/Person" to={`/about-us/employees/${id}`}>
-        <Avatar className={styles['bio-photo']} src={`/public/${id}-small.jpg`} alt={name}/>
-        <span className={styles['bio-name']} itemProp="name">{name}</span>
+        <Avatar className={styles.photo} src={`/public/${id}-small.jpg`} alt={name}/>
+        <span className={styles.name} itemProp="name">{name}</span>
     </Link>
 );
 

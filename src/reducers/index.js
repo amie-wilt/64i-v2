@@ -4,7 +4,7 @@ export bioModalOpen from './bioModal';
 export activeCaseStudy from './selectedCaseStudy';
 export activeView from './activeView';
 export bioLoading from './toggleBioLoading';
-export testimonials from './testimonials';
+export testimonialsList from './testimonials';
 export selectedCaseStudy from './selectedCaseStudy';
 export caseStudiesList from './caseStudiesList';
 export caseStudies from './caseStudies';
