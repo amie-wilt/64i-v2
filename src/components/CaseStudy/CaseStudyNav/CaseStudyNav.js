@@ -5,9 +5,10 @@ import CaseStudyNavLink from '../../../containers/CaseStudyNavLink';
 var CaseStudyNav = ({ sections, caseStudyId }) => (
     <div className={styles.navContainer}>
         <nav role="navigation" className={styles.nav}>
-            {sections.map(section => (
+            {sections.map((section, i) => (
                 <CaseStudyNavLink
                     key={section.id}
+                    index={i}
                     sectionId={section.id}
                     sectionTitle={section.title}
                 />

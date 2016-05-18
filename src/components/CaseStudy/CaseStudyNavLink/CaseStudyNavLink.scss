@@ -4,24 +4,7 @@
 
 $navBGColor: #41403e;
 
-.navContainer {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    display: flex;
-    justify-content: center;
-    background-color: $navBGColor;
-}
-
-.nav {
-    display: flex;
-    justify-content: center;
-    max-width: $caseStudyMaxWidth;
-    flex-grow: 1;
-}
-
-.navLink {
+.link {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -35,8 +18,13 @@ $navBGColor: #41403e;
     flex-grow: 1;
     text-decoration: none;
     text-align: center;
-    transition: background-color .25s $smooth-cubic-bezier;
+    transition: background-color .25s;
     background-color: $navBGColor;
+    opacity: 0;
+
+    :global(.modal-entered) & {
+        animation: tuckIn .5s $smooth-cubic-bezier forwards;
+    }
 
     &:first-of-type {
         border-left: 1px solid rgba(255, 255, 0255, .1);
@@ -46,9 +34,13 @@ $navBGColor: #41403e;
         height: 80px;
         font-size: 18px;
     }
+
+    &:active {
+        background-color: rgba(0, 0, 0, .3);
+    }
 }
 
-.navLinkActive {
+.active {
     background-color: black;
 }
 

@@ -24,7 +24,7 @@ const routes = (
         <Route path="our-work" component={OurWork}>
             <Route path="case-studies/:caseStudyId" component={CaseStudyModal}>
                 <Route path="overview" component={CaseStudyOverview}/>
-                <Route path="details" com ponent={CaseStudyDetails}/>
+                <Route path="details" component={CaseStudyDetails}/>
             </Route>
         </Route>
         <Route path="contact-us" component={ContactUs} />

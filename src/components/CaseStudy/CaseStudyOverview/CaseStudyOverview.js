@@ -12,18 +12,11 @@ var CaseStudyOverview = ({ caseStudy }) => {
         <div className={styles.description} dangerouslySetInnerHTML={objectiveRender()}></div>
     );
 
+    var { client } = caseStudy;
+
     return (
         <div className={styles.container}>
             <div className={styles.imageContainer}>
-            </div>
-            <div className={styles.infoContainer}>
-                <dl>
-                    <dt className={styles.client}></dt>
-                    <dt className={styles.timeline}></dt>
-                </dl>
-                <div className={styles.objective}>
-                    { objective }
-                </div>
             </div>
         </div>
     )

@@ -1,4 +1,5 @@
 @import "../../styles/variables";
+@import "../../styles/animations";
 @import "../../styles/section-title";
 
 $caseStudyMaxWidth: 960px;
@@ -20,5 +21,10 @@ $caseStudyMaxWidth: 960px;
 .title {
     @include section-title($dark-gray);
     text-align: left;
+    opacity: 0;
+
+    :global(.modal-entered) & {
+        animation: fadeInUp 1s $smooth-cubic-bezier forwards;
+    }
 }
 
