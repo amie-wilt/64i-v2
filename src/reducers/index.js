@@ -1,6 +1,5 @@
 export navVisible from './nav';
 export caseStudyModalOpen from './caseStudyModal';
-export activeCaseStudy from './selectedCaseStudy';
 export activeView from './activeView';
 export bioLoading from './toggleBioLoading';
 export testimonialsList from './testimonials';

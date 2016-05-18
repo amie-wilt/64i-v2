@@ -6,8 +6,6 @@ import {selectCaseStudy} from '../actions/selectedCaseStudy';
 import {withRouter} from 'react-router';
 
 function mapStateToProps(state) {
-    console.log(state);
-    
     return {
         caseStudy: state.selectedCaseStudy,
         caseStudiesList: state.caseStudiesList
@@ -49,10 +47,10 @@ class CaseStudyModalContainer extends Component {
         var existingCaseStudy = this.props.caseStudiesList.items.find(caseStudy => caseStudy.id === caseStudyId);
 
         if(existingCaseStudy) {
-            existingCaseStudy = Object.assign({}, caseStudy, existingCaseStudy);
+            Object.assign({}, caseStudy, existingCaseStudy);
         }
 
-        selectCaseStudy(existingCaseStudy);
+        selectCaseStudy(caseStudy);
     }
 
     render() {

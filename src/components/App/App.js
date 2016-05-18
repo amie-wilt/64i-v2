@@ -8,7 +8,6 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 // https://github.com/zilverline/react-tap-event-plugin
 injectTapEventPlugin();
 
-/* generic styles */
 import 'reset-css/reset.css';
 import '../../styles/base.scss'
 import '../../styles/typography.scss'

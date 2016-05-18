@@ -4,8 +4,10 @@ import CaseStudyOverview from '../components/CaseStudy/CaseStudyOverview/CaseStu
 import {withRouter} from 'react-router';
 
 function mapStateToProps(state) {
+    console.log(state);
+    
     return {
-        caseStudy: state.activeCaseStudy
+        caseStudy: state.selectedCaseStudy
     }
 }
 

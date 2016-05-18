@@ -3,20 +3,20 @@ import {
     RECEIVE_CASE_STUDY
 } from '../actions/caseStudies';
 
-const caseStudy = (state, action) => {
+var caseStudy = (state = {}, action) => {
     switch (action.type) {
         case REQUEST_CASE_STUDY:
-            return {
+            return Object.assign({}, state, {
                 id: action.id,
-                isFetching: true,
-                caseStudy: null
-            };
+                isFetching: true
+            });
 
         case RECEIVE_CASE_STUDY:
             return Object.assign({}, state, {
                 isFetching: false,
                 lastUpdated: action.receivedAt,
-                caseStudy: action.caseStudy
+                caseStudy: action.caseStudy,
+                id: action.id
             });
 
         default:
@@ -27,8 +27,13 @@ const caseStudy = (state, action) => {
 export default (state = [], action) => {
     switch (action.type) {
         case REQUEST_CASE_STUDY:
+            return [
+                ...state,
+                caseStudy(undefined, action)
+            ];
+
         case RECEIVE_CASE_STUDY:
-            state.map(caseStudy => caseStudy(caseStudy, action));
+            return state.map(cs => caseStudy(undefined, action));
             break;
 
         default:

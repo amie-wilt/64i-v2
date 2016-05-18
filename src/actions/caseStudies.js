@@ -25,7 +25,7 @@ function fetchCaseStudy(id) {
         return fetch(`/api/case-studies/${id}`)
             .then(response => response.json())
             .then(payload => dispatch(receiveCaseStudy(payload, id)))
-            .then(payload => payload.caseStudy)
+            .then(payload => payload.caseStudy);
     }
 }
 
@@ -34,7 +34,7 @@ export function fetchCaseStudyIfNeeded(id) {
         var { caseStudies } = getState();
         var caseStudy = caseStudies.find(caseStudy => caseStudy.id);
 
-        return caseStudy ? Promise.resolve(caseStudy) : dispatch(fetchCaseStudy(id));
+        return caseStudy ? Promise.resolve(caseStudy.caseStudy) : dispatch(fetchCaseStudy(id));
     }
 }
 
