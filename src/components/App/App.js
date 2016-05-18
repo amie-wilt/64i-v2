@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import Header from '../Header/Header'
-import setActiveView from '../../actions/activeView';
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
 // Needed for onTouchTap
@@ -10,17 +9,16 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
 /* generic styles */
-import reset from '../../styles/reset.css'
-import styles from './App.scss'
-import base from '../../styles/base.css'
-import typography from '../../styles/typography.scss'
+import 'reset-css/reset.css';
+import '../../styles/base.scss'
+import '../../styles/typography.scss'
 
-Object.assign(reset, styles, base);
+import styles from './App.scss'
 
 var App = ({ children }) => (
     <div className={styles.app}>
         <Header />
-        <main className={styles['main-content']}>
+        <main className={styles.content}>
             {children}
         </main>
     </div>

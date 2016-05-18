@@ -21,17 +21,23 @@ var Bio = ({ bio }) => {
     }
 
     var smallAvatarSrc = `/public/${bio.id}-small.jpg`;
+    var largeAvatarSrc = `/public/${bio.id}-large.jpg`;
 
     return (
         <div className={styles.content}>
-            <MediaQuery maxDeviceWidth={600}>
-                <ImageLoader className={styles.avatarContainer} src={smallAvatarSrc}>
-                    <Avatar className={styles.avatar} src={smallAvatarSrc} alt={bio.name}/>
-                </ImageLoader>
-            </MediaQuery>
-            <div className={styles.mainContent}>
-                <h1 className={styles.employeeName}>{bio.name}</h1>
-                { description }
+            <div className={styles.innerContent}>
+                <div className={styles.avatarContainer}>
+                    <MediaQuery maxWidth={850}>
+                        <Avatar className={styles.avatar} src={smallAvatarSrc} alt={bio.name}/>
+                    </MediaQuery>
+                    <MediaQuery minWidth={850}>
+                        <Avatar className={styles.avatar} src={largeAvatarSrc} alt={bio.name}/>
+                    </MediaQuery>
+                </div>
+                <div className={styles.mainContent}>
+                    <h1 className={styles.employeeName}>{bio.name}</h1>
+                    { description }
+                </div>
             </div>
         </div>
     )

@@ -32,8 +32,9 @@ function fetchCaseStudy(id) {
 export function fetchCaseStudyIfNeeded(id) {
     return (dispatch, getState) => {
         var { caseStudies } = getState();
-        var caseStudy = caseStudies[id] && caseStudies[id].caseStudy ? caseStudies[id].caseStudy : null;
+        var caseStudy = caseStudies.find(caseStudy => caseStudy.id);
 
         return caseStudy ? Promise.resolve(caseStudy) : dispatch(fetchCaseStudy(id));
     }
 }
+

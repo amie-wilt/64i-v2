@@ -33,27 +33,15 @@ function fetchBio(id) {
         return fetch(`/api/bios/${id}`)
             .then(response => response.json())
             .then(bio => dispatch(receiveBio(bio, id)))
+            .then(payload => payload.bio)
     }
 }
 
-function shouldFetchBio(state, id) {
-    return !state.bios[id] || (state.bios[id] && !state.bios[id].bio);
-}
-
 export function fetchBioIfNeeded(id) {
-    // Note that the function also receives getState()
-    // which lets you choose what to dispatch next.
-
-    // This is useful for avoiding a network request if
-    // a cached value is already available.
-
     return (dispatch, getState) => {
-        if (shouldFetchBio(getState(), id)) {
-            // Dispatch a thunk from thunk!
-            return dispatch(fetchBio(id))
-        } else {
-            // Let the calling code know there's nothing to wait for.
-            return Promise.resolve()
-        }
+        var { bios } = getState();
+        var bio = bios[id] && bios[id].bio ? bios[id].bio : null;
+
+        return bio ? Promise.resolve(bio) : dispatch(fetchBio(id));
     }
 }

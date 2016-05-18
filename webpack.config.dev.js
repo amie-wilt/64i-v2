@@ -23,8 +23,8 @@ module.exports = {
             },
             {
                 test: /\.css$/i,
-                loader: ExtractTextPlugin.extract('style',
-                    `css?modules&localIdentName=[name]_[local]__[hash:base64:5]!postcss`)
+                loaders: ['style', 'css'],
+                include: path.join(__dirname, 'node_modules')
             },
             {
                 test: /\.scss$/,

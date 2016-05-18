@@ -1,11 +1,12 @@
 import React, {PropTypes} from 'react'
 import styles from './Avatar.scss'
 import classNames from 'classnames';
+import ImageLoader from '../../containers/ImageLoader';
 
 var Avatar = ({ className = '', alt, src }) => (
-    <div>
-        <img itemProp="image" className={classNames(styles.avatar, className)} src={src} alt={alt}/>
-    </div>
+    <ImageLoader src={src} className={classNames(styles.avatar, className)}>
+        <img itemProp="image" src={src} alt={alt}/>
+    </ImageLoader>
 );
 
 Avatar.propTypes = {

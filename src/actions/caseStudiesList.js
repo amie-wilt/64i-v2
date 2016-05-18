@@ -16,6 +16,15 @@ function receiveCaseStudies(caseStudies) {
     }
 }
 
+export const UPDATE_CASE_STUDY = 'UPDATE_CASE_STUDY';
+function updateCaseStudy(id, caseStudy) {
+    return {
+        type: UPDATE_CASE_STUDY,
+        id,
+        caseStudy
+    }
+}
+
 function fetchCaseStudies() {
     return dispatch => {
         dispatch(requestCaseStudies());

@@ -1,8 +1,8 @@
 .avatar {
-    display: block;
-    width: 100%;
-    height: auto;
-    background: #dcdddf;
-    border-radius: 100%;
-    transition: transform .5s ease-out;
+    img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 100%;
+    }
 }

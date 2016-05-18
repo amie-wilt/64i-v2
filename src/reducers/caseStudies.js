@@ -24,13 +24,11 @@ const caseStudy = (state, action) => {
     }
 };
 
-export default (state = {}, action) => {
+export default (state = [], action) => {
     switch (action.type) {
         case REQUEST_CASE_STUDY:
         case RECEIVE_CASE_STUDY:
-            return Object.assign({}, state, {
-                [action.id]: caseStudy(undefined, action)
-            });
+            state.map(caseStudy => caseStudy(caseStudy, action));
             break;
 
         default:

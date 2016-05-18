@@ -1,4 +1,4 @@
-@import "~animate.css";
+@import '../../styles/animations';
 @import "../../styles/variables";
 
 :global {
@@ -17,7 +17,7 @@
     color: #333;
 }
 
-.main-content {
+.content {
     display: flex;
     flex-direction: column;
     flex-grow: 1;

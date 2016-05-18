@@ -1,6 +1,6 @@
-@import "~animate.css";
+@import '../../styles/animations';
 
-.navigation-active {
+.visible {
     @media (max-width: 600px) {
         display: flex;
         z-index: 1;

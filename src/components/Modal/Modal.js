@@ -26,40 +26,60 @@ class InlineModal extends Component {
 
 class Modal extends Component {
     _open() {
+        // capture scroll position
+        this._scrollY = window.scrollY;
+
+        this._modal = document.createElement('div');
+
         this._modalContainer = document.createElement('div');
+        this._modalContainer.classList.add('modal-container');
 
-        var animationListener = () => {
-            this._modalContainer.classList.add('modal-entered');
-            this._modalContainer.classList.remove('modal-enter');
+        this._overlayContainer = document.createElement('div');
+        this._overlayContainer.classList.add('modal-layover');
 
-            document.body.classList.add('no-scroll');
+        this._modal.appendChild(this._overlayContainer);
+        this._modal.appendChild(this._modalContainer);
 
-            this._modalContainer.removeEventListener('animationend', animationListener);
-        };
+        var animationListener = (e) => {
+            if(e.target === this._modalContainer) {
+                this._modal.classList.add('modal-entered');
+                this._modal.classList.remove('modal-enter');
 
-        this._modalContainer.addEventListener('animationend', animationListener);
+                document.body.classList.add('no-scroll');
 
-        this._modalContainer.classList.add('modal');
+                this._modalContainer.removeEventListener('animationend', animationListener);
 
-        document.body.appendChild(this._modalContainer);
-
-        this._modalContainer.classList.add('modal-enter');
-    }
-
-    _close() {
-        var animationListener = () => {
-            this._modalContainer.removeEventListener('animationend', animationListener, false);
-
-            ReactDOM.unmountComponentAtNode(this._modalContainer);
-            document.body.removeChild(this._modalContainer);
-            this._modalContainer = null;
+                if(typeof this.props.onOpen === 'function') {
+                    this.props.onOpen();
+                }
+            }
         };
 
         this._modalContainer.addEventListener('animationend', animationListener, false);
 
+        document.body.appendChild(this._modal);
+
+        this._modal.classList.add('modal-enter');
+    }
+
+    _close() {
+        var animationListener = () => {
+            this._modalContainer.removeEventListener('animationend', animationListener);
+
+            ReactDOM.unmountComponentAtNode(this._modalContainer);
+            document.body.removeChild(this._modal);
+            this._modal = null;
+        };
+
+
+        this._modalContainer.addEventListener('animationend', animationListener, true);
+
         document.body.classList.remove('no-scroll');
 
-        this._modalContainer.classList.add('modal-leave');
+        // restore scroll position
+        window.scrollTo(0, this._scrollY);
+
+        this._modal.classList.add('modal-leave');
     }
 
     _render() {
@@ -73,21 +93,17 @@ class Modal extends Component {
     }
 
     componentDidUpdate() {
-        var open = this.props.open;
+        this._render();
+    }
 
-        if (open && !this._modalContainer) {
-            this._open();
-        }
-
-        if (!open && this._modalContainer) {
-            this._close();
-        }
+    componentWillMount() {
+        this._open();
 
         this._render();
     }
 
     componentWillUnmount() {
-        if(this._modalContainer) {
+        if(this._modal) {
             this._close();
         }
     }

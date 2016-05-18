@@ -48,10 +48,12 @@ module.exports = {
         ]
     },
     postcss: [
-        autoprefixer({browsers: ['last 2 versions']})
+        autoprefixer({
+            browsers: ['last 2 versions']
+        })
     ],
     plugins: [
-        new ExtractTextPlugin('style.css', {allChunks: true}),
+        new ExtractTextPlugin('style.css', { allChunks: true }),
         new webpack.DefinePlugin({
             "process.env": {
                 BROWSER: JSON.stringify(true),
@@ -59,8 +61,7 @@ module.exports = {
             }
         }),
         new webpack.optimize.DedupePlugin(),
-        new webpack.optimize.UglifyJsPlugin({minimize: true}),
-        new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js')
+        new webpack.optimize.UglifyJsPlugin({ minimize: true }),
+        new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js'),
     ]
-
-}
+};

@@ -6,11 +6,11 @@ import NavToggle from '../../containers/NavToggle';
 
 var Header = () => (
     <header className={styles.header}>
-        <div className={styles['logo-container']}>
+        <div className={styles.logo}>
             <Logo />
         </div>
         <NavToggle />
-        <div className="navigation">
+        <div>
             <Navigation />
         </div>
     </header>

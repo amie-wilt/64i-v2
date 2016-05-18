@@ -5,7 +5,7 @@ import pages from '../../data/pages';
 
 const mapStateToProps = (state) => {
     return {
-        navVisible: state.navVisible
+        visible: state.navVisible
     }
 };
 

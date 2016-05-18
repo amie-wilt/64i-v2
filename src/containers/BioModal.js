@@ -1,60 +1,52 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import BioModal from '../components/BioModal/BioModal';
-import {hideBioModal, showBioModal} from '../actions/bioModal';
 import {fetchBioIfNeeded, selectBio} from '../actions/bio';
 import {employees} from '../../data/company';
 import {withRouter} from 'react-router';
 
 function mapStateToProps(state) {
     return {
-        open: state.bioModalOpen,
-        bio: state.selectedBio,
-        loadingBio: state.bioLoading
+        bio: state.selectedBio
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        hide: () => {
-            dispatch(hideBioModal());
+        selectBio: (bio) => {
+            dispatch(selectBio(bio));
         },
         fetchBioIfNeeded: (id) => {
-            var bio = employees.find(employee => employee.id === id);
-
-            dispatch(selectBio(bio));
-            dispatch(fetchBioIfNeeded(id)).then(fetchedBio => {
-                if(fetchedBio) {
-                    Object.assign(bio, fetchedBio.bio);
-                }
-
-                dispatch(showBioModal());
-                dispatch(selectBio(bio));
-            });
+            return dispatch(fetchBioIfNeeded(id));
         }
     }
 }
 
 class BioModalContainer extends Component {
-    componentDidMount() {
-        var { params, fetchBioIfNeeded } = this.props,
-            employeeId = params.employeeId;
+
+    _loadBio() {
+        var { params, fetchBioIfNeeded, bio, selectBio } = this.props,
+            { employeeId } = params;
 
         if (employeeId) {
-            fetchBioIfNeeded(employeeId);
+            fetchBioIfNeeded(employeeId).then(fetchedBio => {
+                var newBio = Object.assign({}, bio, fetchedBio);
+
+                selectBio(newBio);
+            });
         }
     }
 
-    componentWillUnmount() {
-        var { hide } = this.props;
+    componentWillMount() {
+        var { params, selectBio } = this.props,
+            { employeeId } = params,
+            bio = employees.find(employee => employee.id === employeeId);
 
-        hide();
+        selectBio(bio);
     }
 
     render() {
-        return (
-            <BioModal {...this.props} />
-        );
+        return this.props.bio && this.props.bio.id ? <BioModal onModalOpen={this._loadBio.bind(this)} {...this.props} /> : <div></div>;
     }
 }
 

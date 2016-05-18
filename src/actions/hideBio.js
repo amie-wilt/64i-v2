@@ -1,5 +1,4 @@
 import fetch from 'isomorphic-fetch'
-import toggleBioModal from './bioModal';
 import setActiveBio from './bio';
 import toggleBioLoading from './toggleBioLoading';
 
@@ -8,7 +7,6 @@ const getBio  = (id) => {
 };
 
 export default (dispatch, employee) => {
-    dispatch(toggleBioModal());
     dispatch(toggleBioLoading());
     dispatch(setActiveBio(employee));
 

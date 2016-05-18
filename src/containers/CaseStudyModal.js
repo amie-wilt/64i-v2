@@ -1,56 +1,62 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import CaseStudyModal from '../components/CaseStudy/CaseStudyModal/CaseStudyModal';
-import {hideCaseStudyModal, showCaseStudyModal} from '../actions/caseStudyModal';
-import {fetchCaseStudyIfNeeded} from '../actions/caseStudies';
+import {fetchCaseStudyIfNeeded, updateCaseStudy} from '../actions/caseStudies';
 import {selectCaseStudy} from '../actions/selectedCaseStudy';
 import {withRouter} from 'react-router';
 
 function mapStateToProps(state) {
+    console.log(state);
+    
     return {
-        open: state.caseStudyModalOpen,
-        caseStudy: state.selectedCaseStudy
+        caseStudy: state.selectedCaseStudy,
+        caseStudiesList: state.caseStudiesList
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        hide: () => {
-            dispatch(hideCaseStudyModal());
+        selectCaseStudy: (caseStudy) => {
+            dispatch(selectCaseStudy(caseStudy));
         },
         fetchCaseStudy: (id) => {
-            var caseStudy = { id };
-
-            dispatch(selectCaseStudy(caseStudy));
-            dispatch(fetchCaseStudyIfNeeded(id)).then(fetchedCaseStudy => {
-                Object.assign(caseStudy, fetchedCaseStudy);
-                dispatch(showCaseStudyModal());
-                dispatch(selectCaseStudy(caseStudy));
-            });
+            return dispatch(fetchCaseStudyIfNeeded(id));
         }
-    }
+    };
 }
 
 class CaseStudyModalContainer extends Component {
-    componentDidMount() {
-        var { params, fetchCaseStudy } = this.props,
-            caseStudyId = params.caseStudyId;
+    _loadCaseStudy() {
+        var { params, fetchCaseStudy, caseStudy, selectCaseStudy } = this.props,
+            { caseStudyId } = params;
 
         if (caseStudyId) {
-            fetchCaseStudy(caseStudyId);
+            fetchCaseStudy(caseStudyId).then(fetchedCaseStudy => {
+                var newCaseStudy = Object.assign({}, caseStudy, fetchedCaseStudy);
+                
+                selectCaseStudy(newCaseStudy);
+            });
         }
     }
 
-    componentWillUnmount() {
-        var { hide } = this.props;
+    componentWillMount() {
+        var { params, selectCaseStudy } = this.props,
+            { caseStudyId } = params,
+            caseStudy = {
+                id: caseStudyId
+            };
 
-        hide();
+        var existingCaseStudy = this.props.caseStudiesList.items.find(caseStudy => caseStudy.id === caseStudyId);
+
+        if(existingCaseStudy) {
+            existingCaseStudy = Object.assign({}, caseStudy, existingCaseStudy);
+        }
+
+        selectCaseStudy(existingCaseStudy);
     }
 
     render() {
-        return (
-            <CaseStudyModal {...this.props} />
-        );
+        return this.props.caseStudy && this.props.caseStudy.id ? <CaseStudyModal onOpen={this._loadCaseStudy.bind(this)} {...this.props} /> : <div></div>;
     }
 }
 

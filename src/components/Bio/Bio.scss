@@ -1,19 +1,23 @@
- @import "../../styles/animations";
+@import "../../styles/animations";
 @import "../../styles/variables";
 
 .content {
     overflow: scroll;
     -webkit-overflow-scrolling: touch;
-    padding: 2rem 4.5rem 0;
     position: absolute;
     left: 0;
     top: 0;
     bottom: 0;
     right: 0;
     z-index: 1;
+}
 
-    @media (min-width: 600px) {
-        display: flex;
+.innerContent {
+    padding: 2rem 4.5rem 5rem;
+
+    @media (min-width: 850px) {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
     }
 }
 
@@ -23,52 +27,39 @@
     align-items: flex-start;
     margin-bottom: 3rem;
 
-    @media (max-width: 600px) {
-        height: 20rem;
-    }
-
-    @media (max-width: 400px) {
-        height: 15rem;
-    }
-
-    @media (min-width: 600px) {
-        position: absolute;
+    @media (min-width: 850px) {
+        position: fixed;
         z-index: 1;
         width: 700px;
         left: -200px;
         bottom: 0;
         margin-bottom: 0;
-        overflow: hidden;
-    }
-
-    @media (min-width: 900px) {
-        width: 1000px;
     }
 }
 
 .avatar {
     transition: transform .5s $smooth-cubic-bezier;
 
-    @media (max-width: 600px) {
-        width: 20rem;
-    }
-
-    @media (max-width: 400px) {
-        width: 15rem;
-    }
+    width: 20rem;
+    height: 20rem;
 
     @media (min-width: 600px) {
-        max-width: none;
-        border-radius: 0;
-        height: 540px;
+        width: 30rem;
+        height: 30rem;
     }
 
-    img {
-        width: 100%;
+    @media (min-width: 850px) {
+        width: auto;
+        height: auto;
+
+        img {
+            border-radius: 0;
+        }
     }
 }
 
 .employeeName {
+    will-change: opacity;
     font-family: 'Bebas Neue';
     font-size: 3.2rem;
     margin-bottom: .2rem;
@@ -82,10 +73,10 @@
 
 .description {
     opacity: 0;
-    transition: opacity .5s ease-in .4s;
+    will-change: opacity;
 
     :global(.modal-entered) & {
-        opacity: 1;
+        animation: fadeIn .5s ease-in .4s forwards;
     }
 }
 
@@ -98,7 +89,8 @@
         z-index: 2;
     }
 
-    @media (min-width: 900px) {
-        padding-left: 400px;
+    @media (min-width: 850px) {
+        padding-left: 4rem;
+        margin-left: 35rem;
     }
 }

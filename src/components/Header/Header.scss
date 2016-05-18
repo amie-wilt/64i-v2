@@ -1,5 +1,4 @@
 @import '../../styles/animations.scss';
-@import "~animate.css";
 
 .header {
     position: fixed;
@@ -25,7 +24,7 @@
     }
 }
 
-.logo-container {
+.logo {
     flex-grow: 1;
     opacity: 0;
     animation: tuckIn .25s ease-out 1s forwards;

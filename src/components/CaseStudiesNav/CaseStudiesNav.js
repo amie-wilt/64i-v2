@@ -9,7 +9,7 @@ var CaseStudiesNav = ({ caseStudies }) => (
                 <CaseStudyLink
                     className={styles.link}
                     caseStudyId={caseStudy.id}
-                    caseStudyTitle={caseStudy.title}
+                    caseStudyTitle={caseStudy.name}
                     key={caseStudy.id}
                 />
             ))}

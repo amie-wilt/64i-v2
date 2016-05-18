@@ -11,6 +11,10 @@ $caseStudyMaxWidth: 960px;
     bottom: 0;
     right: 0;
     z-index: 1;
+
+    @media (max-height: 600px) {
+        padding-top: 4.5rem;
+    }
 }
 
 .title {

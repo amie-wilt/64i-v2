@@ -3,9 +3,9 @@ import styles from './Navigation.scss';
 import classnames from 'classnames';
 import NavLink from '../../containers/NavLink';
 
-var Navigation = ({ navVisible, pages }) => {
+var Navigation = ({ visible, pages }) => {
     var classes = classnames({
-        [styles['navigation-active']]: navVisible,
+        [styles.visible]: visible,
         [styles.navigation]: true
     });
 
@@ -19,7 +19,7 @@ var Navigation = ({ navVisible, pages }) => {
 };
 
 Navigation.propTypes = {
-    navVisible: React.PropTypes.bool.isRequired,
+    visible: React.PropTypes.bool.isRequired,
     pages: React.PropTypes.array.isRequired
 };
 

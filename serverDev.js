@@ -9,11 +9,6 @@ var compiler = webpack(webpackConfig);
 
 const app = express();
 
-/* api endpoints */
-
-const npmPackages = require('./src/api/routes/npmPackages')
-app.use('/api/npmPackages', npmPackages)
-
 app.get('/api/*', (req, res) => {
     var query = req.params[0];
 
@@ -22,25 +17,23 @@ app.get('/api/*', (req, res) => {
     });
 });
 
-
-const npmPackage = require('./src/api/routes/npmPackage')
-app.use('/api/npmPackage', npmPackage)
-
 app.use(webpackDevMiddleware(compiler, {
     hot: true,
     publicPath: webpackConfig.output.publicPath,
-    stats: {colors: true}
+    stats: {
+        colors: true
+    }
 }));
 
 app.use(webpackHotMiddleware(compiler));
 
-app.use('/public', express.static(__dirname + '/public'))
+app.use('/public', express.static(__dirname + '/public'));
 
-app.get('*', function(req, res) {
+app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.listen(3000, '0.0.0.0', function(err) {
+app.listen(3000, '0.0.0.0', err => {
     if (err) {
         console.log(err);
         return;
