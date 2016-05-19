@@ -26,6 +26,10 @@ $caseStudyMaxWidth: 960px;
     max-width: 920px;
     flex-grow: 1;
     padding: 0 4rem;
+
+    @media (max-width: 40rem) {
+        padding: 0;
+    }
 }
 
 .title {
@@ -41,6 +45,6 @@ $caseStudyMaxWidth: 960px;
 .container {
     flex-grow: 1;
     flex-shrink: 0;
-    padding-bottom: 12rem;
+    padding-bottom: 15rem;
     display: flex;
 }

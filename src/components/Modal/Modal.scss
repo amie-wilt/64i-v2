@@ -61,6 +61,7 @@
         z-index: 10;
         overflow: auto;
         background-color: white;
+        -webkit-overflow-scrolling: touch;
     }
 
     .modal-enter {

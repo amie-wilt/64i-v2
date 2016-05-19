@@ -7,7 +7,7 @@ import {Link} from 'react-router';
 
 var BioModal = ({ bio, onModalOpen }) => {
     return (
-        <Modal onOpen={onModalOpen}>
+        <Modal className={styles.modal} onOpen={onModalOpen}>
             <Link to="/about-us">
                 <Clear className={styles.closeButton} color={'#333'}/>
             </Link>
