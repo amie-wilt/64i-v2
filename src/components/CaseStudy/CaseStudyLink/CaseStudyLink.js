@@ -5,7 +5,7 @@ import classNames from 'classnames';
 
 var CaseStudyLink = ({ caseStudyId, caseStudyTitle, className = ''}) => (
     <Link className={classNames(styles.link, className)} to={`/our-work/case-studies/${caseStudyId}/overview`}>
-        <img className={styles.image} src={`/public/case-studies/${caseStudyId}/overview.jpg`} alt={caseStudyTitle}/>
+        <img className={styles.image} src={`/public/case-studies/${caseStudyId}/link.png`} alt={caseStudyTitle}/>
         <h3 className={styles.name}>{caseStudyTitle}</h3>
     </Link>
 );

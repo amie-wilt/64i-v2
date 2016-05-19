@@ -1,0 +1,74 @@
+@import '../../../styles/animations';
+@import '../../../styles/variables';
+
+.container {
+    animation: tuckIn .5s;
+    display: flex;
+    align-items: flex-start;
+    margin-top: 2rem;
+}
+
+.imageContainer {
+    flex-shrink: 0;
+    flex-grow: 0;
+    margin-right: 4rem;
+    width: 18rem;
+    display: flex;
+    min-height: 20rem;
+
+    > * {
+        flex-grow: 1;
+    }
+
+    img {
+        width: 100%;
+    }
+}
+
+.imageWrapper {
+    position: relative;
+
+    &:after {
+        content: "";
+        position: absolute;
+        z-index: -2;
+        bottom: -15px;
+        left: 20px;
+        right: 20px;
+        height: 0;
+        box-shadow: 0 1px 23px 4px rgba(0, 0, 0, .7);
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+}
+
+.infoContainer {
+    max-width: $max-reading-width;
+    margin-top: 2rem;
+    flex-grow: 1;
+}
+
+.detailsList {
+    overflow: hidden;
+    line-height: 1;
+
+    dt,
+    dd {
+        float: left;
+        margin-top: 1rem;
+    }
+
+    dt {
+        font-weight: 700;
+        margin-right: 1rem;
+        clear: left;
+        text-transform: uppercase;
+    }
+
+    & + .objective {
+        margin-top: 2rem;
+    }
+}
+
+.clientLogo {
+    max-height: 3rem;
+}

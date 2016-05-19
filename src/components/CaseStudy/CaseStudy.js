@@ -4,11 +4,11 @@ import CaseStudyNav from '../../containers/CaseStudyNav';
 
 var CaseStudy = ({ children, caseStudy }) => (
     <section className={styles.content}>
-        <h1 className={styles.title}>{caseStudy.name}</h1>
-        <div className={styles.sectionContainer}>
-            {children}
+        <div className={styles.innerContainer}>
+            <h1 className={styles.title}>{caseStudy.name}</h1>
+            <div className={styles.container}>{children}</div>
+            <CaseStudyNav caseStudyId={caseStudy.id} />
         </div>
-        <CaseStudyNav caseStudyId={caseStudy.id} />
     </section>
 );
 

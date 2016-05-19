@@ -5,7 +5,8 @@ import {withRouter} from 'react-router';
 
 function mapStateToProps(state) {
     return {
-        caseStudy: state.selectedCaseStudy
+        caseStudy: state.selectedCaseStudy,
+        overview: state.selectedCaseStudy.overview,
     }
 }
 

@@ -5,17 +5,27 @@
 $caseStudyMaxWidth: 960px;
 
 .content {
-    padding: 10rem 4.5rem 18rem;
+    padding: 4.5rem 4.5rem 0;
     position: absolute;
     left: 0;
     top: 0;
     bottom: 0;
     right: 0;
     z-index: 1;
+    display: flex;
+    justify-content: center;
 
     @media (max-height: 600px) {
         padding-top: 4.5rem;
     }
+}
+
+.innerContainer {
+    display: flex;
+    flex-direction: column;
+    max-width: 920px;
+    flex-grow: 1;
+    padding: 0 4rem;
 }
 
 .title {
@@ -24,7 +34,12 @@ $caseStudyMaxWidth: 960px;
     opacity: 0;
 
     :global(.modal-entered) & {
-        animation: fadeInUp 1s $smooth-cubic-bezier forwards;
+        animation: fadeIn 1s $smooth-cubic-bezier forwards;
     }
 }
 
+.container {
+    flex-grow: 1;
+    padding-bottom: 18rem;
+    display: flex;
+}

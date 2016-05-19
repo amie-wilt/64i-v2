@@ -9,7 +9,7 @@ $navBGColor: #41403e;
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
-    height: 160px;
+    height: 10rem;
     text-transform: uppercase;
     font-family: 'Bebas Neue';
     color: white;
@@ -19,7 +19,6 @@ $navBGColor: #41403e;
     text-decoration: none;
     text-align: center;
     transition: background-color .25s;
-    background-color: $navBGColor;
     opacity: 0;
 
     :global(.modal-entered) & {
