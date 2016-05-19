@@ -40,6 +40,7 @@ $caseStudyMaxWidth: 960px;
 
 .container {
     flex-grow: 1;
-    padding-bottom: 18rem;
+    flex-shrink: 0;
+    padding-bottom: 12rem;
     display: flex;
 }
