@@ -1,0 +1,21 @@
+.nav {
+    white-space: nowrap;
+    overflow: scroll;
+    text-align: center;
+    -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.link {
+    display: inline-block;
+    vertical-align: top;
+    padding-right: 3rem;
+    overflow: hidden;
+
+    &:first-of-type {
+        padding-left: 3rem;
+    }
+}

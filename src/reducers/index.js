@@ -6,5 +6,6 @@ export testimonialsList from './testimonials';
 export selectedCaseStudy from './selectedCaseStudy';
 export caseStudiesList from './caseStudiesList';
 export caseStudies from './caseStudies';
+export contactForm from './contactForm';
 export { selectedBio } from './selectedBio';
 export { bios } from './bio';
