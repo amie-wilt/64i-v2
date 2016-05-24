@@ -8,6 +8,12 @@
         width: 100%;
         position: fixed;
     }
+
+    #mount {
+        display: flex;
+        flex-grow: 1;
+    }
+
 }
 
 .app {
@@ -33,7 +39,9 @@
     min-height: 100%;
     text-align: center;
 
-    > div {
+    > * {
         animation: fadeIn .5s $smooth-cubic-bezier;
+        flex-grow: 1;
+        flex-shrink: 0;
     }
 }
