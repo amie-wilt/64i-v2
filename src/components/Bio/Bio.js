@@ -1,6 +1,5 @@
 import React, {Component, PropTypes} from 'react';
 import styles from './Bio.scss';
-import ImageLoader from '../../containers/ImageLoader';
 import Avatar from '../Avatar/Avatar';
 import MediaQuery from 'react-responsive';
 

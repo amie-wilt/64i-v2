@@ -4,15 +4,13 @@
     text-decoration: none;
 }
 
-.image {
-    display: block;
+.imageContainer {
     width: 24rem;
     height: 24rem;
     margin: 0 auto 2.5rem;
-    border-radius: 50%;
-    transition: transform .5s ease-out, border-width .5s ease-out;
+    display: flex;
 
-    @media only screen and (max-width: 600px) {
+    @media (max-width: 600px) {
         width: 12rem;
         height: 12rem;
     }
@@ -21,6 +19,16 @@
         width: 18rem;
         height: 18rem;
     }
+
+    > * {
+        flex-grow: 1;
+    }
+}
+
+.image {
+    display: block;
+    border-radius: 50%;
+    width: 100%;
 }
 
 .name {

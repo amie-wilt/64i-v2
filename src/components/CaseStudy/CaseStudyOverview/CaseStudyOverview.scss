@@ -2,10 +2,8 @@
 @import '../../../styles/variables';
 
 .container {
-    animation: tuckIn .5s;
     display: flex;
     align-items: flex-start;
-    margin-top: 2rem;
 
     @media (max-width: 40rem) {
         flex-direction: column;

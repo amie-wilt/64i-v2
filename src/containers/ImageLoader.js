@@ -13,7 +13,9 @@ class ImageLoaderContainer extends Component {
     }
 
     componentDidMount() {
-        var { src } = this.props;
+        var { children } = this.props,
+            { src } = children.props;
+
         var img = new Image();
 
         img.onload = () => {

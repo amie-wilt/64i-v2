@@ -21,10 +21,8 @@ var CaseStudyOverview = ({ caseStudy, overview }) => {
         content = (
             <div className={styles.container}>
                 <div className={styles.imageContainer}>
-                    <ImageLoader src={image}>
-                        <div className={styles.imageWrapper}>
-                            <img src={image} />    
-                        </div>
+                    <ImageLoader className={styles.imageWrapper}>
+                        <img src={image}/>
                     </ImageLoader>
                 </div>
                 <div className={styles.infoContainer}>

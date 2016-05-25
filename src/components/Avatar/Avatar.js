@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import ImageLoader from '../../containers/ImageLoader';
 
 var Avatar = ({ className = '', alt, src }) => (
-    <ImageLoader src={src} className={classNames(styles.avatar, className)}>
+    <ImageLoader className={classNames(styles.avatar, className)}>
         <img itemProp="image" src={src} alt={alt}/>
     </ImageLoader>
 );
