@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import Modal from '../../containers/Modal';
 import Bio from '../Bio/Bio';
-import styles from './BioModal.scss';
+import styles from './BioModal.css';
 import Clear from 'material-ui/lib/svg-icons/content/clear';
 import {Link} from 'react-router';
 

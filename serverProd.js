@@ -50,25 +50,33 @@ app.use((req, res) => {
 
             /* call static fetchData on the container component */
             fetchData().then(()=> {
-                store = configureStore(memoryHistory, store.getState())
+                store = configureStore(memoryHistory, store.getState());
+
                 const content = renderToString(
                     <Provider store={store}>
                         <RouterContext {...renderProps}/>
                     </Provider>
-                )
+                );
+
                 res.send('<!doctype html>\n' + renderToString(<HTML content={content} store={store}/>))
-            }).catch(function(error) {
-                /* do something with error */
+            }).catch(error => {
                 console.log(error.stack);
             });
 
             /* fetch data promise */
             function fetchData() {
-                let { query, params } = renderProps;
+                let { query, params, components } = renderProps;
+
                 return new Promise(function(resolve, reject) {
-                    let comp = renderProps.components[renderProps.components.length - 1].WrappedComponent;
-                    let url = req.protocol + '://' + req.get('host')
-                    resolve(comp.fetchData({ params, store, url }));
+                    let comp = components[components.length - 1].WrappedComponent;
+                    let url = req.protocol + '://' + req.get('host');
+
+                    if(comp && comp.fetchData) {
+                        resolve(comp.fetchData({ params, store, url }));
+                    } else {
+                        resolve();
+                    }
+
                 });
             }
 

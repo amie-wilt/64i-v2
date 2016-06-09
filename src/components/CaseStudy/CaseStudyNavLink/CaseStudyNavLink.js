@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import {Link} from 'react-router';
 import classNames from 'classnames';
-import styles from './CaseStudyNavLink.scss';
+import styles from './CaseStudyNavLink.css';
 
 var CaseStudyNavLink = ({ caseStudyId, sectionId, sectionTitle, isActive, index }) => {
     var delay = `${.5 + (index * .1)}s`;

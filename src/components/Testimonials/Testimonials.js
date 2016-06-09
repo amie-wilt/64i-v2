@@ -1,9 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import TestimonialList from '../../containers/TestimonialList';
-
-if (process.browser) {
-    var styles = require('./Testimonials.scss');
-}
+import styles from './Testimonials.css';
 
 var Testimonials = () => (
     <section className={styles.section}>

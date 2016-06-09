@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import styles from './NavToggle.scss'
+import styles from './NavToggle.css'
 
 var NavToggle = ({ onClick }) => (
     <div className={styles.toggle} onClick={onClick}>

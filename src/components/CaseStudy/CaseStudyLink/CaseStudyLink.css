@@ -1,0 +1,37 @@
+@import '../../../styles/secondary-heading';
+
+.link {
+    text-decoration: none;
+}
+
+.imageContainer {
+    width: 24rem;
+    height: 24rem;
+    margin: 0 auto 2.5rem;
+    display: flex;
+
+    @media (max-width: 600px) {
+        width: 12rem;
+        height: 12rem;
+    }
+
+    @media (max-height: 768px) {
+        width: 18rem;
+        height: 18rem;
+    }
+
+    > * {
+        flex-grow: 1;
+    }
+}
+
+.image {
+    display: block;
+    border-radius: 50%;
+    width: 100%;
+}
+
+.name {
+    @mixin secondary-heading;
+    color: #666;
+}

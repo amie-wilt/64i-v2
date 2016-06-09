@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react'
-import styles from './Avatar.scss'
+import styles from './Avatar.css'
 import classNames from 'classnames';
 import ImageLoader from '../../containers/ImageLoader';
 

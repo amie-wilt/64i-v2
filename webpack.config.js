@@ -34,24 +34,22 @@ module.exports = {
                 loader: ExtractTextPlugin.extract('style', `css?modules&localIdentName=[name]_[local]__[hash:base64:5]!postcss`),
             },
             {
-                test: /\.scss$/,
-                loaders: [
-                    'style',
-                    'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
-                    'sass'
-                ]
-            },
-            {
                 test: /\.(ttf|otf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
                 loader: 'file?name=public/fonts/[name].[ext]'
             }
         ]
     },
-    postcss: [
-        autoprefixer({
-            browsers: ['last 2 versions']
-        })
-    ],
+    postcss: function() {
+        return [
+            postcssImport,
+            postcssMixins,
+            postcssConditionals,
+            postcssSimpleVars,
+            postcssMath,
+            postcssNesting,
+            autoprefixer
+        ]
+    },
     plugins: [
         new ExtractTextPlugin('style.css', { allChunks: true }),
         new webpack.DefinePlugin({

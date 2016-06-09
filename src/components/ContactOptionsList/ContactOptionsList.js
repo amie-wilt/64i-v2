@@ -3,7 +3,7 @@ import { companyEmail, companyAddress, companyPhone } from '../../../data/compan
 import Email from 'material-ui/lib/svg-icons/communication/email';
 import Location from 'material-ui/lib/svg-icons/communication/location-on';
 import Phone from 'material-ui/lib/svg-icons/communication/phone';
-import styles from './ContactOptionsList.scss';
+import styles from './ContactOptionsList.css';
 
 class ContactOptionsList extends Component {
 

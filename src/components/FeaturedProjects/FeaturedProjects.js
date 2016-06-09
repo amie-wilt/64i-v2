@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import CaseStudyNav from '../../containers/CaseStudiesNav';
-import styles from './FeaturedProjects.scss';
+import styles from './FeaturedProjects.css';
 
 var FeaturedProjects = () => (
     <section className={styles.section}>

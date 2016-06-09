@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import CaseStudyLink from '../CaseStudy/CaseStudyLink/CaseStudyLink';
-import styles from './CaseStudiesNav.scss';
+import styles from './CaseStudiesNav.css';
 
 var CaseStudiesNav = ({ caseStudies }) => (
     <div>

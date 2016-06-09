@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import ToolsList from '../ToolsList/ToolsList';
-import styles from './OurTools.scss';
+import styles from './OurTools.css';
 
 var OurTools = () => (
     <section className={styles.section}>

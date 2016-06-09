@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import styles from './Header.scss'
+import styles from './Header.css'
 import Logo from '../Logo/Logo';
 import Navigation from '../../containers/Navigation';
 import NavToggle from '../../containers/NavToggle';

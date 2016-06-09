@@ -9,10 +9,9 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
 import 'reset-css/reset.css';
-import '../../styles/base.scss'
-import '../../styles/typography.scss'
-
-import styles from './App.scss'
+import '../../styles/base.css'
+import '../../styles/typography.css'
+import styles from './App.css'
 
 var App = ({ children }) => (
     <div className={styles.app}>

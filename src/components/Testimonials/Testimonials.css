@@ -1,0 +1,19 @@
+@import '../../styles/variables';
+@import '../../styles/section';
+@import '../../styles/section-title';
+@import '../../styles/secondary-heading';
+
+.section {
+    @mixin section $dark-gray;
+    color: #a3a3a3;
+}
+
+.title {
+    @mixin white-section-title;
+}
+
+.introduction {
+    @mixin secondary-heading;
+    margin-bottom: 4rem;
+    color: #fff;
+}

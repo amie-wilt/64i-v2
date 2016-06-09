@@ -1,6 +1,13 @@
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+const postcssImport = require('postcss-import');
+const postcssMixins = require('postcss-mixins');
+const postcssConditionals = require('postcss-conditionals');
+const postcssSimpleVars = require('postcss-simple-vars');
+const postcssMath = require('postcss-math');
+const postcssNesting = require('postcss-nesting');
 const autoprefixer = require('autoprefixer');
 
 module.exports = {
@@ -22,16 +29,11 @@ module.exports = {
                 exclude: /node_modules/
             },
             {
-                test: /\.css$/i,
-                loaders: ['style', 'css'],
-                include: path.join(__dirname, 'node_modules')
-            },
-            {
-                test: /\.scss$/,
+                test:   /\.css$/,
                 loaders: [
                     'style',
-                    'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
-                    'sass'
+                    'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5',
+                    'postcss'
                 ]
             },
             {
@@ -40,12 +42,17 @@ module.exports = {
             }
         ]
     },
-    postcss: [
-        autoprefixer({
-            browsers: ['last 2 versions']
-        })
-    ],
-
+    postcss: function() {
+        return [
+            postcssImport,
+            postcssMixins,
+            postcssConditionals,
+            postcssSimpleVars,
+            postcssMath,
+            postcssNesting,
+            autoprefixer
+        ]
+    },
     plugins: [
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
@@ -55,4 +62,4 @@ module.exports = {
         })
     ]
 
-};
+}

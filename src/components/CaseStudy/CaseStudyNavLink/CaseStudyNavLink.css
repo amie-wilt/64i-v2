@@ -1,0 +1,45 @@
+@import "../../../styles/animations";
+@import "../../../styles/variables";
+@import "../../../styles/section-title";
+
+$navBGColor: #41403e;
+
+.link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    height: 10rem;
+    text-transform: uppercase;
+    font-family: 'Bebas Neue';
+    color: white;
+    font-size: 24px;
+    border-right: 1px solid rgba(255, 255, 0255, .1);
+    flex-grow: 1;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color .25s;
+    opacity: 0;
+
+    &:first-of-type {
+        border-left: 1px solid rgba(255, 255, 0255, .1);
+    }
+
+    @media (max-height: 600px) {
+        height: 80px;
+        font-size: 18px;
+    }
+
+    &:active {
+        background-color: rgba(0, 0, 0, .3);
+    }
+}
+
+:global(.modal-entered) .link {
+    animation: tuckIn .5s $smooth-cubic-bezier forwards;
+}
+
+.active {
+    background-color: black;
+}
+

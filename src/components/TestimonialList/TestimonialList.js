@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 import Testimonial from '../Testimonial/Testimonial';
-import styles from './TestimonialList.scss';
+import styles from './TestimonialList.css';
 
 var TeamList = ({ testimonials }) => (
     <ul className={styles['testimonials-list']}>

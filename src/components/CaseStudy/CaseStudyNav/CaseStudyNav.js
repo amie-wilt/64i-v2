@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import styles from './CaseStudyNav.scss';
+import styles from './CaseStudyNav.css';
 import CaseStudyNavLink from '../../../containers/CaseStudyNavLink';
 
 var CaseStudyNav = ({ sections, caseStudyId }) => (

@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import styles from './Testimonial.scss';
+import styles from './Testimonial.css';
 
 var Testimonial = ({ testimonial }) => (
     <blockquote itemScope="true" itemProp="review" itemType="https://schema.org/Review">

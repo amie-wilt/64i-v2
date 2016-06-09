@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
 import {Link} from 'react-router';
-import styles from './CaseStudyLink.scss';
+import styles from './CaseStudyLink.css';
 import classNames from 'classnames';
 import ImageLoader from '../../../containers/ImageLoader';
 

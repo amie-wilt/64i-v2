@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import styles from './Bio.scss';
+import styles from './Bio.css';
 import Avatar from '../Avatar/Avatar';
 import MediaQuery from 'react-responsive';
 

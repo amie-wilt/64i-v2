@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router'
-import styles from './Logo.scss'
+import styles from './Logo.css'
 import { companyName } from '../../../data/company';
 
 var Logo = () => (

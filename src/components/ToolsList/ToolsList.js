@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import tools from '../../../data/tools';
 import Tool from '../Tool/Tool';
-import styles from './ToolsList.scss';
+import styles from './ToolsList.css';
 
 var ToolList = () => (
     <ul className={styles.list}>

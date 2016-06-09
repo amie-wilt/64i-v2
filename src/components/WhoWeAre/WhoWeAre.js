@@ -1,9 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import TeamList from '../TeamList/TeamList';
-
-if (process.browser) {
-    var styles = require('./WhoWeAre.scss');
-}
+import styles from './WhoWeAre.css';
 
 var WhoWeAre = () => (
     <section className={styles.section}>

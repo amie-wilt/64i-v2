@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './ImageLoader.scss'
+import styles from './ImageLoader.css'
 import classNames from 'classnames';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 

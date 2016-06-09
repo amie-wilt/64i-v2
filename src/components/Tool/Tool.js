@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-import styles from './Tool.scss';
+import styles from './Tool.css';
 
 var Tool = ({ toolId, toolName, toolUrl }) => (
     <a href={toolUrl}>

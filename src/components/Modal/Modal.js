@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import styles from './Modal.scss';
+import styles from './Modal.css';
 
 class InlineModal extends Component {
     static childContextTypes = {

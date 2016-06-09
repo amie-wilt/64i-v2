@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import ContactOptionsList from '../ContactOptionsList/ContactOptionsList';
 import ContactForm from '../../containers/ContactForm';
-import styles from './ContactUs.scss';
+import styles from './ContactUs.css';
 
 var ContactUs = () => (
     <section className={styles.section}>

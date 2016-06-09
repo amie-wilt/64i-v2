@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-import styles from './Home.scss';
+import styles from './Home.css';
 
 var Home = () => (
     <div></div>

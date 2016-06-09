@@ -1,0 +1,12 @@
+@import '../../styles/section';
+@import '../../styles/section-title';
+@import '../../styles/variables';
+
+.section {
+    @mixin section;
+}
+
+.title {
+    @mixin dark-section-title;
+    margin-bottom: .5rem;
+}

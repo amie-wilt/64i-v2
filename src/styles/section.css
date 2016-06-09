@@ -1,0 +1,8 @@
+@import "./variables";
+
+@define-mixin section $color: white {
+    padding: 6rem 5rem;
+    background-color: $color;
+    flex-shrink: 0;
+}
+

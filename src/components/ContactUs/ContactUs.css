@@ -1,0 +1,21 @@
+@import '../../styles/section.css';
+@import '../../styles/section-title.css';
+@import '../../styles/variables.css';
+
+.section {
+    @mixin section;
+}
+
+.title {
+    @mixin section-title $dark-gray;
+}
+
+.introductionContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.introduction {
+    max-width: $max-reading-width;
+    margin-bottom: 4rem;
+}

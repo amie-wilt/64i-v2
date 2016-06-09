@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import styles from './CaseStudyOverview.scss';
+import styles from './CaseStudyOverview.css';
 import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
 import ImageLoader from '../../../containers/ImageLoader';
 

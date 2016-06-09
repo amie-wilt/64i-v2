@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import styles from './Navigation.scss';
+import styles from './Navigation.css';
 import classnames from 'classnames';
 import NavLink from '../../containers/NavLink';
 

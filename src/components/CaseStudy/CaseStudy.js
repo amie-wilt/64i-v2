@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-import styles from './CaseStudy.scss';
+import styles from './CaseStudy.css';
 import CaseStudyNav from '../../containers/CaseStudyNav';
 
 var CaseStudy = ({ children, caseStudy }) => (
