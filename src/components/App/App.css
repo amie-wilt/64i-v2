@@ -40,7 +40,7 @@
     min-height: 100%;
     text-align: center;
 
-    > * {
+    & > * {
         animation: fadeIn .5s $smooth-cubic-bezier;
         flex-grow: 1;
         flex-shrink: 0;

@@ -1,11 +1,10 @@
 import React, {Component, PropTypes} from 'react';
-import {employees} from '../../../data/company';
 import BioLink from '../BioLink/BioLink';
 import styles from './TeamList.css';
 
-var TeamList = () => (
+var TeamList = ({ employees }) => (
     <div>
-        <ul className={styles['team-list']}>
+        <ul className={styles.list}>
             {employees.map(employee => (
                 <li key={employee.id}>
                     <BioLink id={employee.id} name={employee.name} />
@@ -14,5 +13,9 @@ var TeamList = () => (
         </ul>
     </div>
 );
+
+TeamList.propTypes = {
+    employees: PropTypes.array.isRequired
+};
 
 export default TeamList;

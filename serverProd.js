@@ -1,5 +1,4 @@
 import express from 'express'
-import serialize from 'serialize-javascript'
 import React from 'react'
 import {renderToString} from 'react-dom/server'
 import {Provider} from 'react-redux'
@@ -10,7 +9,10 @@ import routes from './src/routes';
 import database from './database';
 
 const app = express()
-app.use('/public', express.static(__dirname + '/public'))
+
+app.set('view engine', 'pug');
+
+app.use('/public', express.static(__dirname + '/public'));
 
 app.get('/api/*', (req, res) => {
     var query = req.params[0];
@@ -20,70 +22,49 @@ app.get('/api/*', (req, res) => {
     });
 });
 
-const HTML = ({ content, store }) => (
-    <html>
-        <head>
-            <link rel='stylesheet' type='text/css' href='/public/style.css'/>
-        </head>
-        <body>
-            <div id='mount' dangerouslySetInnerHTML={{ __html: content }}/>
-            <script dangerouslySetInnerHTML={{ __html: `window.__initialState__=${serialize(store.getState())};` }}/>
-            <script src='/public/vendor.js'/>
-            <script src='/public/bundle.js'/>
-        </body>
-    </html>
-);
-
 app.use((req, res) => {
-    const memoryHistory = createMemoryHistory(req.path)
-    let store = configureStore(memoryHistory)
-    const history = syncHistoryWithStore(memoryHistory, store)
+    var memoryHistory = createMemoryHistory(req.path),
+        store = configureStore(memoryHistory),
+        history = syncHistoryWithStore(memoryHistory, store);
 
     /* react router match history */
     match({ history, routes, location: req.url }, (error, redirectLocation, renderProps) => {
-
         if (error) {
             res.status(500).send(error.message)
         } else if (redirectLocation) {
             res.redirect(302, redirectLocation.pathname + redirectLocation.search)
         } else if (renderProps) {
+            var fetchData = () => {
+                let { components } = renderProps;
+                let { url } = req;
+                let comp = components[components.length - 1].WrappedComponent;
+                let baseUrl = req.protocol + '://' + req.get('host');
+                let { dispatch } = store; 
 
-            /* call static fetchData on the container component */
+                return comp && comp.fetchData ? comp.fetchData({ baseUrl, dispatch, url }) : Promise.resolve();
+            };
+
             fetchData().then(()=> {
                 store = configureStore(memoryHistory, store.getState());
 
-                const content = renderToString(
+                var content = renderToString(
                     <Provider store={store}>
                         <RouterContext {...renderProps}/>
                     </Provider>
                 );
 
-                res.send('<!doctype html>\n' + renderToString(<HTML content={content} store={store}/>))
+                res.render('index', {
+                    content,
+                    initialState: store.getState(),
+                    scripts: ['/public/vendor.js']
+                });
             }).catch(error => {
                 console.log(error.stack);
             });
-
-            /* fetch data promise */
-            function fetchData() {
-                let { query, params, components } = renderProps;
-
-                return new Promise(function(resolve, reject) {
-                    let comp = components[components.length - 1].WrappedComponent;
-                    let url = req.protocol + '://' + req.get('host');
-
-                    if(comp && comp.fetchData) {
-                        resolve(comp.fetchData({ params, store, url }));
-                    } else {
-                        resolve();
-                    }
-
-                });
-            }
-
         }
-    })
+    });
 
-})
+});
 
 app.listen(3000, 'localhost', function(err) {
     if (err) {

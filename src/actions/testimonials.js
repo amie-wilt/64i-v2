@@ -16,22 +16,22 @@ function receiveTestimonials(testimonials) {
     }
 }
 
-function fetchTestimonials() {
+function fetchTestimonials(baseUrl = '') {
     return dispatch => {
         dispatch(requestTestimonials());
 
-        return fetch(`/api/testimonials`)
+        return fetch(`${baseUrl}/api/testimonials`)
             .then(response => response.json())
             .then(testimonials => dispatch(receiveTestimonials(testimonials)))
             .then(payload => payload.testimonials)
     }
 }
 
-export function fetchTestimonialsIfNeeded() {
+export function fetchTestimonialsIfNeeded(baseUrl) {
     return (dispatch, getState) => {
         var { testimonialsList } = getState();
         var testimonials = testimonialsList.items;
 
-        return testimonials.length ? Promise.resolve(testimonials) : dispatch(fetchTestimonials());
+        return testimonials.length ? Promise.resolve(testimonials) : dispatch(fetchTestimonials(baseUrl));
     }
 }

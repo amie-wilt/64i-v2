@@ -4,17 +4,14 @@ import classNames from 'classnames';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 
 var ImageLoader = ({ loaded, className, children }) => {
-    var image = loaded ? children : null,
-        loading = !loaded ? (
-            <div className={styles.loader}>
-                <LoadingSpinner />
-            </div>
-        ) : null;
+    var loaderClasses = classNames(className, styles.container, {
+        [styles.loaded]: loaded
+    });
 
     return (
-        <div className={classNames(styles.container, className)}>
-            {loading}
-            {image}
+        <div className={loaderClasses}>
+            <LoadingSpinner className={styles.spinner} />
+            {children}
         </div>
     )
 };

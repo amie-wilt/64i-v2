@@ -1,7 +1,15 @@
 const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
+const postcssImport = require('postcss-import');
+const postcssMixins = require('postcss-mixins');
+const postcssConditionals = require('postcss-conditionals');
+const postcssSimpleVars = require('postcss-simple-vars');
+const postcssMath = require('postcss-math');
+const postcssNesting = require('postcss-nesting');
 const autoprefixer = require('autoprefixer');
+
 
 module.exports = {
     entry: {
@@ -31,7 +39,7 @@ module.exports = {
             },
             {
                 test: /\.css$/i,
-                loader: ExtractTextPlugin.extract('style', `css?modules&localIdentName=[name]_[local]__[hash:base64:5]!postcss`),
+                loader: ExtractTextPlugin.extract('style', `css?modules&localIdentName=[name]_[local]__[hash:base64:5]!postcss`)
             },
             {
                 test: /\.(ttf|otf)(\?v=[0-9]\.[0-9]\.[0-9])?$/,

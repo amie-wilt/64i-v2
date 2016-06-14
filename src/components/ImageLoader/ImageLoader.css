@@ -4,12 +4,18 @@
 .container {
     position: relative;
 
-    img {
-        animation: fadeIn .5s $smooth-cubic-bezier;
+    & img {
+        opacity: 0;
+    }
+
+    &.loaded {
+        & img {
+            animation: fadeIn .5s .5s forwards;
+        }
     }
 }
 
-.loader {
+.spinner {
     position: absolute;
     left: 0;
     right: 0;
@@ -19,4 +25,8 @@
     align-items: center;
     justify-content: center;
     z-index: 1;
+}
+
+.loaded .spinner {
+    animation: fadeOut .5s forwards;
 }

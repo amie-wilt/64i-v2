@@ -1,4 +1,3 @@
-import path from 'path'
 import express from 'express'
 import webpack from 'webpack'
 import webpackDevMiddleware from 'webpack-dev-middleware'
@@ -10,6 +9,8 @@ import bodyParser from 'body-parser';
 var compiler = webpack(webpackConfig);
 
 const app = express();
+
+app.set('view engine', 'pug');
 
 app.use(bodyParser.json());       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
@@ -46,7 +47,10 @@ app.use(webpackHotMiddleware(compiler));
 app.use('/public', express.static(__dirname + '/public'));
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
+    res.render('index', {
+        initialState: {},
+        scripts: []
+    });
 });
 
 app.listen(3000, '0.0.0.0', err => {

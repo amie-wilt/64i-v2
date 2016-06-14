@@ -3,6 +3,7 @@ export caseStudyModalOpen from './caseStudyModal';
 export activeView from './activeView';
 export bioLoading from './toggleBioLoading';
 export testimonialsList from './testimonials';
+export teamList from './teamList';
 export selectedCaseStudy from './selectedCaseStudy';
 export caseStudiesList from './caseStudiesList';
 export caseStudies from './caseStudies';

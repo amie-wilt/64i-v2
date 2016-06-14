@@ -2,25 +2,27 @@ import React, {Component, PropTypes} from 'react';
 import styles from './Bio.css';
 import Avatar from '../Avatar/Avatar';
 import MediaQuery from 'react-responsive';
+import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 
-var Bio = ({ bio }) => {
-    var overview = bio.overview,
-        description;
+var Bio = ({ id, bio }) => {
+    var overview;
 
-    if (overview) {
+    if (bio.overview) {
         let overviewMarkup = () => {
             return {
-                __html: overview
+                __html: bio.overview
             }
         };
 
-        description = (
-            <div className={styles.description} dangerouslySetInnerHTML={overviewMarkup()}></div>
+        overview = (
+            <div className={styles.overview} dangerouslySetInnerHTML={overviewMarkup()}></div>
         );
+    } else {
+        overview = <LoadingSpinner />
     }
 
-    var smallAvatarSrc = `/public/${bio.id}-small.jpg`;
-    var largeAvatarSrc = `/public/${bio.id}-large.jpg`;
+    var smallAvatarSrc = `/public/${id}-small.jpg`;
+    var largeAvatarSrc = `/public/${id}-large.jpg`;
 
     return (
         <div className={styles.content}>
@@ -35,7 +37,7 @@ var Bio = ({ bio }) => {
                 </div>
                 <div className={styles.mainContent}>
                     <h1 className={styles.employeeName}>{bio.name}</h1>
-                    { description }
+                    { overview }
                 </div>
             </div>
         </div>
@@ -43,7 +45,8 @@ var Bio = ({ bio }) => {
 };
 
 Bio.propTypes = {
-    bio: React.PropTypes.object.isRequired
+    id: React.PropTypes.string.isRequired,
+    bio: React.PropTypes.object
 };
 
 export default Bio;

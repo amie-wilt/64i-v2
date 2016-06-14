@@ -1,7 +1,7 @@
 @import "../../styles/variables";
 @import "../../styles/utilties";
 
-@keyframes:global(slideInUp) {
+@keyframes slideInUp {
 
     from {
         transform: translate3d(0, 100%, 0);
@@ -13,7 +13,7 @@
     }
 }
 
-@keyframes:global(slideOutDown) {
+@keyframes slideOutDown {
     from {
         transform: translate3d(0, 0, 0);
     }
@@ -24,7 +24,7 @@
     }
 }
 
-@keyframes:global(fadeIn) {
+@keyframes fadeIn {
     from {
         opacity: 0;
     }
@@ -34,7 +34,7 @@
     }
 }
 
-@keyframes:global(fadeOut) {
+@keyframes fadeOut {
     from {
         opacity: 1;
     }
@@ -44,63 +44,58 @@
     }
 }
 
-:global {
-    #mount.hide {
-        display: none;
+#mount.hide {
+    display: none;
+}
+
+.modal-container,
+.modal-layover {
+    @mixin fullscreen;
+    position: fixed;
+    animation-duration: .5s;
+    animation-timing-function: $smooth-cubic-bezier;
+}
+
+.modal-container {
+    z-index: 10;
+    overflow: auto;
+    background-color: white;
+    -webkit-overflow-scrolling: touch;
+}
+
+.modal-enter .modal-container {
+    @media (max-width: 600px) {
+        animation-name: slideInUp;
     }
 
-    .modal-container,
-    .modal-layover {
-        @mixin fullscreen;
-        position: fixed;
-        animation-duration: .5s;
-        animation-timing-function: $smooth-cubic-bezier;
-    }
-
-    .modal-container {
-        z-index: 10;
-        overflow: auto;
-        background-color: white;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .modal-enter {
-        .modal-container {
-            @media (max-width: 600px) {
-                animation-name: slideInUp;
-            }
-
-            @media (min-width: 600px) {
-                animation-name: fadeIn;
-            }
-        }
-    }
-
-    .modal-leave {
-
-        .modal-layover,
-        .modal-container {
-            animation-duration: .25s;
-        }
-
-        .modal-layover {
-            animation-name: fadeOut;
-        }
-
-        .modal-container {
-            @media (max-width: 600px) {
-                animation-name: slideOutDown;
-            }
-
-            @media (min-width: 600px) {
-                animation-name: fadeOut;
-            }
-        }
-    }
-
-    .modal-layover {
-        z-index: 9;
-        background-color: rgba(0, 0, 0, .7);
+    @media (min-width: 600px) {
         animation-name: fadeIn;
     }
+}
+
+:global(.modal-entered) {}
+
+.modal-leave .modal-layover,
+.modal-leave .modal-container {
+    animation-duration: .25s;
+}
+
+.modal-leave .modal-layover {
+    animation-name: fadeOut;
+}
+
+.modal-leave .modal-container {
+    @media (max-width: 600px) {
+        animation-name: slideOutDown;
+    }
+
+    @media (min-width: 600px) {
+        animation-name: fadeOut;
+    }
+}
+
+.modal-layover {
+    z-index: 9;
+    background-color: rgba(0, 0, 0, .7);
+    animation-name: fadeIn;
 }

@@ -5,7 +5,7 @@ import App from './containers/App'
 
 import Home from './components/Home/Home';
 
-import AboutUs from './components/AboutUs/AboutUs';
+import AboutUs from './containers/AboutUs';
 import BioModal from './containers/BioModal';
 
 import OurWork from './components/OurWork/OurWork';

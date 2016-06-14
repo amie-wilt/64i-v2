@@ -1,6 +1,6 @@
 @import '../../styles/utilties';
 
-.team-list {
+.list {
     @mixin reset-list-style;
     display: flex;
     justify-content: center;

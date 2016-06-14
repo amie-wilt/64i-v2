@@ -60,24 +60,24 @@
 
 .employeeName {
     will-change: opacity;
+    opacity: 0;
     font-family: 'Bebas Neue';
     font-size: 3.2rem;
     margin-bottom: .2rem;
-    opacity: 0;
-    transition: opacity .5s ease-in .2s;
+    transition: opacity .5s ease-in 1s;
 }
 
 :global(.modal-entered) .employeeName {
-    opacity: 1;
+    animation: fadeIn .5s ease-in .8s forwards;
 }
 
-.description {
+.overview {
     opacity: 0;
     will-change: opacity;
 }
 
-:global(.modal-entered) .description {
-    animation: fadeIn .5s ease-in .4s forwards;
+:global(.modal-entered) .overview {
+    animation: fadeIn .5s ease-in 1.2s forwards;
 }
 
 .mainContent {

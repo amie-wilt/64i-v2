@@ -15,7 +15,8 @@
     padding-right: 3rem;
     overflow: hidden;
 
-    &:first-of-type {
-        padding-left: 3rem;
+    &:last-of-type {
+        padding-right: 0;
     }
+
 }

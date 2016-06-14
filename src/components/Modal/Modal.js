@@ -32,10 +32,10 @@ class Modal extends Component {
         this._modal = document.createElement('div');
 
         this._modalContainer = document.createElement('div');
-        this._modalContainer.classList.add('modal-container');
+        this._modalContainer.classList.add(styles['modal-container']);
 
         this._overlayContainer = document.createElement('div');
-        this._overlayContainer.classList.add('modal-layover');
+        this._overlayContainer.classList.add(styles['modal-layover']);
 
         this._modal.appendChild(this._overlayContainer);
         this._modal.appendChild(this._modalContainer);
@@ -43,7 +43,7 @@ class Modal extends Component {
         var animationListener = (e) => {
             if(e.target === this._modalContainer) {
                 this._modal.classList.add('modal-entered');
-                this._modal.classList.remove('modal-enter');
+                this._modal.classList.remove(styles['modal-enter']);
 
                 document.body.classList.add('no-scroll');
 
@@ -59,7 +59,7 @@ class Modal extends Component {
 
         document.body.appendChild(this._modal);
 
-        this._modal.classList.add('modal-enter');
+        this._modal.classList.add(styles['modal-enter']);
     }
 
     _close() {
@@ -69,6 +69,10 @@ class Modal extends Component {
             ReactDOM.unmountComponentAtNode(this._modalContainer);
             document.body.removeChild(this._modal);
             this._modal = null;
+
+            if(typeof this.props.onClose === 'function') {
+                this.props.onClose();
+            }
         };
 
 
@@ -79,7 +83,7 @@ class Modal extends Component {
         // restore scroll position
         window.scrollTo(0, this._scrollY);
 
-        this._modal.classList.add('modal-leave');
+        this._modal.classList.add(styles['modal-leave']);
     }
 
     _render() {

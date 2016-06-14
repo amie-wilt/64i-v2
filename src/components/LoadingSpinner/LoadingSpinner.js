@@ -1,10 +1,12 @@
 import React from 'react'
-import 'semantic-ui-loader/loader.css';
+import styles from 'semantic-ui-loader/loader.css';
 
-var LoadingSpinner = () => {
+var LoadingSpinner = ({ className }) => {
+    let classes = `${className} ${styles.ui} ${styles.active} ${styles.inverted} ${styles.dimmer}`;
+
     return (
-        <div className="ui active inverted dimmer">
-            <div className="ui loader"></div>
+        <div className={classes}>
+            <div className={`${styles.ui} ${styles.loader}`}></div>
         </div>
     )
 };
