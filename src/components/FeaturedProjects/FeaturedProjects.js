@@ -5,7 +5,9 @@ import styles from './FeaturedProjects.css';
 var FeaturedProjects = () => (
     <section className={styles.section}>
         <h2 className={styles.title}>Featured Projects</h2>
-        <CaseStudyNav />
+        <div className={styles.projects}>
+            <CaseStudyNav />    
+        </div>
     </section>
 );
 

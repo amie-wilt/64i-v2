@@ -1,4 +1,5 @@
 @import '../../styles/variables';
+@import '../../styles/animations.css';
 @import '../../styles/section';
 @import '../../styles/section-title';
 @import '../../styles/secondary-heading';
@@ -6,6 +7,8 @@
 .section {
     @mixin section $dark-gray;
     color: #a3a3a3;
+    opacity: 0;
+    animation: tuckIn .5s $smooth-cubic-bezier .8s forwards;
 }
 
 .title {
