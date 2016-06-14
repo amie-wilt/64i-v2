@@ -1,6 +1,7 @@
 @import '../../styles/section';
 @import '../../styles/section-title';
 @import '../../styles/variables';
+@import '../../styles/animations.css';
 
 .section {
     @mixin section;
@@ -8,14 +9,23 @@
 
 .title {
     @mixin dark-section-title;
+    opacity: 0;
+    animation: tuckIn .5s $smooth-cubic-bezier forwards;
 }
 
 .introductionContainer {
     display: flex;
     justify-content: center;
+    opacity: 0;
+    animation: tuckIn .5s $smooth-cubic-bezier .25s forwards;
 }
 
 .introduction {
     max-width: $max-reading-width;
     margin-bottom: 4rem;
+}
+
+.teamList {
+    opacity: 0;
+    animation: tuckIn .5s $smooth-cubic-bezier .5s forwards;
 }

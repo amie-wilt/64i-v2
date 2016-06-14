@@ -3,9 +3,11 @@ import {
     RECEIVE_CASE_STUDIES
 } from '../actions/caseStudiesList';
 
+import items from '../../data/case-studies';
+
 export default (state = {
     isFetching: false,
-    items: []
+    items
 }, action) => {
     switch (action.type) {
         case REQUEST_CASE_STUDIES:
