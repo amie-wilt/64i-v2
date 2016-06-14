@@ -3,7 +3,6 @@ import {connect} from 'react-redux'
 import CaseStudyModal from '../components/CaseStudy/CaseStudyModal/CaseStudyModal';
 import {fetchCaseStudyIfNeeded} from '../actions/caseStudies';
 import {selectCaseStudy, resetSelectedCaseStudy} from '../actions/selectedCaseStudy';
-import {withRouter} from 'react-router';
 import caseStudies from '../../data/case-studies.js';
 
 var mapStateToProps = state => {
@@ -58,4 +57,4 @@ class CaseStudyModalContainer extends Component {
     }
 }
 
-export default connect(mapStateToProps)(withRouter(CaseStudyModalContainer))
+export default connect(mapStateToProps)(CaseStudyModalContainer);

@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import { companyEmail, companyAddress, companyPhone } from '../../../data/company';
-import Email from 'material-ui/lib/svg-icons/communication/email';
-import Location from 'material-ui/lib/svg-icons/communication/location-on';
-import Phone from 'material-ui/lib/svg-icons/communication/phone';
+import Email from 'material-ui/svg-icons/communication/email';
+import Location from 'material-ui/svg-icons/communication/location-on';
+import Phone from 'material-ui/svg-icons/communication/phone';
 import styles from './ContactOptionsList.css';
 
 class ContactOptionsList extends Component {

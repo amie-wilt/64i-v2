@@ -48,22 +48,21 @@
     display: none;
 }
 
-.modal-container,
-.modal-layover {
+.container,
+.layover {
     @mixin fullscreen;
     position: fixed;
     animation-duration: .5s;
     animation-timing-function: $smooth-cubic-bezier;
+    transform: translate3d(0, 0, 10px);
 }
 
-.modal-container {
+.container {
     z-index: 10;
     overflow: auto;
     background-color: white;
     -webkit-overflow-scrolling: touch;
-}
 
-.modal-enter .modal-container {
     @media (max-width: 600px) {
         animation-name: slideInUp;
     }
@@ -73,18 +72,16 @@
     }
 }
 
-:global(.modal-entered) {}
-
-.modal-leave .modal-layover,
-.modal-leave .modal-container {
+.modal-leave .layover,
+.modal-leave .container {
     animation-duration: .25s;
 }
 
-.modal-leave .modal-layover {
+.modal-leave .layover {
     animation-name: fadeOut;
 }
 
-.modal-leave .modal-container {
+.modal-leave .container {
     @media (max-width: 600px) {
         animation-name: slideOutDown;
     }
@@ -94,8 +91,29 @@
     }
 }
 
-.modal-layover {
+.layover {
     z-index: 9;
     background-color: rgba(0, 0, 0, .7);
     animation-name: fadeIn;
+}
+
+.close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 4rem;
+    height: 4rem;
+    padding: 1rem;
+    color: white;
+    z-index: 10;
+
+    &:active {
+        background-color: rgba(0, 0, 0, 0.05);
+        border-radius: 100%;
+    }
+
+    @media (min-width: 600px) {
+        width: 3rem !important;
+        height: 3rem !important;
+    }
 }

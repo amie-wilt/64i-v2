@@ -64,20 +64,13 @@
     font-family: 'Bebas Neue';
     font-size: 3.2rem;
     margin-bottom: .2rem;
-    transition: opacity .5s ease-in 1s;
-}
-
-:global(.modal-entered) .employeeName {
     animation: fadeIn .5s ease-in .8s forwards;
 }
 
 .overview {
     opacity: 0;
     will-change: opacity;
-}
-
-:global(.modal-entered) .overview {
-    animation: fadeIn .5s ease-in 1.2s forwards;
+    animation: fadeIn .5s ease-in 1s forwards;
 }
 
 .mainContent {

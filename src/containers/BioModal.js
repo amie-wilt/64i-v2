@@ -3,7 +3,6 @@ import {connect} from 'react-redux'
 import BioModal from '../components/BioModal/BioModal';
 import {fetchBioIfNeeded} from '../actions/bio';
 import {selectBio, resetSelectedBio} from '../actions/selectedBio';
-import {withRouter} from 'react-router';
 import employees from '../../data/employees.js';
 
 function mapStateToProps(state) {
@@ -45,6 +44,8 @@ class BioModalContainer extends Component {
         var { params, dispatch } = this.props,
             { employeeId } = params;
 
+        console.log('loading bio');
+
         loadBio({ dispatch, employeeId });
     }
 
@@ -59,4 +60,4 @@ class BioModalContainer extends Component {
     }
 }
 
-export default connect(mapStateToProps)(withRouter(BioModalContainer))
+export default connect(mapStateToProps)(BioModalContainer);
