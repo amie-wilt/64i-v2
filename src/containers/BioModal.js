@@ -1,8 +1,10 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import BioModal from '../components/BioModal/BioModal';
-import {fetchBioIfNeeded, selectBio, resetSelectedBio} from '../actions/bio';
+import {fetchBioIfNeeded} from '../actions/bio';
+import {selectBio, resetSelectedBio} from '../actions/selectedBio';
 import {withRouter} from 'react-router';
+import employees from '../../data/employees.js';
 
 function mapStateToProps(state) {
     return {
@@ -11,20 +13,13 @@ function mapStateToProps(state) {
     }
 }
 
-function mapDispatchToProps(dispatch) {
-    return {
-        selectBio: (bio) => {
-            dispatch(selectBio(bio));
-        },
-        fetchBioIfNeeded: (url, id) => {
-            return dispatch(fetchBioIfNeeded(url, id));
-        },
-        dispatch
-    }
-}
-
 var loadBio = ({ dispatch, baseUrl, employeeId}) => {
-    selectBio(employeeId);
+    var employee = employees.find(employee => employee.id === employeeId),
+        { name } = employee || {};
+
+    dispatch(selectBio(employeeId, {
+        name
+    }));
 
     return dispatch(fetchBioIfNeeded(baseUrl, employeeId)).then(fetchedBio => {
         dispatch(selectBio(employeeId, fetchedBio));
@@ -56,12 +51,12 @@ class BioModalContainer extends Component {
     render() {
         return (
             <BioModal
-                onModalOpen={this._loadBio.bind(this)}
-                onModalClose={this._resetSelectedBio.bind(this)}
+                onOpen={this._loadBio.bind(this)}
+                onClose={this._resetSelectedBio.bind(this)}
                 {...this.props}
             />
         );
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(BioModalContainer))
+export default connect(mapStateToProps)(withRouter(BioModalContainer))

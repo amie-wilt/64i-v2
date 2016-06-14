@@ -94,3 +94,8 @@
         margin-left: 35rem;
     }
 }
+
+.overviewContainer {
+    position: relative;
+    min-height: 100px;
+}

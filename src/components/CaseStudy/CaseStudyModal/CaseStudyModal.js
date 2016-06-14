@@ -5,8 +5,8 @@ import styles from './CaseStudyModal.css';
 import Clear from '../../../../node_modules/material-ui/lib/svg-icons/content/clear';
 import {Link} from 'react-router';
 
-var CaseStudyModal = ({ children, onOpen }) => (
-    <Modal onOpen={onOpen}>
+var CaseStudyModal = ({ children, onOpen, onClose }) => (
+    <Modal onOpen={onOpen} onClose={onClose}>
         <Link to="/our-work">
             <Clear className={styles.closeButton} color={'#333'}/>
         </Link>
@@ -16,7 +16,8 @@ var CaseStudyModal = ({ children, onOpen }) => (
 
 CaseStudyModal.propTypes = {
     children: React.PropTypes.element,
-    onModalOpen: React.PropTypes.func
+    onOpen: React.PropTypes.func,
+    onClose: React.PropTypes.func
 };
 
 export default CaseStudyModal

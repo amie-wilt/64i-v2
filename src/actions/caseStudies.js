@@ -18,23 +18,23 @@ function receiveCaseStudy(caseStudy, id) {
     }
 }
 
-function fetchCaseStudy(id) {
+function fetchCaseStudy(url = '', id) {
     return dispatch => {
         dispatch(requestCaseStudy(id));
 
-        return fetch(`/api/case-studies/${id}`)
+        return fetch(`${url}/api/case-studies/${id}`)
             .then(response => response.json())
-            .then(payload => dispatch(receiveCaseStudy(payload, id)))
+            .then(caseStudy => dispatch(receiveCaseStudy(caseStudy, id)))
             .then(payload => payload.caseStudy);
     }
 }
 
-export function fetchCaseStudyIfNeeded(id) {
+export function fetchCaseStudyIfNeeded(url, id) {
     return (dispatch, getState) => {
         var { caseStudies } = getState();
         var caseStudy = caseStudies.find(caseStudy => caseStudy.id);
 
-        return caseStudy ? Promise.resolve(caseStudy.caseStudy) : dispatch(fetchCaseStudy(id));
+        return caseStudy ? Promise.resolve(caseStudy.caseStudy) : dispatch(fetchCaseStudy(url, id));
     }
 }
 

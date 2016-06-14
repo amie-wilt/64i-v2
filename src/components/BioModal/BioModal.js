@@ -5,11 +5,11 @@ import styles from './BioModal.css';
 import Clear from 'material-ui/lib/svg-icons/content/clear';
 import {Link} from 'react-router';
 
-var BioModal = ({ bio, onModalOpen, onModalClose, id }) => {
+var BioModal = ({ bio, onOpen, onClose, id }) => {
     var bioTemplate = id ? <Bio bio={bio} id={id} /> : null;
 
     return (
-        <Modal className={styles.modal} onOpen={onModalOpen} onClose={onModalClose}>
+        <Modal className={styles.modal} onOpen={onOpen} onClose={onClose}>
             <Link to="/about-us">
                 <Clear className={styles.closeButton} color={'#333'}/>
             </Link>
@@ -21,8 +21,8 @@ var BioModal = ({ bio, onModalOpen, onModalClose, id }) => {
 BioModal.propTypes = {
     id: React.PropTypes.string,
     bio: React.PropTypes.object,
-    onModalOpen: React.PropTypes.func,
-    onModalClose: React.PropTypes.func
+    onOpen: React.PropTypes.func,
+    onClose: React.PropTypes.func
 };
 
 export default BioModal;

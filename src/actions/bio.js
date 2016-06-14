@@ -1,14 +1,5 @@
 import fetch from 'isomorphic-fetch'
 
-export const SELECT_BIO = 'SELECT_BIO';
-export function selectBio(id, bio) {
-    return {
-        type: SELECT_BIO,
-        id,
-        bio
-    }
-}
-
 export const REQUEST_BIO = 'REQUEST_BIO';
 function requestBio(id) {
     return {
@@ -24,13 +15,6 @@ function receiveBio(bio, id) {
         receivedAt: Date.now (),
         id,
         bio
-    }
-}
-
-export const RESET_SELECTED_BIO = 'RESET_SELECTED_BIO';
-export function resetSelectedBio() {
-    return {
-        type: RESET_SELECTED_BIO
     }
 }
 

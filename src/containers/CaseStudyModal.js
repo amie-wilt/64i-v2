@@ -1,61 +1,61 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import CaseStudyModal from '../components/CaseStudy/CaseStudyModal/CaseStudyModal';
-import {fetchCaseStudyIfNeeded, updateCaseStudy} from '../actions/caseStudies';
-import {selectCaseStudy} from '../actions/selectedCaseStudy';
+import {fetchCaseStudyIfNeeded} from '../actions/caseStudies';
+import {selectCaseStudy, resetSelectedCaseStudy} from '../actions/selectedCaseStudy';
 import {withRouter} from 'react-router';
+import caseStudies from '../../data/case-studies.js';
 
-function mapStateToProps(state) {
+var mapStateToProps = state => {
     return {
-        caseStudy: state.selectedCaseStudy,
-        caseStudiesList: state.caseStudiesList
+        id: state.selectedCaseStudy.id,
+        caseStudy: state.selectedCaseStudy.caseStudy
     }
-}
+};
 
-function mapDispatchToProps(dispatch) {
-    return {
-        selectCaseStudy: (caseStudy) => {
-            dispatch(selectCaseStudy(caseStudy));
-        },
-        fetchCaseStudy: (id) => {
-            return dispatch(fetchCaseStudyIfNeeded(id));
-        }
-    };
-}
+var loadCaseStudy = ({ dispatch, baseUrl, caseStudyId}) => {
+    var caseStudy = caseStudies.find(cs => cs.id === caseStudyId),
+        { name } = caseStudy || {};
+
+    selectCaseStudy(caseStudyId, {
+        name
+    });
+
+    return dispatch(fetchCaseStudyIfNeeded(baseUrl, caseStudyId)).then(fetchedCaseStudy => {
+        dispatch(selectCaseStudy(caseStudyId, fetchedCaseStudy));
+    });
+};
 
 class CaseStudyModalContainer extends Component {
-    _loadCaseStudy() {
-        var { params, fetchCaseStudy, caseStudy, selectCaseStudy } = this.props,
-            { caseStudyId } = params;
+    
+    static fetchData({ store, url = '', baseUrl }) {
+        let caseStudyId  = url.split('/our-work/case-studies/')[1],
+            { dispatch } = store;
 
-        if (caseStudyId) {
-            fetchCaseStudy(caseStudyId).then(fetchedCaseStudy => {
-                var newCaseStudy = Object.assign({}, caseStudy, fetchedCaseStudy);
-                
-                selectCaseStudy(newCaseStudy);
-            });
-        }
+        return loadCaseStudy({ dispatch, baseUrl, caseStudyId });
     }
 
-    componentWillMount() {
-        var { params, selectCaseStudy } = this.props,
-            { caseStudyId } = params,
-            caseStudy = {
-                id: caseStudyId
-            };
+    _resetSelectedBio() {
+        let { dispatch } = this.props;
 
-        var existingCaseStudy = this.props.caseStudiesList.items.find(caseStudy => caseStudy.id === caseStudyId);
+        dispatch(resetSelectedCaseStudy());
+    }
 
-        if(existingCaseStudy) {
-            Object.assign({}, caseStudy, existingCaseStudy);
-        }
+    _loadCaseStudy() {
+        var { params, dispatch } = this.props,
+            { caseStudyId } = params;
 
-        selectCaseStudy(caseStudy);
+        loadCaseStudy({ dispatch, caseStudyId });
     }
 
     render() {
-        return this.props.caseStudy && this.props.caseStudy.id ? <CaseStudyModal onOpen={this._loadCaseStudy.bind(this)} {...this.props} /> : <div></div>;
+        return (
+            <CaseStudyModal
+                onOpen={this._loadCaseStudy.bind(this)}
+                onClose={this._resetSelectedBio.bind(this)}
+                {...this.props} />
+        );
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(CaseStudyModalContainer))
+export default connect(mapStateToProps)(withRouter(CaseStudyModalContainer))

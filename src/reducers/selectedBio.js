@@ -1,7 +1,7 @@
 import {
     SELECT_BIO,
     RESET_SELECTED_BIO
-} from '../actions/bio';
+} from '../actions/selectedBio';
 
 export const selectedBio = (state = {}, action) => {
     switch (action.type) {
@@ -10,9 +10,11 @@ export const selectedBio = (state = {}, action) => {
                 id: action.id,
                 bio: action.bio
             });
+            break;
         
         case RESET_SELECTED_BIO:
             return {};
+            break;
         
         default:
             return state;

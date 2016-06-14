@@ -7,7 +7,7 @@ import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 var Bio = ({ id, bio }) => {
     var overview;
 
-    if (bio.overview) {
+    if (bio && bio.overview) {
         let overviewMarkup = () => {
             return {
                 __html: bio.overview
@@ -37,7 +37,9 @@ var Bio = ({ id, bio }) => {
                 </div>
                 <div className={styles.mainContent}>
                     <h1 className={styles.employeeName}>{bio.name}</h1>
-                    { overview }
+                    <div className={styles.overviewContainer}>
+                        { overview }    
+                    </div>
                 </div>
             </div>
         </div>
