@@ -13,6 +13,14 @@ class Modal extends Component {
         }
     }
 
+    componentWillUnmount() {
+        var { onClose } = this.props;
+
+        if(typeof onClose === 'function') {
+            onClose();
+        }
+    }
+
     render() {
         var { backLink, children } = this.props;
 
@@ -31,7 +39,8 @@ class Modal extends Component {
 Modal.propTypes = {
     backLink: React.PropTypes.string.isRequired,
     children: React.PropTypes.element,
-    onOpen: React.PropTypes.func
+    onOpen: React.PropTypes.func,
+    onClose: React.PropTypes.func,
 };
 
 export default Modal;

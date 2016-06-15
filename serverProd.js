@@ -66,10 +66,10 @@ app.use((req, res) => {
 
 });
 
-app.listen(3000, 'localhost', function(err) {
+app.listen(3000, '0.0.0.0', err => {
     if (err) {
         console.log(err);
         return;
     }
     console.log('listening on http://127.0.0.1:3000')
-})
+});

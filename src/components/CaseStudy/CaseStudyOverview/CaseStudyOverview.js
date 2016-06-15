@@ -3,7 +3,7 @@ import styles from './CaseStudyOverview.css';
 import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
 import ImageLoader from '../../../containers/ImageLoader';
 
-var CaseStudyOverview = ({ caseStudy, overview }) => {
+var CaseStudyOverview = ({ id, overview }) => {
     var loading = !overview ? (
         <LoadingSpinner />
     ) : null;
@@ -16,7 +16,7 @@ var CaseStudyOverview = ({ caseStudy, overview }) => {
                 __html: overview.objective
             }
         };
-        var image = `/public/case-studies/${caseStudy.id}/overview.jpg`;
+        var image = `/public/case-studies/${id}/overview.jpg`;
 
         content = (
             <div className={styles.container}>
@@ -45,7 +45,7 @@ var CaseStudyOverview = ({ caseStudy, overview }) => {
 };
 
 CaseStudyOverview.propTypes = {
-    caseStudy: React.PropTypes.object.isRequired,
+    id: React.PropTypes.string.isRequired,
     overview: React.PropTypes.object
 };
 

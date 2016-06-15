@@ -14,12 +14,8 @@ $navBGColor: #41403e;
     background-color: $navBGColor;
     opacity: 0;
     z-index: 1;
-}
-
-:global(.modal-entered) .navContainer {
     animation: fadeIn .75s $smooth-cubic-bezier forwards;
 }
-
 
 .nav {
     display: flex;

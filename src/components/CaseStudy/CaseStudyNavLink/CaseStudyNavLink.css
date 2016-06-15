@@ -35,7 +35,7 @@ $navBGColor: #41403e;
     }
 }
 
-:global(.modal-entered) .link {
+.link {
     animation: tuckIn .5s $smooth-cubic-bezier forwards;
 }
 

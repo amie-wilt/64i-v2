@@ -40,7 +40,7 @@ $caseStudyMaxWidth: 960px;
     min-height: 6.4rem;
 }
 
-:global(.modal-entered) .title {
+.title {
     animation: fadeIn 1s $smooth-cubic-bezier forwards;
 }
 
