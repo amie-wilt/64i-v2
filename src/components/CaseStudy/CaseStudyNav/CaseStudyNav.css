@@ -4,11 +4,7 @@
 
 $navBGColor: #41403e;
 
-.navContainer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    right: 0;
+.container {
     display: flex;
     justify-content: center;
     background-color: $navBGColor;

@@ -1,47 +1,9 @@
 @import "../../styles/variables";
 @import "../../styles/utilties";
+@import "../../styles/animations.css";
 
-@keyframes slideInUp {
-
-    from {
-        transform: translate3d(0, 100%, 0);
-        visibility: visible;
-    }
-
-    to {
-        transform: translate3d(0, 0, 0);
-    }
-}
-
-@keyframes slideOutDown {
-    from {
-        transform: translate3d(0, 0, 0);
-    }
-
-    to {
-        visibility: hidden;
-        transform: translate3d(0, 100%, 0);
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes fadeOut {
-    from {
-        opacity: 1;
-    }
-
-    to {
-        opacity: 0;
-    }
+.open {
+    overflow: hidden;
 }
 
 .container,
@@ -50,18 +12,15 @@
     position: fixed;
     animation-duration: .5s;
     animation-timing-function: $smooth-cubic-bezier;
-    transform: translate3d(0, 0, 10px);
 }
 
 .container {
     z-index: 10;
-    overflow: auto;
     background-color: white;
-    -webkit-overflow-scrolling: touch;
     text-align: left;
 
     @media (max-width: 600px) {
-        animation-name: slideInUp;
+        animation-name: fadeInUp;
     }
 
     @media (min-width: 600px) {

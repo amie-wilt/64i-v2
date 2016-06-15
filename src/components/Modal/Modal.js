@@ -8,7 +8,8 @@ class Modal extends Component {
         var { animationName } = event,
             { onOpen } = this.props;
 
-        if((animationName === styles.fadeIn || animationName === styles.slideInUp) && typeof onOpen === 'function') {
+        if((animationName === styles.fadeInUp || animationName === styles.slideInUp) && typeof onOpen === 'function') {
+            document.body.classList.add(styles.open);
             onOpen();
         }
     }
@@ -17,6 +18,7 @@ class Modal extends Component {
         var { onClose } = this.props;
 
         if(typeof onClose === 'function') {
+            document.body.classList.remove(styles.open);
             onClose();
         }
     }

@@ -3,13 +3,17 @@ import styles from './CaseStudy.css';
 import CaseStudyNav from '../../containers/CaseStudyNav';
 
 var CaseStudy = ({ children, caseStudy, id }) => (
-    <section className={styles.content}>
-        <div className={styles.innerContainer}>
-            <h1 className={styles.title}>{caseStudy.name}</h1>
-            <div className={styles.container}>{children}</div>
-            <CaseStudyNav caseStudyId={id} />
+    <div className={styles.container}>
+        <div className={styles.wrapper}>
+            <div className={styles.content}>
+                <h1 className={styles.title}>{caseStudy.name}</h1>
+                <main className={styles.main}>{children}</main>
+            </div>
+            <div className={styles.nav}>
+                <CaseStudyNav caseStudyId={id} />
+            </div>
         </div>
-    </section>
+    </div>
 );
 
 CaseStudy.propTypes = {

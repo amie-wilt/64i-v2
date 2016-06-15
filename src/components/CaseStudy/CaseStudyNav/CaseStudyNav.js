@@ -3,7 +3,7 @@ import styles from './CaseStudyNav.css';
 import CaseStudyNavLink from '../../../containers/CaseStudyNavLink';
 
 var CaseStudyNav = ({ sections, caseStudyId }) => (
-    <div className={styles.navContainer}>
+    <div className={styles.container}>
         <nav role="navigation" className={styles.nav}>
             {sections.map((section, i) => (
                 <CaseStudyNavLink
