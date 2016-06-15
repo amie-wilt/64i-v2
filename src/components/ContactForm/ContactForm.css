@@ -1,21 +1,46 @@
-.nav {
-    white-space: nowrap;
-    overflow: scroll;
-    text-align: center;
-    -webkit-overflow-scrolling: touch;
+$formWidth: 500px;
 
-    &::-webkit-scrollbar {
-        display: none;
-    }
+@define-mixin formField {
+    width: $formWidth;
+    border: 1px solid #B2B2B2;
+    padding: 6px 12px;
+    box-sizing: border-box;
+    background-color: #FBFBFB;
+    box-shadow: inset 0 8px 8px -8px #EDEDED;
+    font: inherit;
 }
 
-.link {
-    display: inline-block;
-    vertical-align: top;
-    padding-right: 3rem;
-    overflow: hidden;
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-    &:first-of-type {
-        padding-left: 3rem;
-    }
+.input {
+    @mixin formField;
+}
+
+.select {
+    width: $formWidth;
+    margin-top: 20px;
+}
+
+.textarea {
+    @mixin formField;
+    height: 200px;
+    margin-top: 20px;
+    resize: none;
+}
+
+.submit {
+    width: 160px;
+    height: 40px;
+    margin-top: 20px;
+    border: 0;
+    border-radius: 2px;
+    background-image: linear-gradient(#90CEB0, #68B89D);
+    color: #fff;
+    box-shadow: 0 2px 1px -1px #D9EDE6;
+    font: inherit;
+    font-weight: bold;
 }
