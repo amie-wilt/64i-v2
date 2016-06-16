@@ -1,26 +1,61 @@
 import React, { PropTypes, Component } from 'react';
 import Clear from 'material-ui/svg-icons/content/clear';
-import {Link} from 'react-router';
+import {Link, withRouter} from 'react-router';
 import styles from './Modal.css';
 
 class Modal extends Component {
-    _onAnimationEnd(event) {
-        var { animationName } = event,
-            { onOpen } = this.props;
+    constructor(props) {
+        super(props);
 
-        if((animationName === styles.fadeInUp || animationName === styles.slideInUp) && typeof onOpen === 'function') {
-            document.body.classList.add(styles.open);
+        this._keyupListener = this._keyupListener.bind(this);
+    }
+
+    _keyupListener(e) {
+        if(e.keyCode === 27) {
+            let { router, backLink } = this.props;
+
+            router.push(backLink);
+        }
+    }
+
+    _open() {
+        var { onOpen } = this.props;
+
+        document.body.classList.add(styles.open);
+        document.addEventListener('keyup', this._keyupListener.bind(this));
+
+        if(typeof onOpen === 'function') {
             onOpen();
         }
     }
 
-    componentWillUnmount() {
+    _close() {
         var { onClose } = this.props;
 
+        document.body.classList.remove(styles.open);
+        document.removeEventListener('keyup', this._keyupListener.bind(this));
+
         if(typeof onClose === 'function') {
-            document.body.classList.remove(styles.open);
             onClose();
         }
+    }
+
+    _onAnimationEnd(event) {
+        var { target } = event;
+
+        if(target === this.container) {
+            this._open();
+        }
+    }
+
+    _containerRef(el) {
+        if(el) {
+            this.container = el;
+        }
+    }
+
+    componentWillUnmount() {
+        this._close();
     }
 
     render() {
@@ -28,8 +63,10 @@ class Modal extends Component {
 
         return (
             <div>
-                <div className={styles.container} onAnimationEnd={this._onAnimationEnd.bind(this)}>
-                    <Link className={styles.close} to={backLink}>GO BACK</Link>
+                <div className={styles.container} onAnimationEnd={this._onAnimationEnd.bind(this)} ref={this._containerRef.bind(this)}>
+                    <Link className={styles.close} to={backLink}>
+                        <span>Close</span>
+                    </Link>
                     {children}
                 </div>
                 <div className={styles.layover}></div>
@@ -45,4 +82,4 @@ Modal.propTypes = {
     onClose: React.PropTypes.func,
 };
 
-export default Modal;
+export default withRouter(Modal);

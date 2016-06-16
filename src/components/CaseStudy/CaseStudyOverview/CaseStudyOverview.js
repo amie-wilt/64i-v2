@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import styles from './CaseStudyOverview.css';
 import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
-import ImageLoader from '../../../containers/ImageLoader';
+import ShadowedImage from '../../ShadowedImage/ShadowedImage';
 
 var CaseStudyOverview = ({ id, overview }) => {
     var loading = !overview ? (
@@ -11,19 +11,19 @@ var CaseStudyOverview = ({ id, overview }) => {
     var content;
     if(overview) {
         let { client } = overview;
+        
         let objectiveRender = () => {
             return {
                 __html: overview.objective
             }
         };
-        var image = `/public/case-studies/${id}/overview.jpg`;
-
+        
         content = (
             <div className={styles.container}>
                 <div className={styles.imageContainer}>
-                    <ImageLoader className={styles.imageWrapper}>
-                        <img src={image}/>
-                    </ImageLoader>
+                    <ShadowedImage className={styles.imageWrapper}>
+                        <img src={`/public/case-studies/${id}/overview.jpg`}/>   
+                    </ShadowedImage>
                 </div>
                 <div className={styles.infoContainer}>
                     <dl className={styles.detailsList}>
@@ -37,11 +37,10 @@ var CaseStudyOverview = ({ id, overview }) => {
                     </div>
                 </div>
             </div>
-
         );
     }
 
-    return loading ? loading : content;
+    return loading || content;
 };
 
 CaseStudyOverview.propTypes = {

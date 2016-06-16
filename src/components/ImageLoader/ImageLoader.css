@@ -3,16 +3,6 @@
 
 .container {
     position: relative;
-
-    & img {
-        opacity: 0;
-    }
-
-    &.loaded {
-        & img {
-            animation: fadeIn .5s .5s forwards;
-        }
-    }
 }
 
 .spinner {
@@ -29,4 +19,12 @@
 
 .loaded .spinner {
     animation: fadeOut .5s forwards;
+}
+
+.image {
+    opacity: 0;
+}
+
+.loaded .image {
+    animation: fadeIn .5s .5s forwards;
 }

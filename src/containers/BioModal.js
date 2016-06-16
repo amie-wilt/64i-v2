@@ -44,8 +44,6 @@ class BioModalContainer extends Component {
         var { params, dispatch } = this.props,
             { employeeId } = params;
 
-        console.log('loading bio');
-
         loadBio({ dispatch, employeeId });
     }
 

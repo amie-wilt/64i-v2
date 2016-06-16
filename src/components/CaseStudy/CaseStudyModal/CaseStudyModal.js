@@ -2,15 +2,19 @@ import React, {Component} from 'react'
 import Modal from '../../../components/Modal/Modal';
 import CaseStudy from '../../../containers/CaseStudy';
 
-var CaseStudyModal = ({ children, onOpen, onClose }) => (
-    <Modal
-        backLink="/our-work"
-        onOpen={onOpen}
-        onClose={onClose}
-    >
-        <CaseStudy>{children}</CaseStudy>
-    </Modal>
-);
+var CaseStudyModal = ({ children, onOpen, onClose, id }) => {
+    var caseStudy = id ? <CaseStudy>{children}</CaseStudy>: null;
+
+    return (
+        <Modal
+            backLink="/our-work"
+            onOpen={onOpen}
+            onClose={onClose}
+        >
+            {caseStudy}
+        </Modal>
+    );
+};
 
 CaseStudyModal.propTypes = {
     children: React.PropTypes.element,

@@ -5,6 +5,12 @@ import {fetchCaseStudyIfNeeded} from '../actions/caseStudies';
 import {selectCaseStudy, resetSelectedCaseStudy} from '../actions/selectedCaseStudy';
 import caseStudies from '../../data/case-studies.js';
 
+var mapStateToProps = state => {
+    return {
+        id: state.selectedCaseStudy.id
+    }
+};
+
 var loadCaseStudy = ({ dispatch, baseUrl, caseStudyId}) => {
     var caseStudy = caseStudies.find(cs => cs.id === caseStudyId),
         { name } = caseStudy || {};
@@ -42,13 +48,9 @@ class CaseStudyModalContainer extends Component {
 
     render() {
         return (
-            <CaseStudyModal
-                {...this.props}
-                onOpen={this._loadCaseStudy.bind(this)}
-                onClose={this._resetSelectedBio.bind(this)}
-            />
+            <CaseStudyModal {...this.props} onOpen={this._loadCaseStudy.bind(this)} onClose={this._resetSelectedBio.bind(this)} />
         );
     }
 }
 
-export default connect()(CaseStudyModalContainer);
+export default connect(mapStateToProps)(CaseStudyModalContainer);
