@@ -5,7 +5,7 @@ import webpackConfig from './webpack.config.dev'
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import database from './database';
 import bodyParser from 'body-parser';
-import api from './src/api/api';
+import api from './src/api/index';
 
 var compiler = webpack(webpackConfig);
 
