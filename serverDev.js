@@ -5,6 +5,7 @@ import webpackConfig from './webpack.config.dev'
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import database from './database';
 import bodyParser from 'body-parser';
+import api from './src/api/api';
 
 var compiler = webpack(webpackConfig);
 
@@ -17,13 +18,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
     extended: false
 }));
 
-app.get('/api/*', (req, res) => {
-    var query = req.params[0];
-
-    database.child(query).once('value').then(snapshot => {
-        res.send(snapshot.val());
-    });
-});
+app.use('/api', api);
 
 app.post('/contact-form', (req, res) => {
     var now = (new Date).getTime(),

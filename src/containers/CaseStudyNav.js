@@ -5,6 +5,7 @@ import sections from '../components/CaseStudy/caseStudySections';
 
 function mapStateToProps(state) {
     return {
+        id: state.selectedCaseStudy.id,
         activeView: state.activeView
     }
 }

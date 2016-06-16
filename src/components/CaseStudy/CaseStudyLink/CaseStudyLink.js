@@ -1,29 +1,26 @@
 import React, {PropTypes} from 'react';
 import {Link} from 'react-router';
 import styles from './CaseStudyLink.css';
-import classNames from 'classnames';
 import ImageLoader from '../../../containers/ImageLoader';
 
-var CaseStudyLink = ({ caseStudyId, caseStudyTitle, className = '' }) => {
-    let imgSrc = `/public/case-studies/${caseStudyId}/link.png`;
-
+var CaseStudyLink = ({ text, url, image }) => {
     return (
-        <Link className={classNames(styles.link, className)} to={`/our-work/case-studies/${caseStudyId}/overview`}>
+        <Link className={styles.link} to={url}>
             <div className={styles.imageContainer}>
                 <ImageLoader>
-                    <img className={styles.image} src={imgSrc} alt={caseStudyTitle}/>
+                    <img className={styles.image} src={image} alt={text}/>
                 </ImageLoader>
             </div>
-            <h3 className={styles.name}>{caseStudyTitle}</h3>
+            <h3 className={styles.name}>{text}</h3>
         </Link>
     )
 
 };
 
 CaseStudyLink.propTypes = {
-    caseStudyId: PropTypes.string.isRequired,
-    caseStudyTitle: PropTypes.string.isRequired,
-    className: PropTypes.string
+    text: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired,
+    image: PropTypes.string
 };
 
 export default CaseStudyLink

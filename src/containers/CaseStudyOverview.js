@@ -4,8 +4,8 @@ import CaseStudyOverview from '../components/CaseStudy/CaseStudyOverview/CaseStu
 
 function mapStateToProps(state) {
     return {
-        id: state.selectedCaseStudy.id,
-        overview: state.selectedCaseStudy.caseStudy ? state.selectedCaseStudy.caseStudy.overview : null
+        overview: state.selectedCaseStudy.caseStudy ? state.selectedCaseStudy.caseStudy.overview : null,
+        client: state.selectedCaseStudy.caseStudy ? state.selectedCaseStudy.caseStudy.client : null
     }
 }
 

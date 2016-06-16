@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import styles from './CaseStudyDetails.css';
 import ShadowedImage from '../../ShadowedImage/ShadowedImage';
 
-var CaseStudyOverview = () => {
+var CaseStudyDetails = ({ details }) => (
     <div className={styles.container}>
         <ul className={styles.list}>
             <li>
@@ -10,10 +10,10 @@ var CaseStudyOverview = () => {
             </li>
         </ul>
     </div>
+);
+
+CaseStudyDetails.propTypes = {
+    details: React.PropTypes.object.isRequired
 };
 
-CaseStudyOverview.propTypes = {
-    caseStudy: React.PropTypes.object.isRequired
-};
-
-export default CaseStudyOverview;
+export default CaseStudyDetails;

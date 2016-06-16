@@ -10,7 +10,7 @@ var CaseStudy = ({ children, caseStudy, id }) => (
                 <main className={styles.main}>{children}</main>
             </div>
             <div className={styles.nav}>
-                <CaseStudyNav caseStudyId={id} />
+                <CaseStudyNav />
             </div>
         </div>
     </div>

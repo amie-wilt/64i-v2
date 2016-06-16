@@ -1,8 +1,0 @@
-{
-  "client": {
-    "id": "amazon",
-    "name": "Amazon"
-  },
-  "timeline": "6 months",
-  "objective": "<p>Our objective was to build out the new front-end of the Amazon App Store via HTML and CSS. We worked on and off-site with their designers and backend developers to integrate the new UI. We optimized the app for performance while while working through the many Android browser quirks.</p>"
-}

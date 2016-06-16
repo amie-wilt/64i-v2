@@ -3,15 +3,11 @@ import styles from './CaseStudyOverview.css';
 import LoadingSpinner from '../../LoadingSpinner/LoadingSpinner';
 import ShadowedImage from '../../ShadowedImage/ShadowedImage';
 
-var CaseStudyOverview = ({ id, overview }) => {
-    var loading = !overview ? (
-        <LoadingSpinner />
-    ) : null;
+var CaseStudyOverview = ({ overview, client }) => {
+    var loading = !overview ? <LoadingSpinner /> : null;
 
     var content;
     if(overview) {
-        let { client } = overview;
-        
         let objectiveRender = () => {
             return {
                 __html: overview.objective
@@ -22,13 +18,15 @@ var CaseStudyOverview = ({ id, overview }) => {
             <div className={styles.container}>
                 <div className={styles.imageContainer}>
                     <ShadowedImage className={styles.imageWrapper}>
-                        <img src={`/public/case-studies/${id}/overview.jpg`}/>   
+                        <img src={overview.image}/>
                     </ShadowedImage>
                 </div>
                 <div className={styles.infoContainer}>
                     <dl className={styles.detailsList}>
                         <dt className={styles.client}>Client:</dt>
-                        <dd className={styles.client}><img className={styles.clientLogo} src={`/public/${client.id}.svg`} alt={client.name} /></dd>
+                        <dd className={styles.client}>
+                            <img className={styles.clientLogo} src={client.logo} alt={client.name} />
+                        </dd>
                         <dt className={styles.timeline}>Timeline:</dt>
                         <dd className={styles.timeline}>{overview.timeline}</dd>
                     </dl>
@@ -44,8 +42,8 @@ var CaseStudyOverview = ({ id, overview }) => {
 };
 
 CaseStudyOverview.propTypes = {
-    id: React.PropTypes.string.isRequired,
-    overview: React.PropTypes.object
+    overview: React.PropTypes.object,
+    client: React.PropTypes.object
 };
 
 export default CaseStudyOverview;

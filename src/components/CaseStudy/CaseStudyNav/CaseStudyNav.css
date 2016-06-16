@@ -18,4 +18,20 @@ $navBGColor: #41403e;
     justify-content: center;
     max-width: $caseStudyMaxWidth;
     flex-grow: 1;
+
+    & > :nth-child(1) {
+        animation-delay: .5s;
+    }
+
+    & > :nth-child(2) {
+        animation-delay: .6s;
+    }
+
+    & > :nth-child(3) {
+        animation-delay: .7s;
+    }
+
+    & > :nth-child(4) {
+        animation-delay: .8s;
+    }
 }

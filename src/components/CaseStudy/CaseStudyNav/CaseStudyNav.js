@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import styles from './CaseStudyNav.css';
 import CaseStudyNavLink from '../../../containers/CaseStudyNavLink';
 
-var CaseStudyNav = ({ sections, caseStudyId }) => (
+var CaseStudyNav = ({ sections }) => (
     <div className={styles.container}>
         <nav role="navigation" className={styles.nav}>
             {sections.map((section, i) => (
@@ -18,7 +18,6 @@ var CaseStudyNav = ({ sections, caseStudyId }) => (
 );
 
 CaseStudyNav.propTypes = {
-    caseStudyId: React.PropTypes.string.isRequired,
     sections: React.PropTypes.array.isRequired
 };
 

@@ -4,18 +4,19 @@ import CaseStudyNavLink from '../components/CaseStudy/CaseStudyNavLink/CaseStudy
 
 function mapStateToProps(state) {
     return {
-        caseStudyId: state.selectedCaseStudy.id,
+        id: state.selectedCaseStudy.id,
         activeView: state.activeView
     }
 }
 
 class CaseStudyNavLinkContainer extends Component {
     render() {
-        var { activeView, sectionId, caseStudyId } = this.props;
-        var isActive = activeView === `/our-work/case-studies/${caseStudyId}/${sectionId}`;
+        var { activeView, sectionId, id, sectionTitle } = this.props;
+        var url = `/our-work/case-studies/${id}/${sectionId}`;
+        var isActive = activeView === url;
 
         return (
-            <CaseStudyNavLink {...this.props} isActive={isActive} />
+            <CaseStudyNavLink text={sectionTitle} isActive={isActive} url={url} />
         )
     }
 }

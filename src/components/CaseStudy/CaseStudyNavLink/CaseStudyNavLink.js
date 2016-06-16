@@ -3,24 +3,20 @@ import {Link} from 'react-router';
 import classNames from 'classnames';
 import styles from './CaseStudyNavLink.css';
 
-var CaseStudyNavLink = ({ caseStudyId, sectionId, sectionTitle, isActive, index }) => {
-    var delay = `${.5 + (index * .1)}s`;
-    var linkClasses = classNames({
-            [styles.link]: true,
-            [styles.active]: isActive
-        });
+var CaseStudyNavLink = ({ text, isActive, url }) => {
+    var linkClasses = classNames(styles.link, {
+        [styles.active]: isActive
+    });
 
     return (
-        <Link style={{ animationDelay:  delay}} className={linkClasses} to={`/our-work/case-studies/${caseStudyId}/${sectionId}`}>{sectionTitle}</Link>
+        <Link className={linkClasses} to={url}>{text}</Link>
     );
 };
 
 CaseStudyNavLink.propTypes = {
-    caseStudyId: React.PropTypes.string.isRequired,
-    sectionTitle: React.PropTypes.string.isRequired,
-    sectionId: React.PropTypes.string.isRequired,
-    isActive: React.PropTypes.bool.isRequired,
-    index: React.PropTypes.number.isRequired
+    url: React.PropTypes.string.isRequired,
+    text: React.PropTypes.string.isRequired,
+    isActive: React.PropTypes.bool.isRequired
 };
 
 export default CaseStudyNavLink;

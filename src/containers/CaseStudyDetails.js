@@ -1,12 +1,13 @@
 import React, {Component, PropTypes} from 'react'
 import {connect} from 'react-redux'
 import CaseStudyDetails from '../components/CaseStudy/CaseStudyDetails/CaseStudyDetails';
-import {withRouter} from 'react-router';
 
 function mapStateToProps(state) {
+    console.log(state);
+    
     return {
-        caseStudy: state.activeCaseStudy
+        details: state.selectedCaseStudy.caseStudy.details
     }
 }
 
-export default connect(mapStateToProps)(withRouter(CaseStudyDetails))
+export default connect(mapStateToProps)(CaseStudyDetails)
