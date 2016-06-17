@@ -8,8 +8,12 @@
   "overview": {
     "image": "/public/case-studies/amazon-app-store/overview.jpg",
     "objective": "<p>Our objective was to build out the new front-end of the Amazon App Store via HTML and CSS. We worked on and off-site with their designers and backend developers to integrate the new UI. We optimized the app for performance while while working through the many Android browser quirks.</p>",
-    "timeline": "6 monthsasdf"
+    "timeline": "6 months"
   },
   "details": {
+  },
+  "tools": {
+    "overview": "<p>Besides using the core web technologies, we had to learn Amazon's custom build environment. We worked with their developers to integrate our code directly into their server-side platform.",
+    "list": ["sass", "git"]
   }
 }
