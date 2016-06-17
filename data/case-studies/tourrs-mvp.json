@@ -1,0 +1,20 @@
+{
+  "name": "TOURRS MVP",
+  "client": {
+    "id": "amazon",
+    "url": "http://tourrs.com",
+    "logo": "/public/amazon.svg",
+    "name": "TOURRS"
+  },
+  "overview": {
+    "image": "/public/case-studies/amazon-app-store/overview.jpg",
+    "objective": "<p>We were hired to build out the MVP app for TOURRS, a marketplace where anyone can buy, create and sell self-guided tours</p>",
+    "timeline": "1 year"
+  },
+  "details": {
+  },
+  "tools": {
+    "overview": "<p>Besides using the core web technologies, we had to learn Amazon's custom build environment. We worked with their developers to integrate our code directly into their server-side platform.",
+    "list": ["sass", "git"]
+  }
+}
